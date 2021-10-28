@@ -1,23 +1,20 @@
-# Getting Started with FeedMeSeymore
+# Getting Started with Pet Passport
 
 _This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)._
 
 ## About
 
-FeedMeSeymore is an app to help you stay on track with keeping your plants alive! With these tips, encouragement, and scheduled watering reminders, your plants have never looked better!
+Pet Passport is an app to help you stay on track with keeping your pets healthy & thriving! With these tips, encouragement, and reminders, your pets have never been better!
 
 ![UF](photos/UFPhoto.png)
 
 ### _Features_
 
-- Ability to add a new plant, edit, and delete it
-- Ability to add a new group, edit, and delete it
-- Ability to add or remove a plant from a group
-- Ability to add, edit, and delete users
-- Ability to set reminders to water a plant
-- Ability to send reminders to water to text or email
-- Ability to add or remove a photo of a plant
-- Ability to list all plants by location and know how long it has been since a plant was last watered
+- Ability to create user profiles 
+- Ability to add a new pet, edit, and delete it
+- Ability to store pet vital information
+- Ability to learn about local pet resources
+- Ability to make and interact with new pet friends!
 
 ## Setup
 
@@ -30,13 +27,13 @@ FeedMeSeymore is an app to help you stay on track with keeping your plants alive
 ### _Database Prep_
 
 - Access the MySQL interface in your terminal by running `mysql -u root -p`
-- Create a new database called facebook: `create database plants`
+- Create a new database called passport: `create database passport`
 - Add a `.env` file to the project folder of this repository containing the MySQL authentication information for MySQL user. For example:
 
 ```bash
   DB_HOST=localhost
   DB_USER=root
-  DB_NAME=facebook
+  DB_NAME=passport
   DB_PASS=YOURPASSWORD
 ```
 
@@ -69,8 +66,6 @@ init("yourUserId");
 
 ## Possible Future Features
 
-- In the future, this app could be able to maintain and access a log of plant watering.
-- It could also be able to connect to an api for watering and fertilizing.
-- It might also be helpful to look up specific needs and care plans for types of plants.
+- In the future, this app could have a messaging feature
 
 _This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
