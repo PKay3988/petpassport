@@ -4,7 +4,7 @@ _This project was bootstrapped with [Create React App](https://github.com/facebo
 
 ## About
 
-Pet Passport is an app to help you stay on track with keeping your pets healthy & thriving! With these tips, encouragement, and reminders, your pets have never been better!
+Pet Passport is an app to help you stay on track with keeping your pets healthy & thriving! With these tips, encouragement, and reminders, your pets have never been better! Have fun!
 
 ![UF](photos/UFPhoto.png)
 
