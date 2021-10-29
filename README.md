@@ -15,6 +15,7 @@ Pet Passport is an app to help you stay on track with keeping your pets healthy 
 - Ability to store pet vital information
 - Ability to learn about local pet resources
 - Ability to make and interact with new pet friends!
+- Ability to use git.
 
 ## Setup
 
