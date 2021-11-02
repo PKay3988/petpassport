@@ -28,11 +28,17 @@ router.delete('/:id', async function(req, res) {
 router.post('/', async function(req, res) {
     await db(`INSERT INTO vets (
         name,
-        address,
+        street_name,
+        postal_code,
+        city,
+        country,
         phone_number
     ) VALUES (
         '${req.body.name}',
-        '${req.body.address}',
+        '${req.body.street_name}',
+        '${req.body.postal_code}',
+        '${req.body.city}',
+        '${req.body.country}',
         '${req.body.phone_number}'
     )`)
     await db(`SELECT * FROM vets`)
@@ -44,7 +50,10 @@ router.post('/', async function(req, res) {
 router.put('/:id', async function(req, res) {
     await db(`UPDATE vets SET 
         name = '${req.body.name}',
-        address = '${req.body.address}',
+        street_name = '${req.body.street_name}',
+        postal_code = '${req.body.postal_code}',
+        city = '${req.body.city}',
+        country = '${req.body.country}',
         phone_number = '${req.body.phone_number}'
         WHERE id = ${req.params.id}`)
     await db(`SELECT * FROM vets`)
