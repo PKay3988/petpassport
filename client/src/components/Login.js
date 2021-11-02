@@ -14,10 +14,26 @@ function Login(props) {
         password= "",
     }
 
-    const [user, setUser] = useState(emptyUser);
+    const [user, setUser] = useState(Local.getUser());
+    const [message, setMessage] = useState({})
 
-    const handleChange = (event) => {
-        let {name, value} = event.target;
+    function handleChange(event) {
+        let { name, value } = event.target;
+        switch (name) {
+            case 'usernameInput':
+                setUsername(value);
+                break;
+            case 'passwordInput':
+                setPassword(value);
+                break;
+            default:
+                break;
+        }
+    }
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        onSubmit(username, password);
 
         setUser((state) => ({
             ...state,
@@ -25,7 +41,16 @@ function Login(props) {
         }))
     }
 
-    const register = (name, city, email, userName, password) => {
+    // const handleChange = (event) => {
+    //     let {name, value} = event.target;
+
+    //     setUser((state) => ({
+    //         ...state,
+    //         [name]: value,
+    //     }))
+    // }
+
+    async const register = (name, city, email, userName, password) => {
         // let user = {name, city, email, userName, password};
         let options = { method: "POST",
             headers: {"Content-Type": "application/json" },
@@ -36,16 +61,17 @@ function Login(props) {
                 userName:`${userName}`,
                 password:`${password}`,
             },
-            body: JSON.stringify(user)};
-            try {
-                await fetch ("users/register", user, options);
-                setUser(user);
-            } catch(err) {
-                console.log("network error:", err);
-            }
-}
+            body: JSON.stringify(data)};
+            await fetch ("users/register", options)
+            .then (result => result.json())
+            .then (result => {setMessage(result)})
+            .catch(error => 
+                console.log("network error:", error)
+            )}
 
-    const login = async (newUser) => {
+    const login = async (username, password) => {
+        const [username, setUsername] = useState('');
+        const [password, setPassword] = useState('');
           await fetch("/users/login", {
       method: "POST",
       data: { 
