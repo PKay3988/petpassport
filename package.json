@@ -12,16 +12,9 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^10.0.0",
-<<<<<<< HEAD
-    "express": "~4.16.1",
-    "morgan": "~1.9.1",
-    "mysql": "^2.18.1",
-    "react-router": "^5.2.1"
-=======
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "mysql": "^2.18.1"
->>>>>>> 710447c40cbb701f7831e098235dad9682930103
   }
 }
