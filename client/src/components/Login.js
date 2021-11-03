@@ -115,6 +115,7 @@ function Login(props) {
     <div>
         <div>
             <h2> Register New User</h2>
+            <form>
             <input
             value={user.name}
             onChange={handleChange}
@@ -198,12 +199,14 @@ function Login(props) {
             <button className= "button" onSubmit= {registerUser}> 
             Register
             </button>    
+            </form>
         </div>
 
         <div>
             <h2> Login here</h2>
 
             <div>
+                <form>
                 <input
                 value={user.userName}
                 onChange={handleChange}
@@ -227,6 +230,7 @@ function Login(props) {
                 <button type="button" onClick={doLogout}>
                 Log out
                 </button>
+                </form>
             </div> 
         </div>
 
