@@ -4,20 +4,20 @@ const db = require("../model/helper");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-var userShouldBeLoggedIn = require("../guards/userShouldBeLoggedIn");
+var userShouldBeLoggedIn = require("../middleware/userShouldBeLoggedIn");
 const saltRounds = 12;
 
 const supersecret = process.env.SUPER_SECRET;
 
 /* POST new user */ /* add streetName, postalCode, country*/
 router.post('/register', async function(req, res) {
-  const { name, city, number, streetName, postalCode, country, email, username, password } = req.body;
+  const { name, city, addNumber, streetName, postalCode, country, email, username, password } = req.body;
   
   try {
     const hash = await bcrypt.hash(password, saltRounds);
 
     await db(
-      `INSERT INTO users (name, city, email, username, password) VALUES ("${name}", "${number}", "${city}" "${streetName}", "${postalCode}", "${country}", "${email}", "${username}", "${hash}")`
+      `INSERT INTO users (name, city, email, username, password) VALUES ("${name}", "${addNumber}", "${city}" "${streetName}", "${postalCode}", "${country}", "${email}", "${username}", "${hash}")`
     );
 
     res.send({ message: "Registration successful" });
