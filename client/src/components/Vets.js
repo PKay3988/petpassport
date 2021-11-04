@@ -17,6 +17,7 @@ function Vets() {
         <div className="vets-container">
             <Nav/>
             <div>
+                <h3>my vets</h3>
                 {vets && 
                 vets.map(vet => (
                     <li>
