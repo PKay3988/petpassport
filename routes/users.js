@@ -3,20 +3,21 @@ var router = express.Router();
 const db = require("../model/helper");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
-var userShouldBeLoggedIn = require("../guards/userShouldBeLoggedIn");
-const saltRounds = 10;
+require("dotenv").config();
+var userShouldBeLoggedIn = require("../middleware/userShouldBeLoggedIn");
+const saltRounds = 12;
 
 const supersecret = process.env.SUPER_SECRET;
 
-/* POST new user */
+/* POST new user */ /* add streetName, postalCode, country*/
 router.post('/register', async function(req, res) {
-  const { name, city, email, username, password } = req.body;
+  const { name, city, addNumber, streetName, postalCode, country, email, username, password } = req.body;
   
   try {
     const hash = await bcrypt.hash(password, saltRounds);
 
     await db(
-      `INSERT INTO users (name, city, email, username, password) VALUES ("${name}", "${city}", "${email}", "${username}", "${hash}")`
+      `INSERT INTO users (name, city, addNumber, streetName, postalCode, country, email, username, password) VALUES ("${name}", "${addNumber}", "${city}" "${streetName}", "${postalCode}", "${country}", "${email}", "${username}", "${hash}")`
     );
 
     res.send({ message: "Registration successful" });
@@ -50,14 +51,33 @@ router.post('/login', async function (req, res) {
   }
 })
 
-/*GET Logged in Profile */
-router.get("/profile", userShouldBeLoggedIn, (req, res) => {
-  // const user = results.data[0];
-  // const user_id = user.id;
+/*GET user by id Function */
+router.get("/:id", userShouldBeLoggedIn, async (req, res) => {
+  let { id } = req.params;
+  let sql = 'SELECT * FROM users WHERE id = ' + id;
+    
+    try {
+        let results = await db(sql);
+        let user = results.data[0];
+        delete user.password;  // don't return the password
+        res.send(user);
+    } catch (err) {
+        next(err);
+    }
+});
 
-  res.send({
-    message: "Here is the PROTECTED data for user " + req.body.user_id,/*will this be autopopulated once logged in? */
-  });
+/* GET all users*/
+router.get('/', async function(req, res, next) {
+  let sql = 'SELECT * FROM users ORDER BY username';
+
+  try {
+      let results = await db(sql);
+      let users = results.data;
+      users.forEach(u => delete u.password);  // don't return passwords
+      res.send(users);
+  } catch (err) {
+      next(err);
+  }
 });
 
 module.exports = router;
