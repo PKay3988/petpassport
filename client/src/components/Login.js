@@ -7,19 +7,19 @@ import { useState } from 'react';
 import "./Login.css";
 
 function Login(props) {
-    // const newUser = {
-    //     name: "",
-    //     city: "",
-    //     addNumber:"", 
-    //     streetName:"", 
-    //     postalCode:"", 
-    //     country:"",
-    //     email: "",
-    //     userName: "",
-    //     password: ""
-    // }
+    const emptyUser = {
+        name: "",
+        city: "",
+        addNumber:"", 
+        streetName:"", 
+        postalCode:"", 
+        country:"",
+        email: "",
+        userName: "",
+        password: ""
+    }
 
-    const [user, setUser] = useState(/*localStorage.getUser()*/);
+    const [user, setUser] = useState(emptyUser);
     const [message, setMessage] = useState({})
     const [status, setStatus] = useState(/*localStorage.getUser()*/);
     // const history = useHistory();
@@ -204,7 +204,7 @@ function Login(props) {
             name= "password"
             type= "password"
             className= "register-input"
-            />
+            /> <br />
 
             <button className= "button" onSubmit= {registerUser}> 
             Register
@@ -224,7 +224,7 @@ function Login(props) {
                 name= "username"
                 type= "text"
                 className= "register-input"
-                />
+                /> <br />
 
                 <label>Password</label>
                 <input
@@ -233,15 +233,17 @@ function Login(props) {
                 name= "password"
                 type= "password"
                 className= "register-input"
-                />
+                /> <br /><br />
 
                 <button className= "button" onClick= {loginUser}> 
                 Log in
                 </button>
+                <br /><br />
+            
 
-                <button type="button">
+                {/* <button type="button">
                 Log out
-                </button>
+                </button> */}
                 </form>
             </div> 
         </div>
