@@ -1,4 +1,0 @@
-import React from "react";
-import { useState } from 'react';
-// import { Switch, useHistory } from 'react-router-dom';
-import "./Register.css";
