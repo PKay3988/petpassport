@@ -7,17 +7,19 @@
     "migrate": "node model/database.js"
   },
   "dependencies": {
-    "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
+    "cookie-parser": "^1.4.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "leaflet": "^1.7.1",
-    "morgan": "~1.9.1",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "react-leaflet": "^3.2.2",
     "react-router": "^5.2.1",
-    "react-select-country-list": "^2.2.3"
+    "react-select-country-list": "^2.2.3",
+    "jsonwebtoken": "^8.5.1",
+    "jwtoken": "^0.0.0",
+    "migrate": "^1.7.0",
+    "nodemon": "^2.0.14"
   }
 }
