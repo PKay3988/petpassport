@@ -16,16 +16,8 @@ function App() {
 
     <Router> 
     <div className="App">
-      
      <h1> pet passport </h1>
-
-     <Link to="/login">Login</Link>
-     
-
-    <button>
-    <Link to="/choosepet">Login Successful</Link>
-      </button>
-     <Dashboard />
+    
      <Login />
      <ReactRoutes/ >
      
