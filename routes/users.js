@@ -17,7 +17,7 @@ router.post('/register', async function(req, res) {
     const hash = await bcrypt.hash(password, saltRounds);
 
     await db(
-      `INSERT INTO users (name, city, addNumber, streetName, postalCode, country, email, username, password) VALUES ("${name}", "${addNumber}", "${city}" "${streetName}", "${postalCode}", "${country}", "${email}", "${username}", "${hash}")`
+      `INSERT INTO users (name, city, addNumber, streetName, postal_code, country, email, username, password) VALUES ("${name}", "${addNumber}", "${city}" "${streetName}", "${postalCode}", "${country}", "${email}", "${username}", "${hash}")`
     );
 
     res.send({ message: "Registration successful" });
