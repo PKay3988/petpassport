@@ -3,7 +3,7 @@ import React from "react";
 // import axios from "axios";
 import { useState } from 'react';
 // import router from "../../routes/users";
-import { useHistory } from 'react-router-dom';
+// import { Switch, useHistory } from 'react-router-dom';
 import "./Login.css";
 
 function Login(props) {
@@ -22,7 +22,7 @@ function Login(props) {
     const [user, setUser] = useState(/*localStorage.getUser()*/);
     const [message, setMessage] = useState({})
     const [status, setStatus] = useState(/*localStorage.getUser()*/);
-    const history = useHistory();
+    // const history = useHistory();
 
     // function handleChange(event) {
     //     let { name, value } = event.target;
