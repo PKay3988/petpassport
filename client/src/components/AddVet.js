@@ -10,8 +10,8 @@ function AddVet() {
         country: "",
         country_code: "",
         phone_number: "",
-        pet_id: props.pet_id,
-        user_id: props.user_id
+        // pet_id: props.pet_id,
+        // user_id: props.user_id
     };
     const [vet, setVet] = useState( emptyVet );
 
@@ -37,43 +37,43 @@ function AddVet() {
 
     return (
         <div>
-            <div>
-                <label> Name
+            <div className="addvet-form">
+                <label className="addvet-item"> Name
                     <input 
                     type="text"
                     name="name" 
                     value={vet.name}
                     onChange={handleChange} />
                 </label>
-                <label> Street name
+                <label className="addvet-item"> Street name
                     <input 
                     type="text"
                     name="street_name" 
                     value={vet.street_name}
                     onChange={handleChange}/>
                 </label>
-                <label> Postal code
+                <label className="addvet-item"> Postal code
                     <input 
                     type="text"
                     name="postal_code" 
                     value={vet.postal_code}
                     onChange={handleChange}/>
                 </label>
-                <label> City
+                <label className="addvet-item"> City
                     <input 
                     type="text"
                     name="city" 
                     value={vet.city}
                     onChange={handleChange}/>
                 </label>
-                <label> Country
+                <label className="addvet-item"> Country
                     <input 
                     type="text"
                     name="country" 
                     value={vet.country}
                     onChange={handleChange}/>
                 </label>
-                <label> Phone number
+                <label className="addvet-item"> Phone number
                     <input 
                     type="text"
                     name="phone_number" 

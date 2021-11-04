@@ -32,12 +32,14 @@ router.post('/', async function(req, res) {
         postal_code,
         city,
         country,
+        country_code,
         phone_number
     ) VALUES (
         '${req.body.name}',
         '${req.body.street_name}',
         '${req.body.postal_code}',
         '${req.body.city}',
+        '${req.body.country_code}',
         '${req.body.country}',
         '${req.body.phone_number}'
     )`)

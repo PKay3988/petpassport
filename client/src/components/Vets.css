@@ -1,0 +1,46 @@
+/* general display of vets */
+.vets-container {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+/* navbar component  */
+.navbar.fixed-left {
+    bottom: 0;
+    width: 15em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid black;
+    /* z-index: 1030;  */
+    background: turquoise;
+}
+
+.navbar.fixed-left .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+}
+
+/* add vet component  */
+.addvet-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* margin: 3em 3em 3em 6em; */
+}
+
+.addvet-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* map size  */
+.leaflet-container {
+    width: 50vw;
+    height: 50vh;
+}
