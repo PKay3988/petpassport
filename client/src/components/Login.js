@@ -1,22 +1,27 @@
-import { application } from "express";
+// import { application } from "express";
 import React from "react";
 // import axios from "axios";
 import { useState } from 'react';
-import router from "../../routes/users";
-// import { Switch, Route, useHistory } from 'react-router-dom';
+// import router from "../../routes/users";
+import { useHistory } from 'react-router-dom';
 import "./Login.css";
 
 function Login(props) {
     // const newUser = {
-    //     name= "",
-    //     city= "",
-    //     email= "",
-    //     userName= "",
-    //     password= "",
+    //     name: "",
+    //     city: "",
+    //     addNumber:"", 
+    //     streetName:"", 
+    //     postalCode:"", 
+    //     country:"",
+    //     email: "",
+    //     userName: "",
+    //     password: ""
     // }
 
-    const [user, setUser] = useState(Local.getUser());
+    const [user, setUser] = useState(/*localStorage.getUser()*/);
     const [message, setMessage] = useState({})
+    const [status, setStatus] = useState(/*localStorage.getUser()*/);
     const history = useHistory();
 
     // function handleChange(event) {
@@ -48,9 +53,9 @@ function Login(props) {
     }
 
 /*fetch for POST register*/
-    async const registerUser = (name, city, addNumber, streetName, postalCode, country, email, userName, password) => {
+    const registerUser = async (name, city, addNumber, streetName, postalCode, country, email, userName, password) => {
         // let user = {name, city, email, userName, password};
-        let options = { method: "POST",
+        let options = ({ method: "POST",
             headers: {"Content-Type": "application/json" },
             data: {
                 name: `${name}`,
@@ -63,7 +68,8 @@ function Login(props) {
                 userName:`${userName}`,
                 password:`${password}`,
             },
-                body: JSON.stringify(data)};
+                body: JSON.stringify(user)
+            })
             await fetch ("users/register", options)
             .then (result => result.json())
             .then (result => {setMessage(result)})
@@ -95,16 +101,16 @@ function Login(props) {
         }
     })
     .then(result => result.json())
-    .then(id => setCurrentId(id))
+    .then(id => setUser(id))
     .catch(err => setStatus({ message: "Not authenticated."}))
     }
 
-/* function for logout*/
-    function doLogout() {
-        Local.removeUserInfo();
-        setUser(null);
-        history.push('/');
-    }
+// /* function for logout*/
+//     function doLogout() {
+//         localStorage.removeUserInfo();
+//         setUser(null);
+//         history.push('/');
+//     }
 
 
 
@@ -116,56 +122,58 @@ function Login(props) {
         <div>
             <h2> Register New User</h2>
             <form>
+            <label>Name</label>
             <input
-            value={user.name}
+            value= ""
             onChange={handleChange}
             name= "name"
             type= "text"
             className= "register-input"
             />
 
-            <input /*should this be zipcode?*/
-            value={user.city}
-            onChange={handleChange}
-            name= "city"
-            type= "text"
-            className= "register-input"
-            />
 
+
+            <label>Address Number</label>
             <input
-            value={user.addNumber}
+            value=""
             onChange={handleChange}
             name= "addnumber"
             type= "text"
             className= "register-input"
             />
 
-            <input
-            value={user.city}
-            onChange={handleChange}
-            name= "city"
-            type= "text"
-            className= "register-input"
-            />
 
+            <label>Street Name</label>
             <input
-            value={user.streetName}
+            value=""
             onChange={handleChange}
             name= "streetname"
             type= "text"
             className= "register-input"
             />
 
+            
+            <label>Postal Code</label>
             <input
-            value={user.postalCode}
+            value=""
             onChange={handleChange}
             name= "postalcode"
             type= "text"
             className= "register-input"
             />
 
+            <label>City</label>
             <input
-            value={user.country}
+            value=""
+            onChange={handleChange}
+            name= "city"
+            type= "text"
+            className= "register-input"
+            />
+
+           
+            <label>Country</label>
+            <input
             onChange={handleChange}
             name= "country"
             type= "text"
@@ -173,23 +181,25 @@ function Login(props) {
             />
 
             <input
-            value={user.email}
+            value=""
             onChange={handleChange}
             name= "email"
             type= "text"
             className= "register-input"
             />
 
+            <label>Username</label>
             <input
-            value={user.userName}
+            value=""
             onChange={handleChange}
             name= "username"
             type= "text"
             className= "register-input"
             />
 
+            <label>Password</label>
             <input
-            value={user.password}
+            value=""
             onChange={handleChange}
             name= "password"
             type= "password"
@@ -207,16 +217,18 @@ function Login(props) {
 
             <div>
                 <form>
+                <label>Username</label>
                 <input
-                value={user.userName}
+                value=""
                 onChange={handleChange}
                 name= "username"
                 type= "text"
                 className= "register-input"
                 />
 
+                <label>Password</label>
                 <input
-                value={user.password}
+                value=""
                 onChange={handleChange}
                 name= "password"
                 type= "password"
@@ -227,7 +239,7 @@ function Login(props) {
                 Log in
                 </button>
 
-                <button type="button" onClick={doLogout}>
+                <button type="button">
                 Log out
                 </button>
                 </form>
@@ -235,7 +247,7 @@ function Login(props) {
         </div>
 
             <div className="message">
-                    <span>{user.status.message}</span>
+                    {/* <span>{message}</span> */}
             </div>
 
             <button type="button" className="pets-btn" onClick={requestData}>
