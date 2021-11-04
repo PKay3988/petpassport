@@ -22,7 +22,7 @@ function Login(props) {
     const [user, setUser] = useState(/*localStorage.getUser()*/);
     const [message, setMessage] = useState({})
     const [status, setStatus] = useState(/*localStorage.getUser()*/);
-    const history = useHistory();
+    // const history = useHistory();
 
     // function handleChange(event) {
     //     let { name, value } = event.target;
