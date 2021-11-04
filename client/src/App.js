@@ -11,6 +11,7 @@ import ReactRoutes from "./ReactRoutes";
 // import { Switch } from 'react-router';
 
 
+
 function App() {
   return (
 
@@ -24,6 +25,7 @@ function App() {
 </div>
         
      </Router> 
+
   );
 }
 
