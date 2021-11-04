@@ -1,10 +1,8 @@
 import React, { useEffect, useState} from "react";
 import './App.css';
 import Dashboard from './components/Dashboard'
-import { BrowserRouter as Router, Switch, Route, Link, useHistory } from 'react-router-dom';
 // import  Login from'./Component/Login';
 import MapView from './components/MapView';
-import Dashboard from './components/Dashboard';
 import ChoosePet from './components/ChoosePet';
 import Login from './components/Login';
 import {BrowserRouter as Router} from 'react-router-dom'
@@ -20,24 +18,23 @@ function App() {
   return (
 
     <Router> 
-    <div className="App">
-      
-     <h1> pet passport </h1>
+     <div className="App">
+          
+          <h1> pet passport </h1>
 
-     <Link to="/login">Login</Link>
-     
+          <Link to="/login">Login</Link>
+          
+          <button>
+               <Link to="/choosepet">Login Successful</Link>
+          </button>
 
-    <button>
-    <Link to="/choosepet">Login Successful</Link>
-      </button>
-     <Dashboard />
-     <Login />
-     <ReactRoutes/ >
-     
-</div>
+          <Dashboard />
+          <Login />
+          <ReactRoutes />
+          
+     </div>
         
      </Router> 
-
   );
 }
 
