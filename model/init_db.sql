@@ -33,18 +33,6 @@ CREATE TABLE `vets` (
 	FOREIGN KEY (`user_id`) REFERENCES user(id)
 );
 
-CREATE TABLE `pet` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`pet_name` varchar(255) NOT NULL,
-	`breed` varchar(255) NOT NULL,
-	`dob` DATE NOT NULL,
-	`user_id` INT NOT NULL,
-	`vet_id` INT NOT NULL,
-	PRIMARY KEY (`id`),
-	FOREIGN KEY (`user_id`) REFERENCES user(id),
-	FOREIGN KEY (`vet_id`) REFERENCES vet(id)
-);
-
 CREATE TABLE `treatments` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
