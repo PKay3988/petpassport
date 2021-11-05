@@ -5,9 +5,10 @@ import AddPhoto from "./components/AddPhoto"
 import ChoosePet from "./components/ChoosePet"  
 import Dashboard from "./components/Dashboard"
 import DisplayProfile from "./components/DisplayProfile" 
-import Login from "./components/Login" 
+// import Login from "./components/Login" 
 import Nav from "./components/Nav" 
 import PhotoGallery from "./components/PhotoGallery" 
+import RegisterUser from './components/RegisterUser'
 
 
 export default function ReactRoutes(){
@@ -22,32 +23,32 @@ export default function ReactRoutes(){
         </Route>
  
       <Route path ="/AddPhoto" >
-          <AddPhoto />
+          {/* <AddPhoto /> */}
         </Route>
  
       <Route path ="/ChoosePet" > 
-        <ChoosePet />
+        {/* <ChoosePet /> */}
       </Route>
      
       <Route path ="/Dashboard" >
-          <Dashboard />
+          {/* <Dashboard /> */}
       </Route>
  
       <Route path ="/DisplayProfile" >
-          <DisplayProfile />
+          {/* <DisplayProfile /> */}
       </Route>
  
-      <Route path ="/Login" > 
-        <Login /> 
+      <Route path ="/register" element={<RegisterUser /*user={(user)}*/ />} > 
+        {/* <Login />  */}
       </Route>
      
  
       <Route path ="/Nav" >
-          <Nav />
+          {/* <Nav /> */}
       </Route>
  
       <Route path ="/PhotoGallery" > 
-        <PhotoGallery />
+        {/* <PhotoGallery /> */}
     </Route>
         </div>
       </Routes>

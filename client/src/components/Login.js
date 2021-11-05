@@ -7,6 +7,12 @@ import { useState } from 'react';
 import "./Login.css";
 
 function Login(props) {
+<<<<<<< HEAD
+    const emptyUser = {
+        username: "",
+        password: ""
+    }
+=======
     // const newUser = {
     //     name: "",
     //     city: "",
@@ -18,6 +24,7 @@ function Login(props) {
     //     userName: "",
     //     password: ""
     // }
+>>>>>>> main
 
     const [user, setUser] = useState(/*localStorage.getUser()*/);
     const [message, setMessage] = useState({})
@@ -52,30 +59,7 @@ function Login(props) {
         }))
     }
 
-/*fetch for POST register*/
-    const registerUser = async (name, city, addNumber, streetName, postalCode, country, email, userName, password) => {
-        // let user = {name, city, email, userName, password};
-        let options = ({ method: "POST",
-            headers: {"Content-Type": "application/json" },
-            data: {
-                name: `${name}`,
-                city: `${city}`,
-                addNumber: `${addNumber}`,
-                streetName: `${streetName}`, 
-                postalCode: `${postalCode}`,
-                country: `${country}`,
-                email:`${email}`,
-                userName:`${userName}`,
-                password:`${password}`,
-            },
-                body: JSON.stringify(user)
-            })
-            await fetch ("users/register", options)
-            .then (result => result.json())
-            .then (result => {setMessage(result)})
-            .catch(error => 
-                console.log("network error:", error)
-            )}
+
 /*fetch for POST login*/
     const loginUser = async (username, password) => {
         let loginBody = { username, password }
@@ -119,6 +103,9 @@ function Login(props) {
 
     return ( 
     <div>
+<<<<<<< HEAD
+        
+=======
         <div>
             <h2> Register New User</h2>
             <form>
@@ -211,6 +198,7 @@ function Login(props) {
             </button>    
             </form>
         </div>
+>>>>>>> main
 
         <div>
             <h2> Login here</h2>
@@ -236,7 +224,7 @@ function Login(props) {
                 />
 
                 <button className= "button" onClick= {loginUser}> 
-                Log in
+                See my Pets
                 </button>
 
                 <button type="button">
@@ -250,9 +238,9 @@ function Login(props) {
                     {/* <span>{message}</span> */}
             </div>
 
-            <button type="button" className="pets-btn" onClick={requestData}>
+            {/* <button type="button" className="pets-btn" onClick={requestData}>
                 See my Pets
-            </button>
+            </button> */}
 
     </div>
 )};
