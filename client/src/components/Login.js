@@ -8,14 +8,7 @@ import "./Login.css";
 
 function Login(props) {
     const emptyUser = {
-        name: "",
-        city: "",
-        addNumber:"", 
-        streetName:"", 
-        postalCode:"", 
-        country:"",
-        email: "",
-        userName: "",
+        username: "",
         password: ""
     }
 
@@ -52,30 +45,7 @@ function Login(props) {
         }))
     }
 
-/*fetch for POST register*/
-    const registerUser = async (name, city, addNumber, streetName, postalCode, country, email, userName, password) => {
-        // let user = {name, city, email, userName, password};
-        let options = ({ method: "POST",
-            headers: {"Content-Type": "application/json" },
-            data: {
-                name: `${name}`,
-                city: `${city}`,
-                addNumber: `${addNumber}`,
-                streetName: `${streetName}`, 
-                postalCode: `${postalCode}`,
-                country: `${country}`,
-                email:`${email}`,
-                userName:`${userName}`,
-                password:`${password}`,
-            },
-                body: JSON.stringify(user)
-            })
-            await fetch ("users/register", options)
-            .then (result => result.json())
-            .then (result => {setMessage(result)})
-            .catch(error => 
-                console.log("network error:", error)
-            )}
+
 /*fetch for POST login*/
     const loginUser = async (username, password) => {
         let loginBody = { username, password }
@@ -119,98 +89,7 @@ function Login(props) {
 
     return ( 
     <div>
-        <div>
-            <h2> Register New User</h2>
-            <form>
-            <label>Name</label>
-            <input
-            value= ""
-            onChange={handleChange}
-            name= "name"
-            type= "text"
-            className= "register-input"
-            />
-
-
-
-            <label>Address Number</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "addnumber"
-            type= "text"
-            className= "register-input"
-            />
-
-
-            <label>Street Name</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "streetname"
-            type= "text"
-            className= "register-input"
-            />
-
-            
-            <label>Postal Code</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "postalcode"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>City</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "city"
-            type= "text"
-            className= "register-input"
-            />
-
-           
-            <label>Country</label>
-            <input
-            onChange={handleChange}
-            name= "country"
-            type= "text"
-            className= "register-input"
-            />
-
-            <input
-            value=""
-            onChange={handleChange}
-            name= "email"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>Username</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "username"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>Password</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "password"
-            type= "password"
-            className= "register-input"
-            /> <br />
-
-            <button className= "button" onSubmit= {registerUser}> 
-            Register
-            </button>    
-            </form>
-        </div>
+        
 
         <div>
             <h2> Login here</h2>
@@ -236,7 +115,7 @@ function Login(props) {
                 /> <br /><br />
 
                 <button className= "button" onClick= {loginUser}> 
-                Log in
+                See my Pets
                 </button>
                 <br /><br />
             
@@ -252,9 +131,9 @@ function Login(props) {
                     {/* <span>{message}</span> */}
             </div>
 
-            <button type="button" className="pets-btn" onClick={requestData}>
+            {/* <button type="button" className="pets-btn" onClick={requestData}>
                 See my Pets
-            </button>
+            </button> */}
 
     </div>
 )};

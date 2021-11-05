@@ -9,16 +9,36 @@ const saltRounds = 12;
 
 const supersecret = process.env.SUPER_SECRET;
 
-/* POST new user */ /* add streetName, postalCode, country*/
+/* POST new user */ 
 router.post('/register', async function(req, res) {
-  const { name, city, addNumber, streetName, postalCode, country, email, username, password } = req.body;
+  const { name, username, email, password, postal_code, city, country, street_number, street_name} = req.body;
   
   try {
     const hash = await bcrypt.hash(password, saltRounds);
-
+    
     await db(
-      `INSERT INTO users (name, city, addNumber, streetName, postalCode, country, email, username, password) VALUES ("${name}", "${addNumber}", "${city}" "${streetName}", "${postalCode}", "${country}", "${email}", "${username}", "${hash}")`
-    );
+      `INSERT INTO user (
+        name,
+        username, 
+        email, 
+        password,
+        postal_code,
+        city, 
+        country,
+        street_number, 
+        street_name
+        
+      ) VALUES (
+        "${name}", 
+        "${username}", 
+        "${email}", 
+        "${hash}", 
+        "${postal_code}", 
+        "${city}", 
+        "${country}", 
+        "${street_number}", 
+        "${street_name}"
+      )`)
 
     res.send({ message: "Registration successful" });
   } catch (err) {
@@ -31,7 +51,7 @@ router.post('/login', async function (req, res) {
   let { username, password } = req.body;
 
   try {
-    let results = await db(`SELECT * FROM users WHERE username = "${username}"`
+    let results = await db(`SELECT * FROM user WHERE username = "${username}"`
     );
     const user = results.data[0];
     if(user) {
@@ -54,7 +74,7 @@ router.post('/login', async function (req, res) {
 /*GET user by id Function */
 router.get("/:id", userShouldBeLoggedIn, async (req, res) => {
   let { id } = req.params;
-  let sql = 'SELECT * FROM users WHERE id = ' + id;
+  let sql = `SELECT * FROM user WHERE id = ` + id;
     
     try {
         let results = await db(sql);
@@ -68,7 +88,7 @@ router.get("/:id", userShouldBeLoggedIn, async (req, res) => {
 
 /* GET all users*/
 router.get('/', async function(req, res, next) {
-  let sql = 'SELECT * FROM users ORDER BY username';
+  let sql = `SELECT * FROM user ORDER BY username`;
 
   try {
       let results = await db(sql);

@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState, useParams } from "react";
 import './App.css';
 import Dashboard from './components/Dashboard';
 import ChoosePet from './components/ChoosePet';
@@ -17,7 +17,7 @@ function App() {
 
     <Router> 
     <div className="App">
-     <h1> pet passport </h1>
+     <h1> Pet Passport 🐾 </h1>
     
      <Login />
      <ReactRoutes/ >
