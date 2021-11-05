@@ -29,21 +29,19 @@ router.post('/', async function(req, res) {
     await db(`INSERT INTO vet (
         name,
         street_name,
-        street_number,
         postal_code,
+        phone_number,
+        street_number,
         city,
-        country,
-        country_code,
-        phone_number
+        country
     ) VALUES (
         '${req.body.name}',
         '${req.body.street_name}',
-        '${req.body.street_number}',
         '${req.body.postal_code}',
+        '${req.body.phone_number}',
+        '${req.body.street_number}',
         '${req.body.city}',
-        '${req.body.country_code}',
-        '${req.body.country}',
-        '${req.body.phone_number}'
+        '${req.body.country}'
     )`)
     await db(`SELECT * FROM vet`)
         .then(results => res.send(results.data))
@@ -54,11 +52,6 @@ router.post('/', async function(req, res) {
 router.put('/:id', async function(req, res) {
     await db(`UPDATE vet SET 
         name = '${req.body.name}',
-        street_name = '${req.body.street_name}',
-        street_number = '${req.body.street_number}',
-        postal_code = '${req.body.postal_code}',
-        city = '${req.body.city}',
-        country = '${req.body.country}',
         phone_number = '${req.body.phone_number}'
         WHERE id = ${req.params.id}`)
     await db(`SELECT * FROM vet`)

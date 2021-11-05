@@ -11,13 +11,13 @@ const supersecret = process.env.SUPER_SECRET;
 
 /* POST new user */ /* add streetName, postalCode, country*/
 router.post('/register', async function(req, res) {
-  const { name, city, addNumber, streetName, postalCode, country, email, username, password } = req.body;
+  const { name, city, street_number, street_name, postal_code, country, email, username, password } = req.body;
   
   try {
     const hash = await bcrypt.hash(password, saltRounds);
 
     await db(
-      `INSERT INTO users (name, city, addNumber, streetName, postal_code, country, email, username, password) VALUES ("${name}", "${addNumber}", "${city}" "${streetName}", "${postalCode}", "${country}", "${email}", "${username}", "${hash}")`
+      `INSERT INTO users (name, city, street_number, street_name, postal_code, country, email, username, password) VALUES ("${name}", "${street_number}", "${city}" "${street_name}", "${postal_code}", "${country}", "${email}", "${username}", "${hash}")`
     );
 
     res.send({ message: "Registration successful" });
