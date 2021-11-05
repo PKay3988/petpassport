@@ -1,6 +1,6 @@
 require("dotenv").config();
 const mysql = require("mysql");
-const fs = require("fs"); 
+const fs = require("fs");
 
 const DB_HOST = process.env.DB_HOST;
 const DB_USER = process.env.DB_USER;
@@ -30,7 +30,7 @@ con.connect(function(err) {
 
   con.query(sql2, function (err, result) {
     if (err) throw err;
-    console.log("Table creation `user` was successful!");
+    console.log("Table creation was successful!");
 
     console.log("Closing...");
   });
