@@ -32,7 +32,7 @@ CREATE TABLE `pet` (
 
 CREATE TABLE `vet` (
 	`id` INT NOT NULL,
-	`name` varchar(255) NOT NULL,
+	`name` varchar(255) NOT NULL AUTO_INCREMENT,
 	`street_name` varchar(255) NOT NULL,
     `postal_code` varchar(255) NOT NULL,
 	`phone_number` varchar(255) NOT NULL,

@@ -7,24 +7,10 @@ import { useState } from 'react';
 import "./Login.css";
 
 function Login(props) {
-<<<<<<< HEAD
     const emptyUser = {
         username: "",
         password: ""
     }
-=======
-    // const newUser = {
-    //     name: "",
-    //     city: "",
-    //     addNumber:"", 
-    //     streetName:"", 
-    //     postalCode:"", 
-    //     country:"",
-    //     email: "",
-    //     userName: "",
-    //     password: ""
-    // }
->>>>>>> main
 
     const [user, setUser] = useState(/*localStorage.getUser()*/);
     const [message, setMessage] = useState({})
@@ -103,102 +89,7 @@ function Login(props) {
 
     return ( 
     <div>
-<<<<<<< HEAD
         
-=======
-        <div>
-            <h2> Register New User</h2>
-            <form>
-            <label>Name</label>
-            <input
-            value= ""
-            onChange={handleChange}
-            name= "name"
-            type= "text"
-            className= "register-input"
-            />
-
-
-
-            <label>Address Number</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "addnumber"
-            type= "text"
-            className= "register-input"
-            />
-
-
-            <label>Street Name</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "streetname"
-            type= "text"
-            className= "register-input"
-            />
-
-            
-            <label>Postal Code</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "postalcode"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>City</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "city"
-            type= "text"
-            className= "register-input"
-            />
-
-           
-            <label>Country</label>
-            <input
-            onChange={handleChange}
-            name= "country"
-            type= "text"
-            className= "register-input"
-            />
-
-            <input
-            value=""
-            onChange={handleChange}
-            name= "email"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>Username</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "username"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>Password</label>
-            <input
-            value=""
-            onChange={handleChange}
-            name= "password"
-            type= "password"
-            className= "register-input"
-            />
-
-            <button className= "button" onSubmit= {registerUser}> 
-            Register
-            </button>    
-            </form>
-        </div>
->>>>>>> main
 
         <div>
             <h2> Login here</h2>

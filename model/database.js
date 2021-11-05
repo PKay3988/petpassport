@@ -20,7 +20,7 @@ con.connect(function(err) {
   console.log("Connected!");
 
   // let sql = "DROP TABLE if exists plantsTable; CREATE TABLE plantsTable (plantId INT NOT NULL AUTO_INCREMENT, plantName VARCHAR(255) NOT NULL, username VARCHAR(255) NOT NULL, wateringFrequency INT NULL, isWatered TINYINT(1) DEFAULT(0) NOT NULL, lastWatered TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP, PRIMARY KEY (d));";
-  let sql2 = "DROP TABLE if exists users; CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255) NOT NULL, city VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY (id));";
+  // let sql2 = "DROP TABLE if exists users; CREATE TABLE users (id INT NOT NULL AUTO_INCREMENT, name VARCHAR(255) NOT NULL, city VARCHAR(255) NOT NULL, email VARCHAR(255) NOT NULL, username VARCHAR(255) NOT NULL, password VARCHAR(255) NOT NULL, PRIMARY KEY (id));";
 //  con.query(sql, function (err, result) {
 //     if (err) throw err;
 //     console.log("Table creation `plantTables` was successful!");
@@ -30,7 +30,7 @@ con.connect(function(err) {
 
   con.query(sql2, function (err, result) {
     if (err) throw err;
-    console.log("Table creation `usersTables` was successful!");
+    console.log("Table creation `user` was successful!");
 
     console.log("Closing...");
   });
