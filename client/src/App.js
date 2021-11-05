@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Dashboard from './components/Dashboard'
 // import  Login from'./Component/Login';
