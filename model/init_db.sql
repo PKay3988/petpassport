@@ -1,7 +1,8 @@
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS vets;
 DROP TABLE IF EXISTS treatments;
-DROP TABLE IF EXISTS users;
+
 
 
 CREATE TABLE `users` (
@@ -30,7 +31,7 @@ CREATE TABLE `vets` (
 	`country_code` varchar(255) NOT NULL,
 	`user_id` INT NOT NULL,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (`user_id`) REFERENCES user(id)
+	FOREIGN KEY (`user_id`) REFERENCES users(id)
 );
 
 CREATE TABLE `treatments` (

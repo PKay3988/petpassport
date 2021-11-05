@@ -9,19 +9,19 @@ router.get('/', async function(req, res, next) {
 
 /* GET treatment by id */
 router.get('/:id', async function(req, res) {
-    await db(`SELECT * FROM treatment WHERE id = ${req.params.id}`)
+    await db(`SELECT * FROM treatments WHERE id = ${req.params.id}`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });
 
 /* DELETE a treatment - doesnt send anything back, do we need a list of treatments? */
 router.delete('/:id', async function(req, res) {
-    await db(`DELETE FROM treatment WHERE id = ${req.params.id}`)
+    await db(`DELETE FROM treatments WHERE id = ${req.params.id}`)
 });
 
 /* POST a new treatment - linked to a pet and vet id. it's also assuming that the completed status will be an automatic false */
 router.post('/', async function(req, res) {
-    await db(`INSERT INTO treatment (
+    await db(`INSERT INTO treatments (
         name,
         date,
         completed,
@@ -40,15 +40,15 @@ router.post('/', async function(req, res) {
 
 /* PUT - this one only updates the completed status to true & sends it back, updated */
 router.put('/complete/:id', async function(req, res) {
-    await db(`UPDATE treatment SET completed = 'true' WHERE id = ${req.params.id}`)
-    await db(`SELECT * FROM treatment WHERE id = ${req.params.id}`)
+    await db(`UPDATE treatments SET completed = 'true' WHERE id = ${req.params.id}`)
+    await db(`SELECT * FROM treatments WHERE id = ${req.params.id}`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });
 
 /* PUT - edit treatment information, doesn't change the completed status. assumes that vet_id and pet_id will stay the same */
 router.put('/:id', async function(req, res) {
-    await db(`UPDATE treatment SET 
+    await db(`UPDATE treatments SET 
     name = '${req.body.name}',
     date = '${req.body.date}',
     frequency = '${req.body.frequency}'

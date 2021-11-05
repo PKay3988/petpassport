@@ -1,17 +1,18 @@
 import React, { useState} from "react";
 import getValue from 'react-select-country-list';
+import countryList from 'react-select-country-list'
 
-function AddVet() {
+function AddVet(props) {
     const emptyVet = {
         name: "",
         street_name: "",
+        street_number: "",
         postal_code: "",
         city: "",
         country: "",
         country_code: "",
         phone_number: "",
-        // pet_id: props.pet_id,
-        // user_id: props.user_id
+        user_id: 1
     };
     const [vet, setVet] = useState( emptyVet );
 
@@ -20,24 +21,26 @@ function AddVet() {
         const name = e.target.name;
         const value = e.target.value;
 
-        setVet((state) => ({
-            ...state,
-            [name]: value
-        }));
-
         // gets country code with method from react-select-countries 
-        let country_code = getValue(vet.country);
+        let country_code = countryList().getValue(vet.country);
+        console.log(country_code);
 
         // adds that code to vet object 
         setVet((state) => ({
             ...state,
-            [country_code]: country_code
-        }))
+            [name]: value,
+            "country_code": country_code
+        }));
+    }
+
+    const addVet = () => {
+        props.onSubmit(vet);
+        // setVet(emptyVet);
     }
 
     return (
         <div>
-            <div className="addvet-form">
+            <div className="addvet-form" onSubmit={addVet}>
                 <label className="addvet-item"> Name
                     <input 
                     type="text"
@@ -45,12 +48,20 @@ function AddVet() {
                     value={vet.name}
                     onChange={handleChange} />
                 </label>
-                <label className="addvet-item"> Street name
-                    <input 
-                    type="text"
-                    name="street_name" 
-                    value={vet.street_name}
-                    onChange={handleChange}/>
+                <label className="addvet-item"> Street name and number
+                    <div>
+                        <input 
+                        type="text"
+                        name="street_name" 
+                        value={vet.street_name}
+                        onChange={handleChange}/>
+                        <input
+                        id="number"
+                        type="number"
+                        name="street_number"
+                        value={vet.street_number}
+                        onChange={handleChange} />
+                    </div>
                 </label>
                 <label className="addvet-item"> Postal code
                     <input 
@@ -80,6 +91,8 @@ function AddVet() {
                     value={vet.phone_number}
                     onChange={handleChange}/>
                 </label>
+                <br />
+                <button className="btn" onClick={addVet}>Add vet</button>
             </div>
         </div>
     )
