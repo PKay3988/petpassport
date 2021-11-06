@@ -15,15 +15,18 @@ const con = mysql.createConnection({
   multipleStatements: true
 });
 
-
 con.connect(function(err) {
   if (err) throw err;
   console.log("Connected!");
+  
   let sql = fs.readFileSync(__dirname+"/init_db.sql").toString();
+  
   con.query(sql, function (err, result) {
     if (err) throw err;
     console.log("Table creation was successful!");
+    
     console.log("Closing...");
   });
+  
   con.end();
 });

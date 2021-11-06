@@ -5,7 +5,7 @@ import AddPhoto from "./components/AddPhoto"
 import ChoosePet from "./components/ChoosePet"  
 import Dashboard from "./components/Dashboard"
 import DisplayProfile from "./components/DisplayProfile" 
-// import Login from "./components/Login" 
+import Login from "./components/Login" 
 import Nav from "./components/Nav" 
 import PhotoGallery from "./components/PhotoGallery" 
 import RegisterUser from './components/RegisterUser'
@@ -16,7 +16,7 @@ export default function ReactRoutes(){
     
         <Routes>
         <div>
-      <Route path ="/" exact></Route>
+      <Route path ="/" exact element={<Login />}></Route>
  
       <Route path ="/AddPet" >
           <AddPet />

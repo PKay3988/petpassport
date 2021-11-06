@@ -1,18 +1,18 @@
 // import { application } from "express";
 import React from "react";
-// import axios from "axios";
+import axios from "axios";
 import { useState } from 'react';
 // import router from "../../routes/users";
 // import { Switch, useHistory } from 'react-router-dom';
 import "./Login.css";
 
-function Login(props) {
+function Login() {
     const emptyUser = {
         username: "",
         password: ""
     }
-
-    const [user, setUser] = useState(/*localStorage.getUser()*/);
+    const [formData, setFormData] = useState(emptyUser);
+    const [user, setUser] = useState({});
     const [message, setMessage] = useState({})
     const [status, setStatus] = useState(/*localStorage.getUser()*/);
     // const history = useHistory();
@@ -38,11 +38,7 @@ function Login(props) {
 
     const handleChange = (event) => {
         let {name, value} = event.target;
-
-        setUser((state) => ({
-            ...state,
-            [name]: value,
-        }))
+        setFormData({...formData, [name]: value});
     }
 
 
@@ -59,21 +55,40 @@ function Login(props) {
         //store it locally
         localStorage.setItem("token", result.data.token);
         console.log(result.data.message, result.data.token);
+        // requestData();
+
       })
       .catch(error => console.log(error));
   };
+
+  //localstorage.getItem("token")- pulling saved token 
     
-/*General purpose fetch for GET (for restricted routes) */
-    const requestData = async() => {
-        await fetch('/users/profile', {
-            method: 'GET',
-            headers: {"x-access-token": localStorage.getItem("token")
-        }
+// /*General purpose fetch for GET (for restricted routes) */
+//     const requestData = async() => {
+//         console.log("hello");
+//         await fetch('/users/profile', {
+//             method: 'GET',
+//             headers: {"x-access-token": localStorage.getItem("token")
+            
+//         }
+//     })
+//     .then(result => result.json())
+//     // .then(id => setUser(id))
+//     .then(result => console.log(result))
+//     .catch(err => setStatus({ message: "Not authenticated."}))
+//     }
+
+const requestData = () => {
+    console.log("Hello");
+    axios("/users/profile", {
+      method: "GET",
+      headers: {
+        "x-access-token": localStorage.getItem("token"),
+      },
     })
-    .then(result => result.json())
-    .then(id => setUser(id))
-    .catch(err => setStatus({ message: "Not authenticated."}))
-    }
+      .then((result) => console.log(result.data.message))
+      .catch((error) => console.log(error));
+  };
 
 // /* function for logout*/
 //     function doLogout() {
@@ -95,10 +110,10 @@ function Login(props) {
             <h2> Login here</h2>
 
             <div>
-                <form>
+                {/* <form> */}
                 <label>Username</label>
                 <input
-                value=""
+                value={formData.username}
                 onChange={handleChange}
                 name= "username"
                 type= "text"
@@ -107,7 +122,7 @@ function Login(props) {
 
                 <label>Password</label>
                 <input
-                value=""
+                value={formData.password}
                 onChange={handleChange}
                 name= "password"
                 type= "password"
@@ -118,10 +133,14 @@ function Login(props) {
                 See my Pets
                 </button>
 
+                <button className= "button" onClick= {requestData}> 
+                Req
+                </button>
+
                 <button type="button">
                 Log out
                 </button>
-                </form>
+                {/* </form> */}
             </div> 
         </div>
 
