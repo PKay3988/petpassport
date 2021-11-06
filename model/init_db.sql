@@ -21,8 +21,8 @@ CREATE TABLE `user` (
 );
 
 CREATE TABLE `pet` (
-	`id` INT NOT NULL,
-	`pet_name` INT NOT NULL,
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`pet_name` varchar(255) NOT NULL,
 	`user_id` INT NOT NULL,
 	`breed` varchar(255) NOT NULL,
 	`dob` DATE NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE `pet` (
 );
 
 CREATE TABLE `vet` (
-	`id` INT NOT NULL,
+	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`street_name` varchar(255) NOT NULL,
     `postal_code` varchar(255) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE `vet` (
 
 CREATE TABLE `treatment` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`name` varchar(255) NOT NULL AUTO_INCREMENT,
+	`name` varchar(255) NOT NULL,
 	`date` DATE NOT NULL,
 	`completed` BOOLEAN NOT NULL,
 	`pet_id` INT NOT NULL,
@@ -52,3 +52,6 @@ CREATE TABLE `treatment` (
 	`frequency` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id`)
 );
+INSERT INTO pet (pet_name, user_id, breed, dob, vet_id) VALUES ('Dolit', 1,'mongrel dog', '2018-02-12', 1);
+
+INSERT INTO pet (pet_name, user_id, breed, dob, vet_id) VALUES ('Jeri', 1,'mongrel dog', '2018-02-12', 1);
