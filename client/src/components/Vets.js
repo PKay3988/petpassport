@@ -5,6 +5,10 @@ import Nav from "./Nav";
 
 function Vets() {
     const [vets, setVets] = useState([]);
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         fetch('/vets')
@@ -14,7 +18,7 @@ function Vets() {
     }, []);
 
     function submitVet(newVet) {
-        console.log(newVet)
+        console.log(newVet);
         fetch('/vets', {
             method: "POST",
             headers: {
@@ -24,7 +28,8 @@ function Vets() {
         })
             .then(result => result.json())
             .then(vets => setVets(vets))
-            .catch(err => console.log(err.message))
+            .catch(err => console.log(err.message));
+        handleClose();
     }
 
     return (
@@ -37,17 +42,20 @@ function Vets() {
                 } */}
                 <div className="card" key="card">
                 {vets && vets.map(vet => (
-                    <div>
+                    <div className="card-content">
                         <span>{vet.name}</span>
-                        <span>{vet.street_name}, {vet.street_number}, {vet.city}</span>
+                        <span>{vet.street_name}, {vet.street_number}</span>
+                        <span>{vet.city}</span>
                         <span>{vet.phone_number}</span>
                     </div>
                 ))}
-                    <button className="btn">add primary vet</button>
+                    <button className="btn" onClick={handleShow}>add primary vet</button>
                 </div>
                 <a className="card">treatment</a>
+
+            {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose}/> : <div />}
+                
             </div>
-            <AddVet onSubmit={(newVet) => submitVet(newVet)} />
             <MapView />
         </div>
     )
