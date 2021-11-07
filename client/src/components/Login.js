@@ -1,20 +1,22 @@
 // import { application } from "express";
 import React from "react";
-import axios from "axios";
+// import axios from "axios";
 import { useState } from 'react';
 // import router from "../../routes/users";
 // import { Switch, useHistory } from 'react-router-dom';
 import "./Login.css";
 
 function Login() {
+    const [currentId, setCurrentId] = useState({ user_id: 0 });
     const emptyUser = {
         username: "",
-        password: ""
+        password: "",
+        id:`${currentId.user_id}`
     }
-    const [formData, setFormData] = useState(emptyUser);
-    const [user, setUser] = useState({});
-    const [message, setMessage] = useState({})
-    const [status, setStatus] = useState(/*localStorage.getUser()*/);
+    // const [formData, setFormData] = useState(emptyUser);
+    const [user, setUser] = useState(emptyUser);
+    // const [message, setMessage] = useState({})
+    const [status, setStatus] = useState({});
     // const history = useHistory();
 
     // function handleChange(event) {
@@ -38,29 +40,34 @@ function Login() {
 
     const handleChange = (event) => {
         let {name, value} = event.target;
-        setFormData({...formData, [name]: value});
+        setUser({...user, [name]: value});
     }
 
 
 /*fetch for POST login*/
-    const loginUser = async (username, password) => {
-        let loginBody = { username, password }
-        let options = { 
+    const loginUser = async (emptyUser) => {
+        // let loginBody = { username, password }
+        await fetch("/users/login", {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(loginBody)
-        };
-        await fetch("/users/login", options)
-      .then(result => {
-        //store it locally
-        localStorage.setItem("token", result.data.token);
-        console.log(result.data.message, result.data.token);
-        // requestData();
+            headers: { 
+                'Content-Type': 'application/json' 
+            },
+            body: JSON.stringify(emptyUser)
+        })
+          .then(result => result.json())
+          .then(status => setStatus(status))
+          .then(result => {
+          //store it locally
+          localStorage.setItem("token", status.token);
+        //   console.log(result.data.message, status.token);
+         // requestData();
 
       })
-      .catch(error => console.log(error));
-  };
-
+      .catch((error) => {
+        console.log(error);
+        setStatus("Invalid login.");
+  });
+}
   //localstorage.getItem("token")- pulling saved token 
     
 // /*General purpose fetch for GET (for restricted routes) */
@@ -78,16 +85,17 @@ function Login() {
 //     .catch(err => setStatus({ message: "Not authenticated."}))
 //     }
 
-const requestData = () => {
+const requestData = async () => {
     console.log("Hello");
-    axios("/users/profile", {
+    await fetch("/users/profile", {
       method: "GET",
       headers: {
         "x-access-token": localStorage.getItem("token"),
-      },
+      }
     })
-      .then((result) => console.log(result.data.message))
-      .catch((error) => console.log(error));
+      .then(result => result.json())
+      .then(id => setCurrentId(id))
+      .catch(err => setStatus({ message: "Not authenticated."}))
   };
 
 // /* function for logout*/
@@ -107,13 +115,13 @@ const requestData = () => {
         
 
         <div>
-            <h2> Login here</h2>
+            <h2> Login here to see your pets!</h2>
 
             <div>
                 {/* <form> */}
                 <label>Username</label>
                 <input
-                value={formData.username}
+                value={user.username}
                 onChange={handleChange}
                 name= "username"
                 type= "text"
@@ -122,7 +130,7 @@ const requestData = () => {
 
                 <label>Password</label>
                 <input
-                value={formData.password}
+                value={user.password}
                 onChange={handleChange}
                 name= "password"
                 type= "password"

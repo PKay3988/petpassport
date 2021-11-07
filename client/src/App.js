@@ -3,6 +3,8 @@ import './App.css';
 import Dashboard from './components/Dashboard';
 import ChoosePet from './components/ChoosePet';
 import Login from './components/Login';
+import Events from './components/Events';
+
 import {BrowserRouter as Router} from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import ReactRoutes from "./ReactRoutes";
@@ -19,7 +21,11 @@ function App() {
     <div className="App">
      <h1> Pet Passport 🐾 </h1>
     
-     <Login />
+     {/* <Login /> */}
+
+     {/* <Link to={`/login`} >
+       <button>Login here</button>
+       </Link> */}
      <ReactRoutes/ >
      
 </div>
