@@ -6,9 +6,12 @@ import Nav from "./Nav";
 function Vets() {
     const [vets, setVets] = useState([]);
     const [show, setShow] = useState(false);
+    const [position, setPosition] = useState();
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    const [map, setMap] = useState(false);
 
     useEffect(() => {
         fetch('/vets')
@@ -16,6 +19,17 @@ function Vets() {
             .then(vets => setVets(vets))
             .catch(err => console.log(err.message))
     }, []);
+
+    useEffect(() => {
+        navigator.geolocation.getCurrentPosition(
+            function(position) {
+                setPosition([position.coords.latitude, position.coords.longitude]);
+            }, 
+            function(error) {
+                console.log(error)
+            }, 
+            { enableHighAccuracy: true })
+    }, [])
 
     function submitVet(newVet) {
         console.log(newVet);
@@ -32,6 +46,10 @@ function Vets() {
         handleClose();
     }
 
+    function showMap() {
+        setMap(!map);
+    }
+    
     return (
         <div className="vets-container">
             <Nav/>
@@ -42,7 +60,7 @@ function Vets() {
                 } */}
                 <div className="card" key="card">
                 {vets && vets.map(vet => (
-                    <div className="card-content">
+                    <div className="card-content" key={vet.id}>
                         <span>{vet.name}</span>
                         <span>{vet.street_name}, {vet.street_number}</span>
                         <span>{vet.city}</span>
@@ -56,7 +74,8 @@ function Vets() {
             {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose}/> : <div />}
                 
             </div>
-            <MapView />
+            <button onClick={showMap} >show map</button>
+            {map ? <MapView position={position}/> : <div></div>}
         </div>
     )
 }

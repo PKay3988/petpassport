@@ -24,7 +24,6 @@ function AddVet(props) {
 
         // gets country code with method from react-select-countries 
         let country_code = countryList().getValue(vet.country);
-        console.log(country_code);
 
         // adds that code to vet object 
         setVet((state) => ({
