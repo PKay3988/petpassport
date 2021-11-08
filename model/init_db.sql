@@ -49,8 +49,15 @@ CREATE TABLE `pets` (
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,
-	PRIMARY KEY (`id`),
-	FOREIGN KEY (`user_id`) REFERENCES users(id) ON DELETE CASCADE,
-	FOREIGN KEY (`vet_id`) REFERENCES vets(id) ON DELETE CASCADE,
-	FOREIGN KEY (`treatment_id`) REFERENCES treatments(id) ON DELETE CASCADE
+	PRIMARY KEY (`id`)
+	-- FOREIGN KEY (`user_id`) REFERENCES users(id) ON DELETE CASCADE,
+	-- FOREIGN KEY (`vet_id`) REFERENCES vets(id) ON DELETE CASCADE,
+	-- FOREIGN KEY (`treatment_id`) REFERENCES treatments(id) ON DELETE CASCADE
+);
+
+CREATE TABLE `images` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`pet_id` INT NOT NULL,
+	`image` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
 );
