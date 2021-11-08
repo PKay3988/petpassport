@@ -16,8 +16,10 @@
     "jsonwebtoken": "^8.5.1",
     "jwtoken": "^0.0.0",
     "migrate": "^1.7.0",
+    "mime-types": "^2.1.33",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.14"
+    "nodemon": "^2.0.14",
+    "uuid": "^8.3.2"
   }
 }
