@@ -1,4 +1,5 @@
 const { json } = require('express');
+require("dotenv").config();
 var express = require('express');
 var router = express.Router();
 const db = require('../model/helper');
@@ -28,10 +29,12 @@ router.delete('/:id', async function(req, res) {
 
 /* POST a new vet - sends back the whole array of vets */
 
+API_KEY = process.env.API_KEY
+
 /* Get the coordinates from map api */
 const getCoords = async (street_number, street_name, postal_code, city, country, country_code) => {
     console.log(street_number, street_name, postal_code, city, country, country_code);
-    let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${street_number}%20${street_name}%20${postal_code}%20${city}%20${country}.json?country=${country_code}&access_token=pk.eyJ1IjoiZWxpc2FydiIsImEiOiJja3ZkdmE3ejIwbWlyMm9vMGFqaTV0NGczIn0.sPNXymjY3SuiKx1scGraow`
+    let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${street_number}%20${street_name}%20${postal_code}%20${city}%20${country}.json?country=${country_code}&access_token=${API_KEY}`
     // await fetch(url)
     //     .then(response => response.json())
     //     .then(json => {

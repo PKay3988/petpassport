@@ -32,7 +32,6 @@ CREATE TABLE `vets` (
 	`coords` varchar(255),
 	`user_id` INT NOT NULL,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (`user_id`) REFERENCES users(id)
 );
 
 CREATE TABLE `treatments` (
@@ -55,7 +54,4 @@ CREATE TABLE `pets` (
 	`vet_id` INT,
 	`treatment_id` INT,
 	PRIMARY KEY (`id`),
-	FOREIGN KEY (`user_id`) REFERENCES users(id) ON DELETE CASCADE,
-	FOREIGN KEY (`vet_id`) REFERENCES vets(id) ON DELETE CASCADE,
-	FOREIGN KEY (`treatment_id`) REFERENCES treatments(id) ON DELETE CASCADE
 );
