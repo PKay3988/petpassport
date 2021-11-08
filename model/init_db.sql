@@ -1,11 +1,10 @@
-DROP TABLE IF EXISTS user;
-DROP TABLE IF EXISTS pet;
-DROP TABLE IF EXISTS vet;
-DROP TABLE IF EXISTS treatment;
+DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS vets;
+DROP TABLE IF EXISTS treatments;
+DROP TABLE IF EXISTS users;
 
 
-
-CREATE TABLE `user` (
+CREATE TABLE `users` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
     `username` varchar(255) NOT NULL,
@@ -16,22 +15,11 @@ CREATE TABLE `user` (
     `country` varchar(255) NOT NULL,
     `street_number` varchar(255) NOT NULL,
     `street_name` varchar(255) NOT NULL,
-
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `pet` (
+CREATE TABLE `vets` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`pet_name` varchar(255) NOT NULL,
-	`user_id` INT NOT NULL,
-	`breed` varchar(255) NOT NULL,
-	`dob` DATE NOT NULL,
-	`vet_id` BOOLEAN NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `vet` (
-	`id` INT NOT NULL,
 	`name` varchar(255) NOT NULL,
 	`street_name` varchar(255) NOT NULL,
     `postal_code` varchar(255) NOT NULL,
@@ -42,13 +30,27 @@ CREATE TABLE `vet` (
 	PRIMARY KEY (`id`)
 );
 
-CREATE TABLE `treatment` (
+CREATE TABLE `treatments` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`date` DATE NOT NULL,
 	`completed` BOOLEAN NOT NULL,
+	`frequency` BOOLEAN NOT NULL,
 	`pet_id` INT NOT NULL,
 	`vet_id` INT NOT NULL,
-	`frequency` BOOLEAN NOT NULL,
 	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `pets` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`pet_name` varchar(255) NOT NULL,
+	`breed` varchar(255) NOT NULL,
+	`dob` DATE NOT NULL,
+	`user_id` INT NOT NULL,
+	`vet_id` INT,
+	`treatment_id` INT,
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`user_id`) REFERENCES users(id) ON DELETE CASCADE,
+	FOREIGN KEY (`vet_id`) REFERENCES vets(id) ON DELETE CASCADE,
+	FOREIGN KEY (`treatment_id`) REFERENCES treatments(id) ON DELETE CASCADE
 );
