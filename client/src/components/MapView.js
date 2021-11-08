@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState  } from "react";
 import L from 'leaflet';
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
@@ -9,6 +9,8 @@ import icon from '../assets/icon-2.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 const MapView = (props) => {
+    // when we connect components - send user id to fetch their info(or info directly) 
+    // - add marker to home & center map in case of user rejecting geolocation
     // const [user, setUser] = useState();
 
     // useEffect(() => {
@@ -26,16 +28,20 @@ const MapView = (props) => {
 
     L.Marker.prototype.options.icon = homeIcon;
 
+    let vetCoords = null;
+    if(props.vets) vetCoords = props.vets[0].coords;
+
     return (
-        <MapContainer  center={props.position ? props.position : [ 51.53813, -0.22522 ]} zoom={6}>
+        <MapContainer  center={props.position ? props.position : [ 51.53813, -0.22522 ]} zoom={13}>
             <TileLayer 
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
-            {/* <Marker position={[ 51.52884, -0.17272 ]}>
+            <Marker position={vetCoords.split(",").reverse()}>
                 <Popup>
-                    A popup!
+                    {props.vets[0].name} <br />
+                    {props.vets[0].phone_number}
                 </Popup>
-            </Marker> */}
+            </Marker>
         </MapContainer>
     )
 }

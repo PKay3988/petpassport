@@ -1,3 +1,4 @@
+const { json } = require('express');
 var express = require('express');
 var router = express.Router();
 const db = require('../model/helper');
@@ -31,12 +32,17 @@ router.delete('/:id', async function(req, res) {
 const getCoords = async (street_number, street_name, postal_code, city, country, country_code) => {
     console.log(street_number, street_name, postal_code, city, country, country_code);
     let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${street_number}%20${street_name}%20${postal_code}%20${city}%20${country}.json?country=${country_code}&access_token=pk.eyJ1IjoiZWxpc2FydiIsImEiOiJja3ZkdmE3ejIwbWlyMm9vMGFqaTV0NGczIn0.sPNXymjY3SuiKx1scGraow`
-    await fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            console.log(data)
-            return data})
-        .catch(err => console.log(err.message))
+    // await fetch(url)
+    //     .then(response => response.json())
+    //     .then(json => {
+    //         console.log(json)
+    //         return json})
+    //     .catch(err => console.log(err.message))
+    const response = await fetch(url);
+    const data = await response.json();
+
+    // console.log(data);
+    return data;
 }
 
 router.post('/', async function(req, res) {
