@@ -19,7 +19,7 @@ router.get('/pet/:id', async function(req, res) {
 /* DELETE a pet by id - sends array of pets minus the deleted one */
 router.delete('/:id', async function(req, res) {
     await db(`DELETE FROM pets WHERE id = ${req.params.id}`)
-    await db(`SELECT * FROM pets`)
+    await db(`SELECT * FROM pet`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });
