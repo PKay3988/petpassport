@@ -13,42 +13,42 @@ import PhotoGallery from "./components/PhotoGallery"
 export default function ReactRoutes(){
     return(
     
-        <Routes>
+      <Routes>
         <div>
-      <Route path ="/" exact></Route>
- 
-      <Route path ="/AddPet" >
-          <AddPet />
-        </Route>
- 
-      <Route path ="/AddPhoto" >
-          <AddPhoto />
-        </Route>
- 
-      <Route path ="/ChoosePet" > 
-        <ChoosePet />
-      </Route>
-     
-      <Route path ="/Dashboard" >
-          <Dashboard />
-      </Route>
- 
-      <Route path ="/DisplayProfile" >
-          <DisplayProfile />
-      </Route>
- 
-      <Route path ="/Login" > 
-        <Login /> 
-      </Route>
-     
- 
-      <Route path ="/Nav" >
-          <Nav />
-      </Route>
- 
-      <Route path ="/PhotoGallery" > 
-        <PhotoGallery />
-    </Route>
+            <Route path ="/" exact></Route>
+      
+            <Route path ="/AddPet" >
+                <AddPet />
+              </Route>
+      
+            <Route path ="/AddPhoto" >
+                <AddPhoto />
+              </Route>
+      
+            <Route path ="/ChoosePet" > 
+              <ChoosePet />
+            </Route>
+          
+            <Route path ="/Dashboard" >
+                <Dashboard />
+            </Route>
+      
+            <Route path ="/DisplayProfile" >
+                <DisplayProfile />
+            </Route>
+      
+            <Route path ="/Login" > 
+              <Login /> 
+            </Route>
+          
+      
+            <Route path ="/Nav" >
+                <Nav />
+            </Route>
+      
+            <Route path ="/PhotoGallery" > 
+              <PhotoGallery />
+          </Route>
         </div>
       </Routes>
         

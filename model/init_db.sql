@@ -4,16 +4,17 @@ DROP TABLE IF EXISTS treatments;
 DROP TABLE IF EXISTS users;
 
 
+
 CREATE TABLE `users` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
     `username` varchar(255) NOT NULL,
 	`email` varchar(255) NOT NULL,
 	`password` varchar(255) NOT NULL,
-    `postal_code` varchar(255) NOT NULL,
+    `postal_code` INT NOT NULL,
 	`city` varchar(255) NOT NULL,
     `country` varchar(255) NOT NULL,
-    `street_number` varchar(255) NOT NULL,
+    `street_number` INT NOT NULL,
     `street_name` varchar(255) NOT NULL,
 	PRIMARY KEY (`id`)
 );
@@ -22,12 +23,15 @@ CREATE TABLE `vets` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`street_name` varchar(255) NOT NULL,
-    `postal_code` varchar(255) NOT NULL,
+    `postal_code` INT NOT NULL,
 	`phone_number` varchar(255) NOT NULL,
-    `street_number` varchar(255) NOT NULL,
+    `street_number` INT NOT NULL,
     `city` varchar(255) NOT NULL,
     `country` varchar(255) NOT NULL,
-	PRIMARY KEY (`id`)
+	`country_code` varchar(255) NOT NULL,
+	`coords` varchar(255),
+	`user_id` INT NOT NULL,
+	PRIMARY KEY (`id`),
 );
 
 CREATE TABLE `treatments` (
@@ -49,6 +53,7 @@ CREATE TABLE `pets` (
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,
+<<<<<<< HEAD
 	PRIMARY KEY (`id`)
 	-- FOREIGN KEY (`user_id`) REFERENCES users(id) ON DELETE CASCADE,
 	-- FOREIGN KEY (`vet_id`) REFERENCES vets(id) ON DELETE CASCADE,
@@ -60,4 +65,7 @@ CREATE TABLE `images` (
 	`pet_id` INT NOT NULL,
 	`image` varchar(255) NOT NULL,
 	PRIMARY KEY (`id`)
+=======
+	PRIMARY KEY (`id`),
+>>>>>>> 7f2ab7194eb7609680058bc85862234fe4083523
 );
