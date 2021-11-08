@@ -29,19 +29,21 @@ const MapView = (props) => {
     L.Marker.prototype.options.icon = homeIcon;
 
     let vetCoords = null;
-    if(props.vets) vetCoords = props.vets[0].coords;
+    if(props.vets[0]) {vetCoords = props.vets[0].coords};
 
     return (
         <MapContainer  center={props.position ? props.position : [ 51.53813, -0.22522 ]} zoom={13}>
             <TileLayer 
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
+            {vetCoords ? 
             <Marker position={vetCoords.split(",").reverse()}>
                 <Popup>
                     {props.vets[0].name} <br />
                     {props.vets[0].phone_number}
                 </Popup>
             </Marker>
+            : null}
         </MapContainer>
     )
 }
