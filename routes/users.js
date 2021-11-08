@@ -28,8 +28,8 @@ router.post('/register', async function(req, res) {
         username, 
         password) VALUES (
           "${name}", 
-          "${street_number}", 
           "${city}", 
+          "${street_number}", 
           "${street_name}", 
           "${postal_code}", 
           "${country}", 

@@ -16,7 +16,7 @@ import RegisterUser from './components/RegisterUser'
 export default function ReactRoutes(){
     return(
     
-        <Routes>
+      <Routes>
         <div>
       <Route path ="/" exact element={<Login />}></Route>
  
