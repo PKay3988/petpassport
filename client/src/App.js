@@ -32,7 +32,6 @@ function App() {
 
                {/* <Dashboard /> */}
                {/* <Login /> */}
-               <Vets />
                <ReactRoutes />
                
           </div>
