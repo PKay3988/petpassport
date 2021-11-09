@@ -23,6 +23,11 @@ function App() {
                <h1> pet passport </h1>
 
                <Link to="/login">Login</Link>
+
+               <button>
+                    <Link to="/register">Register</Link>
+               </button>
+
                
                <button>
                     <Link to="/choosepet">Login Successful</Link>

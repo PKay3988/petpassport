@@ -20,15 +20,15 @@ function RegisterUser() {
         street_number:"", 
         street_name:""
     }
-    const [user, setUser] = useState([]);
-    const [formData, setFormData] = useState(emptyUserReg);
+    const [user, setUser] = useState(emptyUserReg);
+    // const [formData, setFormData] = useState(emptyUserReg);
     const [message, setMessage] = useState({})
-    const [status, setStatus] = useState(/*localStorage.getUser()*/);
+    // const [status, setStatus] = useState(/*localStorage.getUser()*/);
 
 
     const handleChange = (event) => {
         let {name, value} = event.target;
-        setFormData({...formData, [name]: value});
+        setUser({...user, [name]: value});
     }
 
     function handleSubmit(event) {
@@ -37,13 +37,14 @@ function RegisterUser() {
     }
 
 /*fetch for POST register*/
-    const registerUser = async (name, city, street_number, street_name, postal_code, country, email, username, password) => {
-        let newUser = {name, city, street_number, street_name, postal_code, country, email, username, password}
-        // user.id = currentId.id;
-        // let user = {name, city, email, username, password};
-        let options = { method: "POST",
+    const registerUser = async () => {
+        await fetch ("/users/register", {
+            method: "POST",
             headers: {"Content-Type": "application/json" },
-            body: JSON.stringify(newUser)
+            data: user,
+        })
+        
+            // body: JSON.stringify(newUser)
             // data: {
             //     name: `${name}`,
             //     city: `${city}`,
@@ -56,12 +57,12 @@ function RegisterUser() {
             //     password:`${password}`,
             // },
                 
-            }
-            await fetch ("register", options)
-            .then (result => result.json())
-            .then((user) => {
-                setUser(user);
-            })
+            // }
+            // await fetch ("register", options)
+            // .then (result => result.json())
+            // .then((user) => {
+            //     setUser(user);
+            // })
             .then (result => {setMessage(result)})
             .catch(error => 
                 console.log("network error:", error)
@@ -74,6 +75,7 @@ return (
             <form>
             <label>Name</label>
             <input
+            value={user.name}
             onChange={handleChange}
             name= "name"
             type= "text"
@@ -82,6 +84,7 @@ return (
 
             <label>City</label>
             <input
+            value={user.city}
             onChange={handleChange}
             name= "city"
             type= "text"
@@ -91,6 +94,7 @@ return (
            
             <label>Country</label>
             <input
+            value={user.country}
             onChange={handleChange}
             name= "country"
             type= "text"
@@ -101,6 +105,7 @@ return (
 
             <label>Address Number</label>
             <input
+            alue={user.street_number}
             onChange={handleChange}
             name= "street_number"
             type= "text"
@@ -110,6 +115,7 @@ return (
 
             <label>Street Name</label>
             <input
+            value={user.street_name}
             onChange={handleChange}
             name= "street_name"
             type= "text"
@@ -119,6 +125,7 @@ return (
             
             <label>Postal Code</label>
             <input
+            value={user.postal_code}
             onChange={handleChange}
             name= "postal_code"
             type= "text"
@@ -127,6 +134,7 @@ return (
 
             <label>Email</label>
             <input
+            value={user.email}
             onChange={handleChange}
             name= "email"
             type= "text"
@@ -135,6 +143,7 @@ return (
 
             <label>Username</label>
             <input
+            value={user.username}
             onChange={handleChange}
             name= "username"
             type= "text"
@@ -143,6 +152,7 @@ return (
 
             <label>Password</label>
             <input
+            value={user.password}
             onChange={handleChange}
             name= "password"
             type= "password"

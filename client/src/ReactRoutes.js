@@ -17,30 +17,30 @@ export default function ReactRoutes(){
     return(
     
       <Routes>
-        <div>
+        
       <Route path ="/" exact element={<Login />}></Route>
  
-      <Route path ="/AddPet" >
-          <AddPet />
+      <Route path ="/AddPet" component={AddPet} >
+          {/* <AddPet /> */}
         </Route>
  
-      <Route path ="/AddPhoto" >
+      <Route path ="/AddPhoto" component={AddPhoto}>
           {/* <AddPhoto /> */}
         </Route>
  
-      <Route path ="/ChoosePet" > 
+      <Route path ="/ChoosePet" component={ChoosePet}> 
         {/* <ChoosePet /> */}
       </Route>
      
-      <Route path ="/Dashboard"  >
-          <Dashboard element={<Events />}/>
+      <Route path ="/Dashboard" component={Dashboard}  >
+          {/* <Dashboard element={<Events />}/> */}
       </Route>
  
-      <Route path ="/DisplayProfile" >
+      <Route path ="/DisplayProfile" component={DisplayProfile} >
           {/* <DisplayProfile /> */}
       </Route>
  
-      <Route path ="/register" element={<RegisterUser /*user={(user)}*/ />} > 
+      <Route path ="/register" component={RegisterUser} > 
         {/* <Login />  */}
       </Route>
      
@@ -52,7 +52,7 @@ export default function ReactRoutes(){
       <Route path ="/PhotoGallery" > 
         {/* <PhotoGallery /> */}
     </Route>
-        </div>
+        
       </Routes>
         
     )
