@@ -5,21 +5,22 @@ import { useState } from 'react';
 // import router from "../../routes/users";
 // import { Switch, useHistory } from 'react-router-dom';
 import "./Login.css";
+import { Link } from 'react-router-dom';
 
 function Login(props) {
-    // const newUser = {
-    //     name: "",
-    //     city: "",
-    //     addNumber:"", 
-    //     streetName:"", 
-    //     postalCode:"", 
-    //     country:"",
-    //     email: "",
-    //     userName: "",
-    //     password: ""
-    // }
+    const newUser = {
+        name: "",
+        city: "",
+        addNumber:"", 
+        streetName:"", 
+        postalCode:"", 
+        country:"",
+        email: "",
+        userName: "",
+        password: ""
+    }
 
-    const [user, setUser] = useState(/*localStorage.getUser()*/);
+    const [user, setUser] = useState(newUser);
     const [message, setMessage] = useState({})
     const [status, setStatus] = useState(/*localStorage.getUser()*/);
     // const history = useHistory();
@@ -48,7 +49,7 @@ function Login(props) {
 
         setUser((state) => ({
             ...state,
-            [name]: value,
+            [name]: value
         }))
     }
 
@@ -219,16 +220,16 @@ function Login(props) {
                 <form>
                 <label>Username</label>
                 <input
-                value=""
-                onChange={handleChange}
-                name= "username"
+                name= "userName"
+                value={user.userName}
                 type= "text"
                 className= "register-input"
+                onChange={handleChange}
                 />
 
                 <label>Password</label>
                 <input
-                value=""
+                value={user.password}
                 onChange={handleChange}
                 name= "password"
                 type= "password"
@@ -251,7 +252,9 @@ function Login(props) {
             </div>
 
             <button type="button" className="pets-btn" onClick={requestData}>
+                <Link to="/ChoosePet">
                 See my Pets
+                </Link>
             </button>
 
     </div>

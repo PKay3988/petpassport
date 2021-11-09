@@ -22,13 +22,13 @@ function App() {
 
           <div className="App">
                
-               <h1> pet passport </h1>
+               <h1> PET PASSPORT </h1>
 
-               <Link to="/login">Login</Link>
+               {/* <Link to="/Login">Login</Link> */}
                
-               <button>
+               {/* <button>
                     <Link to="/choosepet">Login Successful</Link>
-               </button>
+               </button> */}
 
                {/* <Dashboard /> */}
                {/* <Login /> */}
