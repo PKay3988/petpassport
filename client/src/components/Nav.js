@@ -9,7 +9,7 @@ function Nav() {
         <ul className="navbar-nav">
           <li className="nav-item">
             <Link to="/Dashboard">
-                <a>PICTURE OF ANIMAL</a>
+                <a>PICTURE OF PET</a>
             </Link>
           </li>
           <li>Name, description</li>
