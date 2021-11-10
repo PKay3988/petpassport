@@ -7,7 +7,7 @@ import ChoosePet from './components/ChoosePet';
 import Login from './components/Login';
 import {BrowserRouter as Router} from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import ReactRoutes from "./ReactRoutes";
+// import ReactRoutes from "./ReactRoutes";
 import Vets from "./components/Vets";
 
 // import { BrowserRouter as Switch, Router, Route, Link, useHistory } from 'react-router-dom';
@@ -24,16 +24,17 @@ function App() {
                
                <h1> pet passport </h1>
 
-               <Link to="/login">Login</Link>
+               {/* <Link to="/login">Login</Link> */}
                
-               <button>
+               {/* <button>
                     <Link to="/choosepet">Login Successful</Link>
-               </button>
+               </button> */}
 
                {/* <Dashboard /> */}
                {/* <Login /> */}
-               <ReactRoutes />
-               
+               {/* <ReactRoutes /> */}
+               <ChoosePet />
+               <addPet />
           </div>
         
      </Router> 
