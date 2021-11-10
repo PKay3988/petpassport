@@ -1,7 +1,9 @@
-DROP TABLE IF EXISTS pets;
+
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS vets;
 DROP TABLE IF EXISTS treatments;
-DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS pets;
+DROP TABLE IF EXISTS images;
 
 
 
@@ -54,4 +56,11 @@ CREATE TABLE `pets` (
 	`vet_id` INT,
 	`treatment_id` INT,
 	PRIMARY KEY (`id`),
+);
+
+CREATE TABLE `images` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`pet_id` INT NOT NULL,
+	`image` varchar(255) NOT NULL,
+	PRIMARY KEY (`id`)
 );

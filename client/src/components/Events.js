@@ -3,7 +3,7 @@ import { useState } from 'react';
 // import "./Events.css";
 
 
-function Events() {
+export const Events = () => {
 
     return(
         <div>
@@ -15,6 +15,18 @@ function Events() {
         Grooming Appt - 
 
         Etc. 
+
+        <form>
+
+                <input>Name of event
+                </input>
+
+                <input>Date of event
+                </input>
+
+                <input>Location of event
+                </input>
+            </form>
 
 
         </div>

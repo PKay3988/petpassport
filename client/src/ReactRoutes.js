@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom'
+import { Link, Route, Routes } from 'react-router-dom'
 // import { Routes } from 'react-router'
 import AddPet from "./components/AddPet" 
 import AddPhoto from "./components/AddPhoto"
@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard"
 import DisplayProfile from "./components/DisplayProfile" 
 import Login from "./components/Login" 
 import Events from './components/Events';
-
+import Vets from './components/Vets'
 import Nav from "./components/Nav" 
 import PhotoGallery from "./components/PhotoGallery" 
 import RegisterUser from './components/RegisterUser'
@@ -17,43 +17,24 @@ export default function ReactRoutes(){
     return(
     
       <Routes>
-        
-      <Route path ="/" exact element={<Login />}></Route>
- 
-      <Route path ="/AddPet" component={AddPet} >
-          {/* <AddPet /> */}
-        </Route>
- 
-      <Route path ="/AddPhoto" component={AddPhoto}>
-          {/* <AddPhoto /> */}
-        </Route>
- 
-      <Route path ="/ChoosePet" component={ChoosePet}> 
-        {/* <ChoosePet /> */}
-      </Route>
+        <Route path ="/" exact element={<Login />}/>
      
-      <Route path ="/Dashboard" component={Dashboard}  >
-          {/* <Dashboard element={<Events />}/> */}
-      </Route>
- 
-      <Route path ="/DisplayProfile" component={DisplayProfile} >
-          {/* <DisplayProfile /> */}
-      </Route>
- 
-      <Route path ="/register" component={RegisterUser} > 
-        {/* <Login />  */}
-      </Route>
-     
- 
-      <Route path ="/Nav" >
-          {/* <Nav /> */}
-      </Route>
- 
-      <Route path ="/PhotoGallery" > 
-        {/* <PhotoGallery /> */}
-    </Route>
+        <Route path ="/AddPet" element={AddPet} />
+
+        <Route path ="/AddPhoto" component={AddPhoto} />
+
+        <Route path ="/ChoosePet" component={ChoosePet} />
+      
+        <Route path ="/Dashboard" element={<Dashboard />} />
+          
+        <Route path ="/DisplayProfile" element={DisplayProfile} />
+
+        <Route path ="/PhotoGallery" element={<PhotoGallery />} />
+
+        <Route path ="/registeruser" element={<RegisterUser />} />
+
+        <Route path ="/Vets" element={<Vets />} />
         
       </Routes>
-        
     )
 };

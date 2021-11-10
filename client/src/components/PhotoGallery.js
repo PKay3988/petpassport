@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-function PhotoGallery() {
+const PhotoGallery = () => {
     const [selectedFile, setSelectedFile] = useState(null);
   
     // On file select (from the pop up)
@@ -44,4 +44,4 @@ function PhotoGallery() {
     );
   }
   
-  export default PhotoGallery;
+  export default PhotoGallery

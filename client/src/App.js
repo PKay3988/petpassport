@@ -9,6 +9,8 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import ReactRoutes from "./ReactRoutes";
 import Vets from "./components/Vets";
+import Nav from "./components/Nav";
+import RegisterUser from "./components/RegisterUser";
 
 // import { BrowserRouter as Switch, Router, Route, Link, useHistory } from 'react-router-dom';
 // import { Switch } from 'react-router';
@@ -19,24 +21,9 @@ function App() {
      <Router> 
 
           <div className="App">
-               
-               <h1> pet passport </h1>
-
-               <Link to="/login">Login</Link>
-
-               <button>
-                    <Link to="/register">Register</Link>
-               </button>
-
-               
-               <button>
-                    <Link to="/choosepet">Login Successful</Link>
-               </button>
-
-               {/* <Dashboard /> */}
-               {/* <Login /> */}
-               <ReactRoutes />
-               
+               <h1> Pet Passport </h1>
+                    <Nav />
+                    <ReactRoutes /> 
           </div>
         
      </Router> 

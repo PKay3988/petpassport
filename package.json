@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-    "migrate": "node model/init_db.sql"
+    "migrate": "node model/database.js"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
@@ -20,7 +20,7 @@
     "leaflet": "^1.7.1",
     "leaflet.marker.slideto": "^0.2.0",
     "migrate": "^1.7.0",
-    "mime-types": "^2.1.33",
+    "mime-types": "^2.1.34",
     "morgan": "^1.10.0",
     "mysql": "^2.18.1",
     "node-fetch": "^3.0.0",
