@@ -1,47 +1,47 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from "react";
+import Carousel from 'react-bootstrap/Carousel';
+import "./PhotoGallery.css";
+// import Bird from './img/Bird.jpeg';
 
-const PhotoGallery = () => {
-    const [selectedFile, setSelectedFile] = useState(null);
-  
-    // On file select (from the pop up)
-    const onFileChange = (event) => {
-      // Update the state
-      setSelectedFile(event.target.files[0]);
-    };
-  
-    // On file upload (click the upload button)
-    const onFileUpload = async () => {
-      // Create an object of formData
-      const formData = new FormData();
-  
-      // Update the formData object
-      formData.append("imagefile", selectedFile, selectedFile.name);
-  
-      try {
-        // Request made to the backend api
-        // Send formData object
-        //replace axios with fetch
-        //replace 1 with id dynamic
-        const res = await axios.post("/image/1", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        });
-  
-        console.log(res);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-  
+
+export const PhotoGallery = () => {
+    const [image, setImage] = useState([]);
+
+const getImages = async() => {
+    const result = await fetch ("/image"
+    )
+    const imageResult = await result.json();
+    setImage(imageResult); 
+}
+
+useEffect(() => {
+    getImages();
+}, [])
+
+
+
+
+
+
     return (
-      <div className="App">
-        <h3>Select file to upload:</h3>
-        <input type="file" onChange={onFileChange} />
-        <button onClick={onFileUpload}>Upload</button>
-      </div>
-    );
-  }
-  
-  export default PhotoGallery
+        <div>
+            <div className="carousel-container">
+
+            <Carousel key={image.image_id}>
+        {image.map((e) => (<Carousel.Item key={e.image_id}>
+    <img
+      key={image.image_id}
+      className="d-block w-100"
+      src={`/img/${e.image}`}
+      alt="slide"
+    />
+    
+  </Carousel.Item>))}
+</Carousel>
+        
+        </div>    
+        </div>
+    )
+}
+
+export default PhotoGallery;
