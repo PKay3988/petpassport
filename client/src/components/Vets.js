@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddVet from "./AddVet";
 import MapView from "./MapView";
 import Nav from "./Nav";
+import countryList from 'react-select-country-list';
 
 function Vets() {
     const [vets, setVets] = useState([]);
@@ -12,7 +13,12 @@ function Vets() {
     //functions to open - close the modal with addvet component
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+    
+    const [countries, setCountries] = useState();
 
+    useEffect(() => {
+        setCountries(countryList().getLabels());
+    }, [])
 
     //get array of all the vets
     useEffect(() => {
@@ -69,7 +75,7 @@ function Vets() {
                 <a className="card">treatment</a>
 
                 {/* TODO - if there is already a vet with user id - render addvet with previous info & make it call a put request instead of post */}
-                {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose}/> : <div />}
+                {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose} countries={countries}/> : <div />}
                 
             </div>
 
