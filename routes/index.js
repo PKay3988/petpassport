@@ -22,6 +22,49 @@ router.get("/image", async (req, res) => {
      res.status(400).send({ message: err });
    }
 });
+
+// get from miages where pet_id (include user) =x 
+router.get("/image/:pet_id", async (req, res) => {
+  try {
+     const media = await db(`SELECT * FROM images where pet_id= ${req.params.pet_id};`);
+     res.send(media.data);
+   } catch (err) {
+     res.status(400).send({ message: err });
+   }
+});
+
+// get from miages where user_id =x 
+router.get("/image/:pet_id", async (req, res) => {
+  try {
+    //do user and pet match? If so, return images 
+    const media = await db(`SELECT * FROM images where pet_id = ${req.params.pet_id};`);
+     res.send(media.data);
+   } catch (err) {
+     res.status(400).send({ message: err });
+   }
+});
+
+// try {
+//   let results = await db(`SELECT * FROM users WHERE username = "${username}"`
+//   );
+//   const user = results.data[0];
+//   if(user) {
+//     const user_id = user.id;
+
+//     const correctPassword = await bcrypt.compare(password, user.password);
+
+//     if(!correctPassword) throw new Error('Incorrect password!');
+//     var token = jwt.sign({ user_id }, supersecret);
+//     delete user.password;
+//     res.send({ message: "Login successful", token, user});
+//   } else {
+//     throw new Error("User doesn't exist!");
+//   }
+// } catch (err) {
+//   res.status(400).send({ message: err.message });
+// }
+
+
 router.post("/image/:id", async (req, res) => {
   // files are available at req.files
   const { imagefile } = req.files;

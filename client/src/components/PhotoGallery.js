@@ -26,6 +26,7 @@ useEffect(() => {
     return (
         <div>
             <div className="carousel-container">
+            
 
             <Carousel key={image.image_id}>
         {image.map((e) => (<Carousel.Item key={e.image_id}>
