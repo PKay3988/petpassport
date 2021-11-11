@@ -16,7 +16,7 @@
     top: 0;
     left: 0;
     border: 1px solid black;
-    /* z-index: 1030;  */
+    z-index: 1030; 
     background: turquoise;
 }
 
@@ -81,6 +81,6 @@
 
 /* map size  */
 .leaflet-container {
-    width: 40vw;
+    width: 45vw;
     height: 40vh;
 }

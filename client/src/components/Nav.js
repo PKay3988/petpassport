@@ -1,8 +1,6 @@
 import React, { useState} from "react";
 import { Link } from "react-router-dom";
-import MapView from "./MapView";
-import './Vets.css'
-import RegisterUser from "./RegisterUser";
+import './Vets.css';
 
 const Nav = () => {
     
@@ -14,13 +12,13 @@ const Nav = () => {
                     <h3> Pet Passport 🐾 </h3>
                     <div className="nav-item">
 
-                    <Link to="/"><li>HOME</li> 
+                    <Link to="/Dashboard"><li>HOME</li> 
                     </Link>
              
                     <Link to="/RegisterUser"><li>REGISTER</li> 
                     </Link>
                     
-                    <Link to="/AddPets"><li>PETS</li>
+                    <Link to="/ChoosePets"><li>PETS</li>
                      </Link>
                     
                     <Link to="/Vets"><li>VETS</li>
@@ -32,6 +30,9 @@ const Nav = () => {
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
+                    <Link to="/Login"><li>LOGIN</li>
+                    </Link>
+
                     </div>
                 </ul>
             </div>
@@ -40,4 +41,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default Nav;
