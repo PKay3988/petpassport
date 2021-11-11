@@ -3,7 +3,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import {BrowserRouter as Router} from 'react-router-dom';
 import ReactRoutes from "./ReactRoutes";
+import Vets from "./components/Vets";
+import Nav from "./components/Nav";
+import RegisterUser from "./components/RegisterUser";
 
+// import { BrowserRouter as Switch, Router, Route, Link, useHistory } from 'react-router-dom';
+// import { Switch } from 'react-router';
 
 function App() {
   return (
@@ -11,19 +16,9 @@ function App() {
      <Router> 
 
           <div className="App">
-               
-               <h1> PET PASSPORT </h1>
-
-               {/* <Link to="/Login">Login</Link> */}
-               
-               {/* <button>
-                    <Link to="/choosepet">Login Successful</Link>
-               </button> */}
-
-               {/* <Dashboard /> */}
-               {/* <Login /> */}
-               <ReactRoutes />
-               
+               <h1> Pet Passport </h1>
+                    <Nav />
+                    <ReactRoutes /> 
           </div>
         
      </Router> 

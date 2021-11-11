@@ -9,34 +9,36 @@ const saltRounds = 12;
 
 const supersecret = process.env.SUPER_SECRET;
 
-/* POST new user */ /* add streetName, postalCode, country*/
+/* POST new user */ 
 router.post('/register', async function(req, res) {
   const { name, city, street_number, street_name, postal_code, country, email, username, password } = req.body;
   
   try {
     const hash = await bcrypt.hash(password, saltRounds);
-
+    
     await db(
       `INSERT INTO users (
-        name, 
-        city, 
-        street_number, 
-        street_name, 
-        postal_code, 
-        country, 
-        email, 
+        name,
         username, 
-        password) VALUES (
-          "${name}", 
-          "${city}", 
-          "${street_number}", 
-          "${street_name}", 
-          "${postal_code}", 
-          "${country}", 
-          "${email}", 
-          "${username}", 
-          "${hash}")`
-    );
+        email, 
+        password,
+        postal_code,
+        city, 
+        country,
+        street_number, 
+        street_name
+        
+      ) VALUES (
+        "${name}", 
+        "${username}", 
+        "${email}", 
+        "${hash}", 
+        "${postal_code}", 
+        "${city}", 
+        "${country}", 
+        "${street_number}", 
+        "${street_name}"
+      )`)
 
     res.send({ message: "Registration successful" });
   } catch (err) {
@@ -70,9 +72,10 @@ router.post('/login', async function (req, res) {
 })
 
 /*GET user by id Function */
-router.get("/:id", userShouldBeLoggedIn, async (req, res) => {
-  let { id } = req.params;
-  let sql = 'SELECT * FROM users WHERE id = ' + id;
+router.get("/profile", userShouldBeLoggedIn, async (req, res) => {
+  //needed to request protected id
+  // let id  = req.user_id;
+  let sql = `SELECT * FROM users WHERE id = ` + req.user_id;
     
     try {
         let results = await db(sql);
@@ -86,7 +89,7 @@ router.get("/:id", userShouldBeLoggedIn, async (req, res) => {
 
 /* GET all users*/
 router.get('/', async function(req, res, next) {
-  let sql = 'SELECT * FROM users ORDER BY username';
+  let sql = `SELECT * FROM users ORDER BY username`;
 
   try {
       let results = await db(sql);

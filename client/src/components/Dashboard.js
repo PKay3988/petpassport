@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
 import "./Dashboard.css";
+||||||| 7f2ab71
+import React from 'react'
+=======
+import React from 'react'
+import Events from './Events';
+>>>>>>> staging
 
 export const Dashboard = () => {
     //stores coords from browser position
@@ -53,6 +60,7 @@ export const Dashboard = () => {
             </div>
 
         </div>
+        
     )
 }
 

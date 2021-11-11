@@ -25,7 +25,7 @@ router.delete('/:id', async function(req, res) {
 });
 
 /* POST a new pet - not adding yet vet_id */
-router.post('/', async function(req, res) {
+router.post('/AddPets', async function(req, res) {
     await db(`INSERT INTO pets (
         pet_name,
         breed,

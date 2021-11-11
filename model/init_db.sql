@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS vets;
 DROP TABLE IF EXISTS treatments;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS images;
 
 
 
@@ -31,7 +32,7 @@ CREATE TABLE `vets` (
 	`country_code` varchar(255) NOT NULL,
 	`coords` varchar(255),
 	`user_id` INT NOT NULL,
-	PRIMARY KEY (`id`),
+	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `treatments` (
@@ -46,12 +47,19 @@ CREATE TABLE `treatments` (
 );
 
 CREATE TABLE `pets` (
-	`id` INT NOT NULL AUTO_INCREMENT,
+	`pet_id` INT NOT NULL AUTO_INCREMENT,
 	`pet_name` varchar(255) NOT NULL,
 	`breed` varchar(255) NOT NULL,
 	`dob` DATE NOT NULL,
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,
-	PRIMARY KEY (`id`),
+	PRIMARY KEY (`pet_id`)
+);
+
+CREATE TABLE `images` (
+	`img_id` INT NOT NULL AUTO_INCREMENT,
+	`pet_id` INT NOT NULL,
+	`image` varchar(255) NOT NULL,
+	PRIMARY KEY (`img_id`)
 );
