@@ -1,30 +1,23 @@
-<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
 import "./Dashboard.css";
-||||||| 7f2ab71
-import React from 'react'
-=======
-import React from 'react'
-import Events from './Events';
->>>>>>> staging
 
 export const Dashboard = () => {
-    //stores coords from browser position
-    const [position, setPosition] = useState();
+    // // stores coords from browser position
+    // const [position, setPosition] = useState();
 
-    //gets coord of current location from the browser
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                setPosition([position.coords.latitude, position.coords.longitude]);
-            }, 
-            function(error) {
-                console.log(error)
-            }, 
-            { enableHighAccuracy: true })
-    }, [])
+    // //gets coord of current location from the browser
+    // useEffect(() => {
+    //     navigator.geolocation.getCurrentPosition(
+    //         function(position) {
+    //             setPosition([position.coords.latitude, position.coords.longitude]);
+    //         }, 
+    //         function(error) {
+    //             console.log(error)
+    //         }, 
+    //         { enableHighAccuracy: true })
+    // }, [])
 
     // gets list of vets 
     const [vets, setVets] = useState([]);
