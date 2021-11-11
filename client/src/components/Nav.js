@@ -26,7 +26,10 @@ const Nav = () => {
                     <Link to="/Vets"><li>VETS</li>
                     </Link>
 
-                    <Link to="/PhotoGallery"><li>PHOTOS</li>
+                    <Link to="/PhotoGallery"><li>GALLERY</li>
+                    </Link>
+
+                    <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
                     </div>

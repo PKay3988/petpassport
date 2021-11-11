@@ -18,25 +18,27 @@ router.post('/register', async function(req, res) {
     
     await db(
       `INSERT INTO users (
-        name, 
-        city, 
-        street_number, 
-        street_name, 
-        postal_code, 
-        country, 
-        email, 
+        name,
         username, 
-        password) VALUES (
-          "${name}", 
-          "${city}", 
-          "${street_number}", 
-          "${street_name}", 
-          "${postal_code}", 
-          "${country}", 
-          "${email}", 
-          "${username}", 
-          "${hash}")`
-    );
+        email, 
+        password,
+        postal_code,
+        city, 
+        country,
+        street_number, 
+        street_name
+        
+      ) VALUES (
+        "${name}", 
+        "${username}", 
+        "${email}", 
+        "${hash}", 
+        "${postal_code}", 
+        "${city}", 
+        "${country}", 
+        "${street_number}", 
+        "${street_name}"
+      )`)
 
     res.send({ message: "Registration successful" });
   } catch (err) {

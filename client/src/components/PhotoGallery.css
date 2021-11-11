@@ -1,0 +1,27 @@
+/* image {
+    max-width: 5%;
+    max-height: 5%;
+} */
+
+
+.carousel-container {
+    display:flexbox;
+    align-items: center;
+    justify-content:center
+}
+.carousel {
+    width: 25%;
+    height: 100%;
+    float: right;
+    margin-right:35%;
+    margin-top: 5;
+}
+.carousel-item img {
+    width:25%;
+    height:450px;
+    object-fit: scale-down;
+    object-position: center;
+    /* background-size: cover; */
+    /* overflow: hidden; */
+    
+  }

@@ -21,7 +21,7 @@ export default function ReactRoutes(){
      
         <Route path ="/AddPet" element={AddPet} />
 
-        <Route path ="/AddPhoto" component={AddPhoto} />
+        <Route path ="/AddPhoto" element={<AddPhoto />} />
 
         <Route path ="/ChoosePet" component={ChoosePet} />
       

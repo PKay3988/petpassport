@@ -114,6 +114,7 @@ function Login() {
     })
       .then((result) => {
         localStorage.setItem("token", result.data.token);
+        console.log(result.data.token);
         getToken();
       })
       .then(setUser({ username: "", password: "" }), requestData())
@@ -127,6 +128,7 @@ function Login() {
 
   const signout = () => {
     localStorage.clear("token");
+    console.log("Bye!");
     setAuthUser("");
     // getToken();
   };
