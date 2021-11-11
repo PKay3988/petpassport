@@ -44,7 +44,7 @@ export const Dashboard = () => {
                     </div>
                     <div>
                         <span>appointments</span>
-                        </div>
+                    </div>
                 </div>
 
                 <div className="dash-item">

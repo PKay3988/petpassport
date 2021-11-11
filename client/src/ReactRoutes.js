@@ -13,10 +13,6 @@ export default function ReactRoutes() {
   const [user, setUser] = useState();
   const [petId, setPetId] = useState();
 
-  // might have to create functions for the setters instead of calling them on props 
-  function onSettingUser(user) {
-    setUser(user);
-  }
 
   return (
     <Routes>
@@ -26,7 +22,7 @@ export default function ReactRoutes() {
         {/* dashboard - HOME buttons should point to it */}
         <Route path="/Dashboard" element={<Dashboard user={user} petId={petId} />} />
         {/* after login - choose pet */}
-        <Route path="/ChoosePet" element={<ChoosePet user={user} sendPet={(pet) => setPetId(pet)} sendUser={user => onSettingUser(user)}/>} />
+        <Route path="/ChoosePet" element={<ChoosePet user={user} sendPet={(pet) => setPetId(pet)} sendUser={user => setUser(user)}/>} />
         {/* if no pets or want to add one - add pet */}
         <Route path="/AddPet" element={<AddPet />} />
         <Route path="/Vets" element={<Vets user={user}/>} />

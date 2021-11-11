@@ -9,15 +9,11 @@ import icon from '../assets/icon-2.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 const MapView = (props) => {
-    // when we connect components - send user id to fetch their info(or info directly) 
-    // - add marker to home & center map in case of user rejecting geolocation
-    // const [user, setUser] = useState();
+    // when we connect components - send user info to fetch their coords
+    // - add marker to home & center map
 
     // useEffect(() => {
-    //     fetch(`/users/${props.id}`)
-    //         .then(result => result.json())
-    //         .then(user => setUser(user))
-    //         .catch(err => console.log(err.message))
+        
     // }, [])
 
     let homeIcon = L.icon({
@@ -32,7 +28,7 @@ const MapView = (props) => {
     if(props.vets[0]) {vetCoords = props.vets[0].coords};
 
     return (
-        <MapContainer  center={props.position ? props.position : [ 51.53813, -0.22522 ]} zoom={13}>
+        <MapContainer  center={[ 51.53813, -0.22522 ]} zoom={13}>
             <TileLayer 
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
