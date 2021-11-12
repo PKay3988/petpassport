@@ -5,8 +5,10 @@ import { useState, useEffect } from "react";
 // import router from "../../routes/users";
 // import { Switch, useHistory } from 'react-router-dom';
 import "./Login.css";
+import { Link } from "react-router-dom";
+import { propTypes } from "react-bootstrap/esm/Image";
 
-function Login() {
+function Login(props) {
   const [currentId, setCurrentId] = useState({ user_id: 0 });
   // const emptyUser = {
   //   username: "",
@@ -18,6 +20,10 @@ function Login() {
   // const [message, setMessage] = useState({})
   const [status, setStatus] = useState({});
   const [authUser, setAuthUser] = useState("");
+
+  //adding this to store all of user info (except pass) on login & send it to reactroutes
+  const [fullUser, setFullUser] = useState();
+
   // const history = useHistory();
 
   // function handleChange(event) {
@@ -93,8 +99,13 @@ function Login() {
       },
     })
       .then((result) => result.json())
-      .then((user) => setAuthUser(user.name))
-      .then((id) => setCurrentId(id))
+      .then((user) => {
+        setAuthUser(user.name);
+        setCurrentId(user.id);
+        setFullUser(user);
+        props.onLogin(fullUser);
+      })
+      // .then((id) => setCurrentId(id))
       .catch((err) => setStatus({ message: "Not authenticated." }));
   };
 
@@ -117,7 +128,7 @@ function Login() {
         console.log(result.data.token);
         getToken();
       })
-      .then(setUser({ username: "", password: "" }), requestData())
+      .then(setUser({ username: "", password: "" }))
       .catch((error) => console.log(error));
   };
 
