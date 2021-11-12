@@ -100,10 +100,10 @@ function Login(props) {
     })
       .then((result) => result.json())
       .then((user) => {
-        setAuthUser(user.name);
-        setCurrentId(user.id);
         setFullUser(user);
         props.onLogin(fullUser);
+        setAuthUser(user.name);
+        setCurrentId(user.id);
       })
       // .then((id) => setCurrentId(id))
       .catch((err) => setStatus({ message: "Not authenticated." }));

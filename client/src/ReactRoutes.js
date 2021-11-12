@@ -43,7 +43,7 @@ export default function ReactRoutes() {
 
         <Route path ="/registeruser" element={<RegisterUser />} />
 
-        <Route path="/Login" element={<Login />} />
+        {/* <Route path="/Login" element={<Login />} /> */}
     </Routes>
   );
 }

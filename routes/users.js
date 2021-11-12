@@ -39,6 +39,7 @@ router.post('/register', async function(req, res) {
         postal_code,
         city, 
         country,
+        country_code,
         street_number, 
         street_name,
         coords
@@ -51,6 +52,7 @@ router.post('/register', async function(req, res) {
         "${postal_code}", 
         "${city}", 
         "${country}", 
+        "${country_code}",
         "${street_number}", 
         "${street_name}",
         "${homeCoords ? homeCoords.features[0].center.join(",") : "none"}"

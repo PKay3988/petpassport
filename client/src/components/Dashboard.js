@@ -3,7 +3,7 @@ import MapView from './MapView';
 import Nav from './Nav';
 import "./Dashboard.css";
 
-export const Dashboard = () => {
+export const Dashboard = (props) => {
     // // stores coords from browser position
     // const [position, setPosition] = useState();
 
@@ -29,6 +29,8 @@ export const Dashboard = () => {
             .catch(err => console.log(err.message))
     }, []);
 
+    let user = props.user;
+
     return (
         <div>
             <Nav />
@@ -48,7 +50,7 @@ export const Dashboard = () => {
                 </div>
 
                 <div className="dash-item">
-                    <MapView vets={vets} />
+                    <MapView vets={vets} user={user}/>
                 </div>
             </div>
 

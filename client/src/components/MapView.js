@@ -27,8 +27,14 @@ const MapView = (props) => {
     let vetCoords = null;
     if(props.vets[0]) {vetCoords = props.vets[0].coords};
 
+    let homeCoords = null;
+    if(props.user) { homeCoords = props.user.coords };
+
+    let center = [ 55.53813 , -0.22522 ];
+    if(homeCoords) { center = homeCoords.split(",").reverse()} 
+
     return (
-        <MapContainer  center={[ 51.53813, -0.22522 ]} zoom={13}>
+        <MapContainer  center={ center } zoom={13}>
             <TileLayer 
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
@@ -37,6 +43,13 @@ const MapView = (props) => {
                 <Popup>
                     {props.vets[0].name} <br />
                     {props.vets[0].phone_number}
+                </Popup>
+            </Marker>
+            : null}
+            {homeCoords ? 
+            <Marker position={homeCoords.split(",").reverse()}>
+                <Popup>
+                    HOME
                 </Popup>
             </Marker>
             : null}

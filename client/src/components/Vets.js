@@ -4,7 +4,7 @@ import MapView from "./MapView";
 import Nav from "./Nav";
 import countryList from 'react-select-country-list';
 
-function Vets() {
+function Vets(props) {
     const [vets, setVets] = useState([]);
     // const [userVet, setUserVet] = useState();
 
@@ -27,6 +27,8 @@ function Vets() {
             .then(vets => setVets(vets))
             .catch(err => console.log(err.message))
     }, []);
+
+    let user = props.user;
 
     //when we connect components - pass user id as props and get the specific vet associated to it
     // useEffect(() => {
@@ -80,7 +82,7 @@ function Vets() {
             </div>
 
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
-            <MapView vets={vets}/>
+            <MapView vets={vets} user={user}/>
         </div>
     )
 }
