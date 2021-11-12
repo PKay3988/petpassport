@@ -1,5 +1,7 @@
 import React from "react";
 import { useState } from 'react';
+import countryList from 'react-select-country-list';
+import { stringify } from "uuid";
 // import { useParams } from 'react-router-dom';
 // import { Switch, useHistory } from 'react-router-dom';
 // import "./RegisterUser.css";
@@ -7,9 +9,9 @@ import { useState } from 'react';
 function RegisterUser() {
     // const { id } = useParams();
     
-    const [currentId, setCurrentId] = useState({ id: 1 });
+    // const [currentId, setCurrentId] = useState({ id: 1 });
     const emptyUserReg = {
-        id: `${currentId.id}`,
+        // id: `${currentId.id}`,
         name: "",
         username:"",
         email: "",
@@ -17,6 +19,7 @@ function RegisterUser() {
         postal_code:"", 
         city: "",
         country:"",
+        country_code: "",
         street_number:"", 
         street_name:""
     }
@@ -28,7 +31,10 @@ function RegisterUser() {
 
     const handleChange = (event) => {
         let {name, value} = event.target;
-        setUser({...user, [name]: value});
+
+        let country_code = countryList().getValue(user.country);
+
+        setUser({...user, [name]: value, "country_code": country_code});
     }
 
     function handleSubmit(event) {
@@ -161,7 +167,8 @@ return (
 
             <button className= "button" onSubmit= {handleSubmit}> 
             Register
-            </button>    
+            </button> 
+            {message ? <div>{message.message}</div> : <div></div>}   
             </form>
         </div>
     </div>

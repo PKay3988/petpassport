@@ -17,6 +17,7 @@ CREATE TABLE `users` (
     `country` varchar(255) NOT NULL,
     `street_number` INT NOT NULL,
     `street_name` varchar(255) NOT NULL,
+	`coords` varchar(255),
 	PRIMARY KEY (`id`)
 );
 
