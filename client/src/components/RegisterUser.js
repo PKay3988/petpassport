@@ -7,9 +7,9 @@ import { useState } from 'react';
 function RegisterUser() {
     // const { id } = useParams();
     
-    const [currentId, setCurrentId] = useState({ id: 1 });
+    // const [currentId, setCurrentId] = useState({ id: 1 });
     const emptyUserReg = {
-        id: `${currentId.id}`,
+        // id: "",
         name: "",
         username:"",
         email: "",
@@ -32,37 +32,19 @@ function RegisterUser() {
     }
 
     function handleSubmit(event) {
+        console.log("Hello there");
         event.preventDefault();
-        registerUser(user.name, user.username, user.email, user.password, user.postal_code, user.city, user.country, user.street_number, user.street_name);
+        registerUser();
     }
 
 /*fetch for POST register*/
     const registerUser = async () => {
+        console.log("Hello");
         await fetch ("/users/register", {
             method: "POST",
             headers: {"Content-Type": "application/json" },
-            data: user,
+            body: JSON.stringify(user)
         })
-        
-            // body: JSON.stringify(newUser)
-            // data: {
-            //     name: `${name}`,
-            //     city: `${city}`,
-            //     street_number: `${street_number}`,
-            //     street_name: `${street_name}`, 
-            //     postal_code: `${postal_code}`,
-            //     country: `${country}`,
-            //     email:`${email}`,
-            //     username:`${username}`,
-            //     password:`${password}`,
-            // },
-                
-            // }
-            // await fetch ("register", options)
-            // .then (result => result.json())
-            // .then((user) => {
-            //     setUser(user);
-            // })
             .then (result => {setMessage(result)})
             .catch(error => 
                 console.log("network error:", error)
@@ -105,7 +87,7 @@ return (
 
             <label>Address Number</label>
             <input
-            alue={user.street_number}
+            value={user.street_number}
             onChange={handleChange}
             name= "street_number"
             type= "text"
@@ -159,7 +141,7 @@ return (
             className= "register-input"
             /> <br />
 
-            <button className= "button" onSubmit= {handleSubmit}> 
+            <button className= "button" onClick= {handleSubmit}> 
             Register
             </button>    
             </form>
