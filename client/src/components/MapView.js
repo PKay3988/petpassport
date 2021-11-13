@@ -28,7 +28,9 @@ const MapView = (props) => {
     }
 
     let vetCoords = null;
-    if(props.vets[0]) {vetCoords = props.vets[0].coords};
+    if(props.userVet.length > 0) {
+        vetCoords = props.userVet[0].coords
+    };
 
     let homeCoords = null;
     if(props.user) { homeCoords = props.user.coords };
@@ -43,10 +45,10 @@ const MapView = (props) => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
             {vetCoords ? 
             <Marker position={vetCoords.split(",").reverse()} icon={getVetIcon()}>
-                <Popup>
+                {/* <Popup>
                     {props.vets[0].name} <br />
                     {props.vets[0].phone_number}
-                </Popup>
+                </Popup> */}
             </Marker>
             : null}
             {homeCoords ? 

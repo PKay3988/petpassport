@@ -12,6 +12,6 @@
 
 .midsection {
     display: flex;
-    width: 50%;
-    justify-content: space-around;
+    width: 100%;
+    justify-content: space-evenly
 }

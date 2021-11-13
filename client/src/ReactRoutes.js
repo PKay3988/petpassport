@@ -37,7 +37,7 @@ export default function ReactRoutes() {
 
         {/* <Route path="/Wellness" element={<Wellness />} /> */}
 
-        {/* <Route path="/DisplayProfile" element={<DisplayProfile />} /> */}
+        <Route path="/AddPhoto" element={<AddPhoto />} />
 
         <Route path ="/PhotoGallery" element={<PhotoGallery />} />
 

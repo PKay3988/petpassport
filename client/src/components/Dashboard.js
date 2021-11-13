@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
+import PhotoGallery from './PhotoGallery';
 import "./Dashboard.css";
 
 export const Dashboard = (props) => {
@@ -20,12 +21,13 @@ export const Dashboard = (props) => {
     // }, [])
 
     // gets list of vets 
-    const [vets, setVets] = useState([]);
+    const [userVet, setUserVet] = useState([]);
 
+    // pass user id as props and get the specific vet associated to it
     useEffect(() => {
-        fetch('/vets')
+        fetch(`/vets/vet/${user.id}`) 
             .then(result => result.json())
-            .then(vets => setVets(vets))
+            .then(vet => setUserVet(vet))
             .catch(err => console.log(err.message))
     }, []);
 
@@ -36,21 +38,16 @@ export const Dashboard = (props) => {
             <Nav />
 
             <div className="dashboard-container">
-                <div className="dash-item">
-                    important events
-                </div>
-
+                
                 <div className="dash-item midsection">
-                    <div>
-                        <span>photo gallery</span>
-                    </div>
+                    <PhotoGallery />
                     <div>
                         <span>appointments</span>
                     </div>
                 </div>
 
                 <div className="dash-item">
-                    <MapView vets={vets} user={user}/>
+                    <MapView userVet={userVet} user={user}/>
                 </div>
             </div>
 

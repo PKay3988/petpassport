@@ -6,7 +6,7 @@ import countryList from 'react-select-country-list';
 
 function Vets(props) {
     const [vets, setVets] = useState([]);
-    const [userVet, setUserVet] = useState();
+    const [userVet, setUserVet] = useState([]);
 
     const [show, setShow] = useState(false);
 
@@ -32,13 +32,13 @@ function Vets(props) {
 
     let user = props.user;
 
-    // when we connect components - pass user id as props and get the specific vet associated to it
+    // pass user id as props and get the specific vet associated to it
     useEffect(() => {
         fetch(`/vets/vet/${user.id}`) 
             .then(result => result.json())
             .then(vet => setUserVet(vet))
             .catch(err => console.log(err.message))
-    }, []);
+    }, [show]);
 
     //add new vet to db & closes the modal
     function submitVet(newVet) {
@@ -62,7 +62,7 @@ function Vets(props) {
             <h3>my vets</h3>
             <div className="vet-cards">
                 <div className="card" key="card">
-                    {userVet ? <div className="card-content">
+                    {userVet.length > 0 ? <div className="card-content">
                         <span>{userVet[0].name}</span>
                         <span>{userVet[0].street_name}, {userVet[0].street_number}</span>
                         <span>{userVet[0].city}</span>
@@ -78,7 +78,7 @@ function Vets(props) {
             </div>
 
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
-            <MapView vets={vets} user={user}/>
+            <MapView userVet={userVet} user={user}/>
         </div>
     )
 }
