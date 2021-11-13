@@ -7,12 +7,7 @@ function Vets() {
     const [vets, setVets] = useState([]);
     // const [userVet, setUserVet] = useState();
 
-    //quick button to test map visibility - to delete
     const [show, setShow] = useState(false);
-    const [map, setMap] = useState(false);
-
-    //stores coords from browser position
-    const [position, setPosition] = useState();
 
     //functions to open - close the modal with addvet component
     const handleClose = () => setShow(false);
@@ -25,6 +20,8 @@ function Vets() {
             .then(result => result.json())
             .then(vets => setVets(vets))
             .catch(err => console.log(err.message))
+            // .then(res => res.text())
+            // .then(text => console.log(text))
     }, []);
 
     //when we connect components - pass user id as props and get the specific vet associated to it
@@ -34,18 +31,6 @@ function Vets() {
     //         .then(vet => setUserVet(vet))
     //         .catch(err => console.log(err.message))
     // });
-
-    //gets coord of current location from the browser - eventually, move to dashboard component and send coords through props towards mapview
-    useEffect(() => {
-        navigator.geolocation.getCurrentPosition(
-            function(position) {
-                setPosition([position.coords.latitude, position.coords.longitude]);
-            }, 
-            function(error) {
-                console.log(error)
-            }, 
-            { enableHighAccuracy: true })
-    }, [])
 
     //add new vet to db & closes the modal
     function submitVet(newVet) {
@@ -61,11 +46,6 @@ function Vets() {
             .then(vets => setVets(vets))
             .catch(err => console.log(err.message));
         handleClose();
-    }
-
-    //handler of open - close mapview button
-    function showMap() {
-        setMap(!map);
     }
     
     return (
@@ -94,10 +74,9 @@ function Vets() {
                 {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose}/> : <div />}
                 
             </div>
-            <button onClick={showMap} >show map</button>
 
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
-            {map ? <MapView position={position} vets={vets}/> : <div></div>}
+            <MapView vets={vets}/>
         </div>
     )
 }
