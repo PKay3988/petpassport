@@ -26,6 +26,8 @@ function Vets(props) {
             .then(result => result.json())
             .then(vets => setVets(vets))
             .catch(err => console.log(err.message))
+            // .then(res => res.text())
+            // .then(text => console.log(text))
     }, []);
 
     let user = props.user;
