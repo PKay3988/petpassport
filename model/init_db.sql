@@ -38,18 +38,39 @@ CREATE TABLE `treatments` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`date` DATE NOT NULL,
-	`completed` BOOLEAN NOT NULL,
-	`frequency` BOOLEAN NOT NULL,
+	`descriptions` varchar(255) NOT NULL,
+	`category` varchar(255) NOT NULL,
 	`pet_id` INT NOT NULL,
 	`vet_id` INT NOT NULL,
 	PRIMARY KEY (`id`)
 );
+
+CREATE TABLE `diet` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`brand` varchar(255) NOT NULL,
+	`date` DATE NOT NULL,
+	`unit` varchar(255) NOT NULL,
+	`notes` varchar(255) NOT NULL,
+	`pet_id` INT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `grooming` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`type` varchar(255) NOT NULL,
+	`date` DATE NOT NULL,
+	`notes` varchar(255) NOT NULL,
+	`pet_id` INT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
 
 CREATE TABLE `pets` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`pet_name` varchar(255) NOT NULL,
 	`breed` varchar(255) NOT NULL,
 	`dob` DATE NOT NULL,
+	`image` varchar(2550) NOT NULL,
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,

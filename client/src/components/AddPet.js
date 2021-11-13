@@ -3,13 +3,16 @@ import countryList from 'react-select-country-list';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-function AddVet(props) {
+function AddPet(props) {
     const emptyVet = {
         name: "",
         dob: "",
         user_id: 1
     };
+
+
     const [pet, setPet] = useState( emptyVet );
+    const [show, setShow] = useState(false);
 
     function handleChange(e) {
         e.preventDefault();
@@ -28,7 +31,7 @@ function AddVet(props) {
     }
 
     const handleClose = () => {
-        props.onClose();
+        setShow(false);
     }
 
     return (
@@ -49,7 +52,7 @@ function AddVet(props) {
                             value={pet.name}
                             onChange={handleChange} />
                         </label>
-                        <label className="addvet-item"> Street name and number
+                        <label className="addvet-item"> DOB
                             <div>
                                 <input 
                                 type="text"
@@ -82,5 +85,5 @@ function AddVet(props) {
 }
 
 
-export default AddVet;
+export default AddPet;
 

@@ -4,6 +4,7 @@ import './App.css';
 import Dashboard from './components/Dashboard'
 // import  Login from'./Component/Login';
 import ChoosePet from './components/ChoosePet';
+import AddPet from './components/AddPet';
 import Login from './components/Login';
 import {BrowserRouter as Router} from 'react-router-dom'
 import { Link } from 'react-router-dom'
@@ -34,7 +35,7 @@ function App() {
                {/* <Login /> */}
                {/* <ReactRoutes /> */}
                <ChoosePet />
-               <addPet />
+               <AddPet />
           </div>
         
      </Router> 
