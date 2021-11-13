@@ -87,6 +87,8 @@
 
 /* map size  */
 .leaflet-container {
-    width: 45vw;
-    height: 40vh;
+    width: 46vw;
+    height: 41vh;
+    border: 2px solid black;
+    margin-right: 2em;
 }
