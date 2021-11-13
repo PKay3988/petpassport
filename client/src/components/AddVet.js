@@ -14,7 +14,7 @@ function AddVet(props) {
         country: "",
         country_code: "",
         phone_number: "",
-        user_id: 1
+        user_id: `${props.id}`
     };
     const [vet, setVet] = useState( emptyVet );
 

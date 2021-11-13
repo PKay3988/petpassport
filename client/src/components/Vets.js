@@ -6,7 +6,7 @@ import countryList from 'react-select-country-list';
 
 function Vets(props) {
     const [vets, setVets] = useState([]);
-    // const [userVet, setUserVet] = useState();
+    const [userVet, setUserVet] = useState();
 
     const [show, setShow] = useState(false);
 
@@ -30,13 +30,13 @@ function Vets(props) {
 
     let user = props.user;
 
-    //when we connect components - pass user id as props and get the specific vet associated to it
-    // useEffect(() => {
-    //     fetch(`/vets/${props.id}`) 
-    //         .then(result => result.json())
-    //         .then(vet => setUserVet(vet))
-    //         .catch(err => console.log(err.message))
-    // });
+    // when we connect components - pass user id as props and get the specific vet associated to it
+    useEffect(() => {
+        fetch(`/vets/vet/${user.id}`) 
+            .then(result => result.json())
+            .then(vet => setUserVet(vet))
+            .catch(err => console.log(err.message))
+    }, []);
 
     //add new vet to db & closes the modal
     function submitVet(newVet) {
@@ -59,25 +59,19 @@ function Vets(props) {
             <Nav/>
             <h3>my vets</h3>
             <div className="vet-cards">
-                {/* when we can fetch by user id - find index of the vet
-                {vets && 
-                vets.findIndex(vet => vet.id === props.pet.vet_id)
-                } */}
                 <div className="card" key="card">
-                {vets && vets.map(vet => (
-                    <div className="card-content" key={vet.id}>
-                        <span>{vet.name}</span>
-                        <span>{vet.street_name}, {vet.street_number}</span>
-                        <span>{vet.city}</span>
-                        <span>{vet.phone_number}</span>
-                    </div>
-                ))}
+                    {userVet ? <div className="card-content">
+                        <span>{userVet[0].name}</span>
+                        <span>{userVet[0].street_name}, {userVet[0].street_number}</span>
+                        <span>{userVet[0].city}</span>
+                        <span>{userVet[0].phone_number}</span>
+                    </div> : <div></div>}
                     <button className="btn" onClick={handleShow}>add primary vet</button>
                 </div>
                 <a className="card">treatment</a>
 
                 {/* TODO - if there is already a vet with user id - render addvet with previous info & make it call a put request instead of post */}
-                {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose} countries={countries}/> : <div />}
+                {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose} countries={countries} id={user.id}/> : <div />}
                 
             </div>
 
