@@ -1,60 +1,94 @@
-import React from "react";
-import "./AddPet.css"
+import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 
-export const AddPet = () => {
-    // const [isShown, setIsShown] = useState(false);
+function AddPet(props) {
+  const emptyPet = {
+    pet_name: "",
+    breed: "",
+    dob: "",
+    user_id: `${props.id}`,
+    vet_id: "",
+  };
 
-    // const imgDiv = document.querySelector('.prof-pic-div');
-    // const img = document.querySelector('#photo');
-    // const file = document.querySelector('#file');
-    // const uploadBtn = document.querySelector('#uploadBtn');
+  const [pet, setPet] = useState(emptyPet);
 
-    // //if user hover on profile div
-    // imgDiv.('mouseenter', function()
-    // {
-    //     uploadBtn.style.display = "block"
-    // });
+  function handleChange(event) {
+    event.preventDefault();
+    const name = event.target.name;
+    const value = event.target.value;
 
-    // //if user hover out from div
-    // imgDiv.addEventListener('mouseleave', function()
-    // {
-    //     uploadBtn.style.display = "none"
-    // });
+    setPet((state) => ({
+      ...state,
+      [name]: value,
+    }));
+  }
 
-    // //choose photo to upload
-    // file.addEventListener('change', function(){
-    //     const chosenFile = this.files[0];
+  const addPet = () => {
+    props.onSubmit(pet);
+  };
 
-    //     if(chosenFile) {
-    //         //JS function
-    //         const reader = new FileReader();
+  const handleClose = () => {
+    props.onClose();
+  };
 
-    //         reader.addEventListener('load', function() {
-    //             img.setAttribute('src', reader.result)
-    //         });
+  return (
+    <div>
 
-    //         reader.readAsDataURL(chosenFile);
-    //     }
-    // })
-
-     
-
-
- 
-    return (
-        <div>
-           <div className="body">
-           <div className="prof-pic-div">
-            <img src ="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="avatar"id="pic"/>
-            {/* <label>Profile Picture:</label><br/> */}
-                <input type="file" id="file" /*onChange={onFileChange}*/ />
-                <button className="choose-file" id="uploadBtn" /*onClick={onFileUpload}*/>Upload</button>
-            </div>
-            </div>
-
-        
-            
+      <div className="body">
+       <div className="prof-pic-div">
+        <img src ="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="avatar"id="pic"/>
+        {/* <label>Profile Picture:</label><br/> */}
+            <input type="file" id="file" /*onChange={onFileChange}*/ />
+            <button className="choose-file" id="uploadBtn" /*onClick={onFileUpload}*/>Upload</button>
         </div>
-    )
+        </div>
+      <Modal show={true} onHide={handleClose} size="lg">
+        <Modal.Header closeButton>
+          <Modal.Title>Create new pet</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="addvet-form" onSubmit={addPet}>
+            <label className="addvet-item"> Name
+              <input
+                type="text"
+                name="pet_name"
+                value={pet.pet_name}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="addvet-item">
+              Breed
+              <input
+                type="text"
+                name="breed"
+                value={pet.breed}
+                onChange={handleChange}
+              />
+            </label>
+            <label className="addvet-item">
+              Date of birth
+              <input
+                type="date"
+                name="dob"
+                value={pet.dob}
+                onChange={handleChange}
+              />
+            </label>
+            <br />
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={addPet}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+    </div>
+  )
 }
+
 export default AddPet;

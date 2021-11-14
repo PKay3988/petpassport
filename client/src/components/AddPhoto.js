@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import Nav from "./Nav";
 
 const AddPhoto = () => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -38,6 +38,7 @@ const AddPhoto = () => {
   
     return (
       <div className="App">
+        <Nav />
         <h3>Select file to upload:</h3>
         <input type="file" onChange={onFileChange} />
         <button onClick={onFileUpload}>Upload</button>
