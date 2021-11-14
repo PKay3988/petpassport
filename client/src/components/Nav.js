@@ -20,6 +20,9 @@ const Nav = () => {
                     
                     <Link to="/ChoosePets"><li>PETS</li>
                      </Link>
+
+                    <Link to="/AddPet"><li>Add PET</li>
+                     </Link>
                     
                     <Link to="/Vets"><li>VETS</li>
                     </Link>

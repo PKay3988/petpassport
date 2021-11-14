@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
 import "./Dashboard.css";
+import PhotoGallery from './PhotoGallery';
 
 export const Dashboard = () => {
     // // stores coords from browser position
@@ -41,6 +42,7 @@ export const Dashboard = () => {
                 <div className="dash-item midsection">
                     <div>
                         <span>photo gallery</span>
+                        {/* <PhotoGallery /> */}
                     </div>
                     <div>
                         <span>appointments</span>

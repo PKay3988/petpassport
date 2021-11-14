@@ -54,6 +54,7 @@ CREATE TABLE `pets` (
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,
+	`pet_img`varchar(255) NOT NULL,
 	PRIMARY KEY (`pet_id`)
 );
 
