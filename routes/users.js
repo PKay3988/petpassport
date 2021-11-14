@@ -14,7 +14,7 @@ const supersecret = process.env.SUPER_SECRET;
 API_KEY = process.env.API_KEY
 
 // function getting the coordinates from te map api 
-const getCoords = async (city, street_number, street_name, country, country_code) => {
+const getCoords = async (street_number, street_name, city, country, country_code) => {
   console.log(street_number, street_name, city, country, country_code);
   let address = encodeURI(`${street_number} ${street_name} ${city} ${country}`);
   let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?country=${country_code}&access_token=${API_KEY}`
@@ -25,12 +25,10 @@ const getCoords = async (city, street_number, street_name, country, country_code
 
 /* POST new user */ 
 router.post('/register', async function(req, res) {
-  const { name, city, street_number, street_name, postal_code, country, country_code, email, username, password } = req.body;
-  console.log("hi")
-  let homeCoords = await getCoords(city, street_number, street_name, postal_code, country, country_code);
+  let homeCoords = await getCoords(req.body.street_number, req.body.street_name, req.body.city, req.body.country, req.body.country_code)
   console.log(homeCoords)
   try {
-    const hash = await bcrypt.hash(password, saltRounds);
+    const hash = await bcrypt.hash(req.body.password, saltRounds);
     
     await db(
       `INSERT INTO users (
@@ -46,15 +44,15 @@ router.post('/register', async function(req, res) {
         coords
         
       ) VALUES (
-        "${name}", 
-        "${username}", 
-        "${email}", 
+        "${req.body.name}", 
+        "${req.body.username}", 
+        "${req.body.email}", 
         "${hash}", 
-        "${city}", 
-        "${country}", 
-        "${country_code}",
-        "${street_number}", 
-        "${street_name}",
+        "${req.body.city}", 
+        "${req.body.country}", 
+        "${req.body.country_code}",
+        "${req.body.street_number}", 
+        "${req.body.street_name}",
         "${homeCoords ? homeCoords.features[0].center.join(",") : "none"}"
       )`)
 
