@@ -1,43 +1,74 @@
 import React, { useEffect, useState } from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
 import { Link } from "react-router-dom";
-import Nav from './Nav';
+import Nav from "./Nav";
+import AddPet from "./AddPet";
 
-export const ChoosePet = () => {
+export const ChoosePet = (props) => {
+  // if sending user through routes doesn't work
+  let user = props.user;
 
-  // if sending user through routes doesn't work 
-  let [user, setUser] = useState({});
+  const [show, setShow] = useState(false);
 
-  // useEffect(() => {
-  //   setUser(props.user);
-  // }, []);
+  //functions to open - close the modal with addvet component
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   // gets user in props - fetch pets with that id as user_id
+  const [pets, setPets] = useState([]);
 
+  useEffect(() => {
+    fetch(`/pets/pets/${user.id}`)
+      .then((result) => result.json())
+      .then((pets) => setPets(pets))
+      .catch((err) => console.log(err.message));
+  }, [pets]);
 
-  function onChoose() {
-    // props.sendPet(pet.id);
-    // props.sendUser(user);
+  function onChoose(pet) {
+    props.sendPet(pet);
+  }
+
+  function submitPet(newPet) {
+    fetch("/pets/AddPet", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPet),
+    })
+      .then((result) => result.json())
+      .then((pets) => setPets(pets))
+      .catch((err) => console.log(err.message));
+    handleClose();
   }
 
   return (
     <div>
       <h1>Choose a pet</h1>
 
-      <Nav />
-
-      {/* map pets - render a link for ever one of them (to dashboard) */}
       <ul>
-        <li > 
-            <Link to="/Dashboard" onClick={() => onChoose()}> Butterscotch </Link>
-        </li>
-        <li> Mr Peanut</li>
+        {pets &&
+          pets.map((pet) => (
+            <li key={pet.id}>
+              <Link to="/Dashboard" onClick={() => onChoose(pet)}>
+                <button >{pet.pet_name}</button>
+              </Link>
+            </li>
+          ))}
       </ul>
 
-      <button>
-        <Link to="/AddPet">add a pet</Link>
-      </button>
+      <button onClick={handleShow}>Add a pet</button>
       <button>delete a pet</button>
+
+      {show ? (
+        <AddPet
+          onSubmit={(newPet) => submitPet(newPet)}
+          onClose={handleClose}
+          id={user.id}
+        />
+      ) : (
+        <div />
+      )}
     </div>
   );
 };

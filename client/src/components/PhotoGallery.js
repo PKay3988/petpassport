@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
+import Nav from "./Nav";
 import "./PhotoGallery.css";
 // import Bird from './img/Bird.jpeg';
 
@@ -18,6 +19,7 @@ export const PhotoGallery = () => {
 
   return (
       <div className="carousel-container">
+        <Nav />
         <Carousel key={image.image_id}>
           {image.map((e) => (
             <Carousel.Item key={e.image_id}>

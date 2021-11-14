@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import countryList from 'react-select-country-list';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import Dropdown from "@restart/ui/esm/Dropdown";
 
 function AddVet(props) {
     const emptyVet = {

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import countryList from "react-select-country-list";
 
 function RegisterUser(props) {
@@ -136,7 +137,14 @@ const registerUser = async () => {
           <button className="button" onClick={handleSubmit}>
             Register
           </button>
-          <span>{message.message}</span>
+          <div>
+            <span>{message.message}</span>
+            <button>
+              <Link to="/">
+              Login
+              </Link>  
+            </button>
+          </div>
         </form>
       </div>
     </div>

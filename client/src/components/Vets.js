@@ -38,7 +38,7 @@ function Vets(props) {
             .then(result => result.json())
             .then(vet => setUserVet(vet))
             .catch(err => console.log(err.message))
-    }, [show]);
+    }, []);
 
     //add new vet to db & closes the modal
     function submitVet(newVet) {

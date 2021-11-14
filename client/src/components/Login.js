@@ -115,12 +115,14 @@ function Login(props) {
           />
 
           <button className="button" onClick={loginUser}>
-            See my Pets
+            Login
           </button>
 
-          {/* <button className="button" onClick={requestData}>
-            Req
-          </button> */}
+          <button className="button">
+            <Link to="/registeruser">
+            Create new user
+            </Link>
+          </button>
 
           <button type="button" onClick={signout}>
             Log out
@@ -133,7 +135,7 @@ function Login(props) {
       <div className="message">{message.message}</div>
 
       <button type="button" className="pets-btn" onClick={props.onLogin(fullUser)}>
-                <Link to="/Dashboard">See my Pets</Link>
+                <Link to="/ChoosePet">See my Pets</Link>
       </button>
     </div>
   );
