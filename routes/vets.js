@@ -14,7 +14,7 @@ router.get('/', async function(req, res, next) {
 
 /* GET one vet by id  - sends that vet back */
 router.get('/vet/:id', async function(req, res) {
-    await db(`SELECT * FROM vets WHERE id = ${req.params.id}`)
+    await db(`SELECT * FROM vets WHERE user_id = ${req.params.id}`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });

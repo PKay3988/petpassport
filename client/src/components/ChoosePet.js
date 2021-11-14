@@ -1,54 +1,45 @@
-import React, {useState, useEffect} from 'react';
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
+import React, { useEffect, useState } from "react";
+import { propTypes } from "react-bootstrap/esm/Image";
+import { Link } from "react-router-dom";
+import Nav from "./Nav";
+import AddPet from "./AddPet";
 
-export const ChoosePet = () => {
+export const ChoosePet = (props) => {
+  // if sending user through routes doesn't work
+  let user = props.user;
 
-    const [pets, setPets] = useState([]); 
-    const [show, setShow] = useState(false);
-    // const [pet, setPet] = useState( emptyVet );
+  const [show, setShow] = useState(false);
 
-    const getPets = () => {
-        // console.log('hi')
-          fetch("/pets")
-            .then((response) => response.json())
-            .then(json => {
-              // console.log(json);
-              setPets(json);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        };
+  //functions to open - close the modal with addvet component
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
-    const onSelectPet = (id) => {
-        console.log(id)
-        //need to add link to pet Id profile / dashboard
-    }
-    
-    const emptyVet = {
-      name: "",
-      dob: "",
-      user_id: 1
-  };
+  // gets user in props - fetch pets with that id as user_id
+  const [pets, setPets] = useState([]);
 
-    const addPet = () => {
-    // props.onSubmit(vet);
-}
-    const handleClose = () => {
-    setShow(false);
-}
+  useEffect(() => {
+    fetch(`/pets/pets/${user.id}`)
+      .then((result) => result.json())
+      .then((pets) => setPets(pets))
+      .catch((err) => console.log(err.message));
+  }, [pets]);
 
-    function handleChange(e) {
-      e.preventDefault();
-      const name = e.target.name;
-      const value = e.target.value;
+  function onChoose(pet) {
+    props.sendPet(pet);
+  }
 
-      // adds that code to vet object 
-    //   setPet((state) => ({
-    //       ...state,
-    //       [name]: value,
-    //   }));
+  function submitPet(newPet) {
+    fetch("/pets/AddPet", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPet),
+    })
+      .then((result) => result.json())
+      .then((pets) => setPets(pets))
+      .catch((err) => console.log(err.message));
+    handleClose();
   }
     useEffect(() => {
         getPets();
@@ -119,7 +110,39 @@ export const ChoosePet = () => {
         </div> */}
 </div> 
 
+<<<<<<< HEAD
     )
+=======
+  return (
+    <div>
+      <h1>Choose a pet</h1>
+
+      <ul>
+        {pets &&
+          pets.map((pet) => (
+            <li key={pet.id}>
+              <Link to="/Dashboard" onClick={() => onChoose(pet)}>
+                <button >{pet.pet_name}</button>
+              </Link>
+            </li>
+          ))}
+      </ul>
+
+      <button onClick={handleShow}>Add a pet</button>
+      <button>delete a pet</button>
+
+      {show ? (
+        <AddPet
+          onSubmit={(newPet) => submitPet(newPet)}
+          onClose={handleClose}
+          id={user.id}
+        />
+      ) : (
+        <div />
+      )}
+    </div>
+  );
+>>>>>>> c486eb993b324b22e6851f8d3408040c989bdd83
 };
 
 export default ChoosePet;

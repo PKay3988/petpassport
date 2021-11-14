@@ -15,8 +15,10 @@ CREATE TABLE `users`(
     `postal_code` INT NOT NULL,
 	`city` varchar(255) NOT NULL,
     `country` varchar(255) NOT NULL,
+	`country_code` varchar(255) NOT NULL,
     `street_number` INT NOT NULL,
     `street_name` varchar(255) NOT NULL,
+	`coords` varchar(255),
 	PRIMARY KEY (`id`)
 );
 

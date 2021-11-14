@@ -1,22 +1,25 @@
-import { Link, Route, Routes } from 'react-router-dom'
-import React, {useState} from 'react'
-// import { Routes } from 'react-router'
-import AddPet from "./components/AddPet" 
+import { Route, Routes } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import AddPhoto from "./components/AddPhoto"
-import ChoosePet from "./components/ChoosePet"  
+import ChoosePet from "./components/ChoosePet" 
+import AddPet from './components/AddPet' 
 import Dashboard from "./components/Dashboard"
 import DisplayProfile from "./components/DisplayProfile" 
 import Login from "./components/Login" 
-import Events from './components/Events';
 import Vets from './components/Vets'
-import Nav from "./components/Nav" 
 import PhotoGallery from "./components/PhotoGallery" 
 import RegisterUser from './components/RegisterUser'
+import countryList from 'react-select-country-list'
 
 export default function ReactRoutes() {
   const [user, setUser] = useState();
-  const [petId, setPetId] = useState();
+  const [pet, setPet] = useState();
 
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+      setCountries(countryList().getLabels());
+  }, [])
 
   return (
     <Routes>
@@ -25,25 +28,21 @@ export default function ReactRoutes() {
         <Route path="/" exact element={<Login onLogin={user => setUser(user)}/>} />
 
         {/* dashboard - HOME buttons should point to it */}
-        <Route path="/Dashboard" element={<Dashboard user={user} petId={petId} />} />
+        <Route path="/Dashboard" element={<Dashboard user={user} pet={pet} />} />
 
         {/* after login - choose pet */}
-        <Route path="/ChoosePet" element={<ChoosePet user={user} sendPet={(pet) => setPetId(pet)} sendUser={user => setUser(user)}/>} />
-
-        {/* if no pets or want to add one - add pet */}
-        <Route path="/AddPet" element={<AddPet />} />
+        <Route path="/ChoosePet" element={<ChoosePet user={user} sendPet={(pet) => setPet(pet)}/>} />
 
         <Route path="/Vets" element={<Vets user={user}/>} />
 
         {/* <Route path="/Wellness" element={<Wellness />} /> */}
 
-        {/* <Route path="/DisplayProfile" element={<DisplayProfile />} /> */}
+        <Route path="/AddPhoto" element={<AddPhoto />} />
 
         <Route path ="/PhotoGallery" element={<PhotoGallery />} />
 
-        <Route path ="/registeruser" element={<RegisterUser />} />
+        <Route path ="/registeruser" element={<RegisterUser  countries={countries}/>} />
 
-        <Route path="/Login" element={<Login />} />
     </Routes>
   );
 }

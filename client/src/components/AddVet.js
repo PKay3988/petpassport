@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState } from "react";
 import countryList from 'react-select-country-list';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -13,7 +13,7 @@ function AddVet(props) {
         country: "",
         country_code: "",
         phone_number: "",
-        user_id: 1
+        user_id: `${props.id}`
     };
     const [vet, setVet] = useState( emptyVet );
 
@@ -89,13 +89,11 @@ function AddVet(props) {
                             value={vet.city}
                             onChange={handleChange}/>
                         </label>
-                        <label className="addvet-item"> Country
-                            <input 
-                            type="text"
-                            name="country" 
-                            value={vet.country}
-                            onChange={handleChange}/>
-                        </label>
+                        <select className="select-form" name="country" value={vet.country} onChange={handleChange}>
+                            {props.countries.map(country => (
+                                <option key={country}>{country}</option>
+                            ))}
+                        </select>
                         <label className="addvet-item"> Phone number
                             <input 
                             type="text"
