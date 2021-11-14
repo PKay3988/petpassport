@@ -9,18 +9,15 @@ function RegisterUser(props) {
         username:"",
         email: "",
         password: "",
-        postal_code:"", 
         city: "",
         country:"",
-        country_code:"",
+        country_code: "",
         street_number:"", 
         street_name:""
     }
     const [user, setUser] = useState(emptyUserReg);
-    // const [formData, setFormData] = useState(emptyUserReg);
-    const [message, setMessage] = useState({})
-    // const [status, setStatus] = useState(/*localStorage.getUser()*/);
 
+    const [message, setMessage] = useState({})
 
     const handleChange = (event) => {
         let {name, value} = event.target;
@@ -28,7 +25,11 @@ function RegisterUser(props) {
         // gets country code with method from react-select-countries 
         let country_code = countryList().getValue(user.country);
 
-        setUser({...user, [name]: value, ["country code"]: country_code});
+        setUser((state) => ({
+          ...state,
+          [name]: value,
+          "country_code": country_code
+      }));    
     }
 
     function handleSubmit(event) {
@@ -100,14 +101,6 @@ const registerUser = async () => {
             type="text"
             className="register-input"
           />
-          <label>Postal Code</label>
-          <input
-            value={user.postal_code}
-            onChange={handleChange}
-            name="postal_code"
-            type="text"
-            className="register-input"
-          />{" "}
           <br />
           <label>Email</label>
           <input
