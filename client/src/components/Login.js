@@ -8,6 +8,8 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import { propTypes } from "react-bootstrap/esm/Image";
 
+import dogImage from '../assets/illustration.jpeg';
+
 function Login(props) {
 
   const [user, setUser] = useState({ username: "", password: "" });
@@ -91,9 +93,19 @@ function Login(props) {
 
   return (
     <div className="login-container">
+      
+      
       <div className="login">
+    
+        {authUser ? 
+        <div className="login-success">  
+        <h3>Hello {authUser}</h3> <p>login successful! </p>
+        <button type="button" className="btn btn-primary" onClick={props.onLogin(fullUser)}>
+                <Link id="choose-pet" to="/ChoosePet">see my pets</Link>
+        </button>
+        </div> : 
+        <div> 
         <h2> Login</h2>
-
         <div className="login-form">
           {/* <form> */}
           <label>Username</label>
@@ -113,30 +125,39 @@ function Login(props) {
             type="password"
             className="register-input"
           />
-
-          <button className="button" onClick={loginUser}>
+        <div className="login-menu">
+          <button className="button btn btn-primary" onClick={loginUser}>
             Login
           </button>
+        
+          <p> or <Link id="link" to="/registeruser">
+            register
+            </Link> </p>
+            </div>
+          
 
-          <button className="button">
-            <Link to="/registeruser">
-            Create new user
-            </Link>
-          </button>
 
           {/* <button type="button" onClick={signout}>
             Log out
           </button> */}
           {/* </form> */}
         </div>
+        
+        </div> 
+       
+        }
       </div>
-      {authUser && <h3>Hello {authUser}!</h3>}
+      {/* {authUser && <h3>Hello {authUser}!</h3>} */}
 
       <div className="message">{message.message}</div>
 
-      <button type="button" className="pets-btn" onClick={props.onLogin(fullUser)}>
+      {/* <button type="button" className="pets-btn" onClick={props.onLogin(fullUser)}>
                 <Link to="/ChoosePet">See my Pets</Link>
-      </button>
+      </button> */}
+
+    <div className="illustration">
+      <img src={dogImage} alt="petpassport illustration" width="450" height="450"></img>
+    </div>
     </div>
   );
 }
