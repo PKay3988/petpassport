@@ -32,15 +32,10 @@ router.delete('/:id', async function(req, res) {
 API_KEY = process.env.API_KEY
 
 /* Get the coordinates from map api */
-const getCoords = async (street_number, street_name, postal_code, city, country, country_code) => {
+const getCoords = async (street_number, street_name, city, country, country_code) => {
     console.log(street_number, street_name, postal_code, city, country, country_code);
-    let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${street_number}%20${street_name}%20${postal_code}%20${city}%20${country}.json?country=${country_code}&access_token=${API_KEY}`
-    // await fetch(url)
-    //     .then(response => response.json())
-    //     .then(json => {
-    //         console.log(json)
-    //         return json})
-    //     .catch(err => console.log(err.message))
+    let address = encodeURI(`${street_number} ${street_name} ${city} ${country}`)
+    let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?country=${country_code}&access_token=${API_KEY}`
     const response = await fetch(url);
     const data = await response.json();
 
@@ -49,13 +44,12 @@ const getCoords = async (street_number, street_name, postal_code, city, country,
 }
 
 router.post('/', async function(req, res) {
-    let mapBox = await getCoords(req.body.street_number, req.body.street_name, req.body.postal_code, req.body.city, req.body.country, req.body.country_code);
+    let mapBox = await getCoords(req.body.street_number, req.body.street_name, req.body.city, req.body.country, req.body.country_code);
     // console.log(mapBox)
     await db(`INSERT INTO vets (
         name,
         street_name,
         street_number,
-        postal_code,
         city,
         country,
         country_code,
@@ -66,7 +60,6 @@ router.post('/', async function(req, res) {
         '${req.body.name}',
         '${req.body.street_name}',
         '${req.body.street_number}',
-        '${req.body.postal_code}',
         '${req.body.city}',
         '${req.body.country}',
         '${req.body.country_code}',
