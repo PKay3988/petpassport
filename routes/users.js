@@ -90,7 +90,7 @@ router.post('/login', async function (req, res) {
 })
 
 /*GET user by id Function */
-router.get("/profile", userShouldBeLoggedIn, async (req, res) => {
+router.get("/profile", userShouldBeLoggedIn, async (req, res, next) => {
   //needed to request protected id
   // let id  = req.user_id;
   let sql = `SELECT * FROM users WHERE id = ` + req.user_id;

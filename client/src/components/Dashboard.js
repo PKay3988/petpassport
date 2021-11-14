@@ -3,7 +3,7 @@ import MapView from './MapView';
 import Nav from './Nav';
 import PhotoGallery from './PhotoGallery';
 import "./Dashboard.css";
-import PhotoGallery from './PhotoGallery';
+// import PhotoGallery from './PhotoGallery';
 
 export const Dashboard = (props) => {
     // // stores coords from browser position
