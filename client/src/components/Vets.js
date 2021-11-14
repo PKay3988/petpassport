@@ -10,6 +10,16 @@ function Vets(props) {
 
     const [show, setShow] = useState(false);
 
+    const [input, setInput] = useState(false);
+    const handleInput = () => setInput(!input);
+
+    const [appointment, setAppointment] = useState();
+
+    const handleAppointment = (e) => {
+        e.preventDefault();
+        setAppointment(e.target.value);
+    }
+
     //functions to open - close the modal with addvet component
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -38,7 +48,7 @@ function Vets(props) {
             .then(result => result.json())
             .then(vet => setUserVet(vet))
             .catch(err => console.log(err.message))
-    }, []);
+    }, [vets]);
 
     //add new vet to db & closes the modal
     function submitVet(newVet) {
@@ -61,7 +71,7 @@ function Vets(props) {
             <Nav/>
             <h3>my vets</h3>
             <div className="vet-cards">
-                <div className="card" key="card">
+                <div className="card" key="card"> Primary vet:
                     {userVet.length > 0 ? <div className="card-content">
                         <span>{userVet[0].name}</span>
                         <span>{userVet[0].street_name}, {userVet[0].street_number}</span>
@@ -70,7 +80,21 @@ function Vets(props) {
                     </div> : <div></div>}
                     <button className="btn" onClick={handleShow}>add primary vet</button>
                 </div>
-                <a className="card">treatment</a>
+                <div className="card">
+                    Next appointment: <br />
+                    {userVet.length > 0 ? userVet.appointment : <div></div>}
+                    {input && 
+                    <div>
+                        <label> Choose next appointment:
+                            <input 
+                            type="date"
+                            name="appointment"
+                            value={appointment}
+                            onChange={handleAppointment} />
+                        </label>
+                    </div>}
+                    <button className="btn" onClick={handleInput}>add vet appointment</button>
+                </div>
 
                 {/* TODO - if there is already a vet with user id - render addvet with previous info & make it call a put request instead of post */}
                 {show? <AddVet onSubmit={(newVet) => submitVet(newVet)} onClose={handleClose} countries={countries} id={user.id}/> : <div />}
