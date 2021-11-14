@@ -5,7 +5,6 @@ import './Vets.css';
 const Nav = () => {
     
     return (
-        <nav>
             <div className="navbar navbar-expand-md fixed-left">
             <div className="collapse navbar-collapse" id="navbar-content">
                 <ul className="navbar-nav">
@@ -37,7 +36,6 @@ const Nav = () => {
                 </ul>
             </div>
         </div>
-        </nav>
     )
 }
 

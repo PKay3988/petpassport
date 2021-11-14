@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
 import { Link } from "react-router-dom";
+import Nav from "./Nav";
 
 export const ChoosePet = () => {
 
@@ -22,6 +23,8 @@ export const ChoosePet = () => {
   return (
     <div>
       <h1>Choose a pet</h1>
+
+      <Nav />
 
       {/* map pets - render a link for ever one of them (to dashboard) */}
       <ul>

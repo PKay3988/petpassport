@@ -24,9 +24,9 @@ const getCoords = async (street_number, street_name, postal_code, city, country,
 /* POST new user */ 
 router.post('/register', async function(req, res) {
   const { name, city, street_number, street_name, postal_code, country, country_code, email, username, password } = req.body;
-  
+  console.log("hi")
   let homeCoords = await getCoords(city, street_number, street_name, postal_code, country, country_code);
-
+  console.log(homeCoords)
   try {
     const hash = await bcrypt.hash(password, saltRounds);
     
@@ -58,7 +58,7 @@ router.post('/register', async function(req, res) {
         "${homeCoords ? homeCoords.features[0].center.join(",") : "none"}"
       )`)
 
-    res.send({ message: "Registration successful" });
+    res.send({ message: "Registration successful! Now log in please." });
   } catch (err) {
     res.status(400).send({ message: err.message });
   }

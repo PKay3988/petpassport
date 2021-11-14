@@ -1,22 +1,27 @@
-import { Link, Route, Routes } from 'react-router-dom'
-import React, {useState} from 'react'
-// import { Routes } from 'react-router'
+import { Route, Routes } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
 import AddPet from "./components/AddPet" 
 import AddPhoto from "./components/AddPhoto"
 import ChoosePet from "./components/ChoosePet"  
 import Dashboard from "./components/Dashboard"
 import DisplayProfile from "./components/DisplayProfile" 
 import Login from "./components/Login" 
-import Events from './components/Events';
+import Events from './components/Events'
 import Vets from './components/Vets'
 import Nav from "./components/Nav" 
 import PhotoGallery from "./components/PhotoGallery" 
 import RegisterUser from './components/RegisterUser'
+import countryList from 'react-select-country-list'
 
 export default function ReactRoutes() {
   const [user, setUser] = useState();
   const [petId, setPetId] = useState();
 
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+      setCountries(countryList().getLabels());
+  }, [])
 
   return (
     <Routes>
@@ -41,7 +46,7 @@ export default function ReactRoutes() {
 
         <Route path ="/PhotoGallery" element={<PhotoGallery />} />
 
-        <Route path ="/registeruser" element={<RegisterUser />} />
+        <Route path ="/registeruser" element={<RegisterUser  countries={countries}/>} />
 
         {/* <Route path="/Login" element={<Login />} /> */}
     </Routes>

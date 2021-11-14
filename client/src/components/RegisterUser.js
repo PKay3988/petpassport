@@ -1,15 +1,7 @@
-import React from "react";
-import { useState } from 'react';
-import countryList from 'react-select-country-list';
-import { stringify } from "uuid";
-// import { useParams } from 'react-router-dom';
-// import { Switch, useHistory } from 'react-router-dom';
-// import "./RegisterUser.css";
+import React, { useEffect, useState } from "react";
+import countryList from "react-select-country-list";
 
-function RegisterUser() {
-    // const { id } = useParams();
-    
-    // const [currentId, setCurrentId] = useState({ id: 1 });
+function RegisterUser(props) {
     const emptyUserReg = {
         // id: "",
         name: "",
@@ -19,7 +11,7 @@ function RegisterUser() {
         postal_code:"", 
         city: "",
         country:"",
-        country_code: "",
+        country_code:"",
         street_number:"", 
         street_name:""
     }
@@ -32,9 +24,10 @@ function RegisterUser() {
     const handleChange = (event) => {
         let {name, value} = event.target;
 
+        // gets country code with method from react-select-countries 
         let country_code = countryList().getValue(user.country);
 
-        setUser({...user, [name]: value, "country_code": country_code});
+        setUser({...user, [name]: value, ["country code"]: country_code});
     }
 
     function handleSubmit(event) {
@@ -44,116 +37,110 @@ function RegisterUser() {
     }
 
 /*fetch for POST register*/
-    const registerUser = async () => {
-        console.log("Hello");
-        await fetch ("/users/register", {
-            method: "POST",
-            headers: {"Content-Type": "application/json" },
-            body: JSON.stringify(user)
-        })
-            .then (result => {setMessage(result)})
-            .catch(error => 
-                console.log("network error:", error)
-            )};
-return (
-    <div>
+const registerUser = async () => {
+    console.log("Hello");
+    await fetch ("/users/register", {
+        method: "POST",
+        headers: {"Content-Type": "application/json" },
+        body: JSON.stringify(user)
+    })
+        .then(result => result.json())
+        .then (result => {setMessage(result)})
+        .catch(error => {
+            console.log("network error:", error)
+        })};
 
-        <div>
-            <h2> Register New User</h2>
-            <form>
-            <label>Name</label>
-            <input
+  return (
+    <div>
+      <div>
+        <h2> Register New User</h2>
+        <form>
+          <label>Name</label>
+          <input
             value={user.name}
             onChange={handleChange}
-            name= "name"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>City</label>
-            <input
+            name="name"
+            type="text"
+            className="register-input"
+          />
+          <label>City</label>
+          <input
             value={user.city}
             onChange={handleChange}
-            name= "city"
-            type= "text"
-            className= "register-input"
-            />
-
-           
-            <label>Country</label>
-            <input
+            name="city"
+            type="text"
+            className="register-input"
+          />
+          <label>Country</label>
+          <select
+            className="select-form"
+            name="country"
             value={user.country}
             onChange={handleChange}
-            name= "country"
-            type= "text"
-            className= "register-input"
-            /> <br />
-
-
-
-            <label>Address Number</label>
-            <input
+          >
+            {props.countries.map((country) => (
+              <option key={country}>{country}</option>
+            ))}
+          </select>
+          <br />
+          <label>Address Number</label>
+          <input
             value={user.street_number}
             onChange={handleChange}
-            name= "street_number"
-            type= "text"
-            className= "register-input"
-            />
-
-
-            <label>Street Name</label>
-            <input
+            name="street_number"
+            type="text"
+            className="register-input"
+          />
+          <label>Street Name</label>
+          <input
             value={user.street_name}
             onChange={handleChange}
-            name= "street_name"
-            type= "text"
-            className= "register-input"
-            />
-
-            
-            <label>Postal Code</label>
-            <input
+            name="street_name"
+            type="text"
+            className="register-input"
+          />
+          <label>Postal Code</label>
+          <input
             value={user.postal_code}
             onChange={handleChange}
-            name= "postal_code"
-            type= "text"
-            className= "register-input"
-            /> <br />
-
-            <label>Email</label>
-            <input
+            name="postal_code"
+            type="text"
+            className="register-input"
+          />{" "}
+          <br />
+          <label>Email</label>
+          <input
             value={user.email}
             onChange={handleChange}
-            name= "email"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>Username</label>
-            <input
+            name="email"
+            type="text"
+            className="register-input"
+          />
+          <label>Username</label>
+          <input
             value={user.username}
             onChange={handleChange}
-            name= "username"
-            type= "text"
-            className= "register-input"
-            />
-
-            <label>Password</label>
-            <input
+            name="username"
+            type="text"
+            className="register-input"
+          />
+          <label>Password</label>
+          <input
             value={user.password}
             onChange={handleChange}
-            name= "password"
-            type= "password"
-            className= "register-input"
-            /> <br />
-
-            <button className= "button" onClick= {handleSubmit}> 
+            name="password"
+            type="password"
+            className="register-input"
+          />{" "}
+          <br />
+          <button className="button" onClick={handleSubmit}>
             Register
-            </button> 
-            {message ? <div>{message.message}</div> : <div></div>}   
-            </form>
-        </div>
+          </button>
+          <span>{message.message}</span>
+        </form>
+      </div>
     </div>
-)}
+  );
+}
 
 export default RegisterUser;
