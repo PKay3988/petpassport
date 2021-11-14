@@ -149,11 +149,11 @@ function Login(props) {
   }, []);
 
   return (
-    <div>
-      <div>
-        <h2> Login here to see your pets!</h2>
+    <div className="login-container">
+      <div className="login">
+        <h2> Login</h2>
 
-        <div>
+        <div className="login-form">
           {/* <form> */}
           <label>Username</label>
           <input
@@ -173,17 +173,17 @@ function Login(props) {
             className="register-input"
           />
 
-          <button className="button" onClick={loginUser}>
-            See my Pets
+          <button type="button" className="button btn btn-primary" onClick={loginUser}>
+            Login
           </button>
 
-          <button className="button" onClick={requestData}>
+          {/* <button className="button" onClick={requestData}>
             Req
-          </button>
+          </button> */}
 
-          <button type="button" onClick={signout}>
+          {/* <button type="button" onClick={signout}>
             Log out
-          </button>
+          </button> */}
           {/* </form> */}
         </div>
       </div>

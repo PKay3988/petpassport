@@ -17,53 +17,6 @@ export default function ReactRoutes() {
   const [user, setUser] = useState();
   const [petId, setPetId] = useState();
 
-<<<<<<< HEAD
-export default function ReactRoutes(){
-    return(
-  
-      <Routes>
-        {/* <div>  */}
-{/*       
-            <Route path ="/" exact></Route>
-      
-            <Route path ="/addPet" >
-                <AddPet />
-              </Route>
-      
-            <Route path ="/addPhoto" >
-                <AddPhoto />
-              </Route>
-       */}
-            {/* <Route path ="/choosePet" > 
-              <ChoosePet />
-            </Route> */}
-{/*           
-            <Route path ="/dashboard" >
-                <Dashboard />
-            </Route>
-      
-            <Route path ="/displayprofile" >
-                <DisplayProfile />
-            </Route>
-      
-            <Route path ="/login" > 
-              <Login /> 
-            </Route>
-          
-      
-            <Route path ="/nav" >
-                <Nav />
-            </Route>
-      
-            <Route path ="/photogallery" > 
-              <PhotoGallery />
-          </Route> */}
-    {/* </div> */}
-      </Routes>
-    
-    )
-};
-=======
 
   return (
     <Routes>
@@ -94,4 +47,3 @@ export default function ReactRoutes(){
     </Routes>
   );
 }
->>>>>>> b5e1bb5f4a8dafc11c8c30f32a933bc18b195055
