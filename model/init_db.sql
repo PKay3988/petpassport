@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS images;
 
 
 
-CREATE TABLE `users`(
+CREATE TABLE `users` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
     `username` varchar(255) NOT NULL,
@@ -41,39 +41,18 @@ CREATE TABLE `treatments` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`date` DATE NOT NULL,
-	`descriptions` varchar(255) NOT NULL,
-	`category` varchar(255) NOT NULL,
+	`completed` BOOLEAN NOT NULL,
+	`frequency` BOOLEAN NOT NULL,
 	`pet_id` INT NOT NULL,
 	`vet_id` INT NOT NULL,
 	PRIMARY KEY (`id`)
 );
-
-CREATE TABLE `diet` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`brand` varchar(255) NOT NULL,
-	`date` DATE NOT NULL,
-	`unit` varchar(255) NOT NULL,
-	`notes` varchar(255) NOT NULL,
-	`pet_id` INT NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
-CREATE TABLE `grooming` (
-	`id` INT NOT NULL AUTO_INCREMENT,
-	`type` varchar(255) NOT NULL,
-	`date` DATE NOT NULL,
-	`notes` varchar(255) NOT NULL,
-	`pet_id` INT NOT NULL,
-	PRIMARY KEY (`id`)
-);
-
 
 CREATE TABLE `pets` (
 	`pet_id` INT NOT NULL AUTO_INCREMENT,
 	`pet_name` varchar(255) NOT NULL,
 	`breed` varchar(255) NOT NULL,
 	`dob` DATE NOT NULL,
-	`image` varchar(2550) NOT NULL,
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,

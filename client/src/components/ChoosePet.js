@@ -41,78 +41,72 @@ export const ChoosePet = (props) => {
       .catch((err) => console.log(err.message));
     handleClose();
   }
-    useEffect(() => {
-        getPets();
-    });
+  
 
+//     return (
+//         <div>
+//             <h1>Choose a pet</h1>
 
-    return (
-        <div>
-            <h1>Choose a pet</h1>
+//             <ul>
+//             {pets.length > 0 && pets.map((i) => 
+//             <li className="button-list" key={i.id} onClick={() => onSelectPet(i.id)}>
+//                {i.pet_name}
+//             </li>)}
+//           </ul>
 
-            <ul>
-            {pets.length > 0 && pets.map((i) => 
-            <li className="button-list" key={i.id} onClick={() => onSelectPet(i.id)}>
-               {i.pet_name}
-            </li>)}
-          </ul>
-
-            <div>
+//             <div>
             
-      </div>
-      <button className="btn btn-success">Add a new pet</button>
+//       </div>
+//       <button className="btn btn-success">Add a new pet</button>
             
-      {/* <div>
-            <Modal 
-            show={true}
-            onHide={handleClose}
-            size="lg">
-                <Modal.Header closeButton>
-                <Modal.Title>Add a pet</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="addvet-form" onSubmit={addPet}>
-                        <label className="addvet-item"> Name
-                            <input 
-                            type="text"
-                            name="name" 
-                            value={pet.name}
-                            onChange={handleChange} />
-                        </label>
-                        <label className="addvet-item"> DOB
-                            <div>
-                                <input 
-                                type="text"
-                                name="dob" 
-                                value={pet.dob}
-                                onChange={handleChange}/>
-                                <input
-                                id="number"
-                                type="text"
-                                name="dob"
-                                value={pet.dob}
-                                onChange={handleChange} />
-                            </div>
-                        </label>
+//       {/* <div>
+//             <Modal 
+//             show={true}
+//             onHide={handleClose}
+//             size="lg">
+//                 <Modal.Header closeButton>
+//                 <Modal.Title>Add a pet</Modal.Title>
+//                 </Modal.Header>
+//                 <Modal.Body>
+//                     <div className="addvet-form" onSubmit={addPet}>
+//                         <label className="addvet-item"> Name
+//                             <input 
+//                             type="text"
+//                             name="name" 
+//                             value={pet.name}
+//                             onChange={handleChange} />
+//                         </label>
+//                         <label className="addvet-item"> DOB
+//                             <div>
+//                                 <input 
+//                                 type="text"
+//                                 name="dob" 
+//                                 value={pet.dob}
+//                                 onChange={handleChange}/>
+//                                 <input
+//                                 id="number"
+//                                 type="text"
+//                                 name="dob"
+//                                 value={pet.dob}
+//                                 onChange={handleChange} />
+//                             </div>
+//                         </label>
                         
-                        <br />
-                    </div>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={addPet}>
-                        Save Changes
-                    </Button>
-                </Modal.Footer>
-            </Modal>
-        </div> */}
-</div> 
+//                         <br />
+//                     </div>
+//                 </Modal.Body>
+//                 <Modal.Footer>
+//                     <Button variant="secondary" onClick={handleClose}>
+//                         Close
+//                     </Button>
+//                     <Button variant="primary" onClick={addPet}>
+//                         Save Changes
+//                     </Button>
+//                 </Modal.Footer>
+//             </Modal>
+//         </div> */}
+// </div> 
 
-<<<<<<< HEAD
-    )
-=======
   return (
     <div>
       <h1>Choose a pet</h1>
@@ -142,7 +136,6 @@ export const ChoosePet = (props) => {
       )}
     </div>
   );
->>>>>>> c486eb993b324b22e6851f8d3408040c989bdd83
 };
 
 export default ChoosePet;

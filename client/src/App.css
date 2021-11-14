@@ -40,7 +40,6 @@ margin-left: 30px;
   line-height: 18px;
 
 
-<<<<<<< HEAD
 }
 
 .login-form input {
@@ -53,19 +52,6 @@ margin-left: 30px;
 
 .login-form label {
   color: rgb(150, 148, 148);
-=======
-/* include border and padding in element width and height */
-* {
-  box-sizing: border-box;
-}
-
-/* full-sized  container that fills up the page */
-.App {
-  height: 100%;
-  width: 100%;
-  display: block;
-  text-align: center;
->>>>>>> c486eb993b324b22e6851f8d3408040c989bdd83
 }
 
 .login-form button {
