@@ -5,7 +5,6 @@ import './Vets.css';
 const Nav = () => {
     
     return (
-        <nav>
             <div className="navbar navbar-expand-md fixed-left">
             <div className="collapse navbar-collapse" id="navbar-content">
                 <ul className="navbar-nav">
@@ -15,10 +14,10 @@ const Nav = () => {
                     <Link to="/Dashboard"><li>HOME</li> 
                     </Link>
              
-                    <Link to="/RegisterUser"><li>REGISTER</li> 
-                    </Link>
+                    {/* <Link to="/RegisterUser"><li>REGISTER</li> 
+                    </Link> */}
                     
-                    <Link to="/ChoosePets"><li>PETS</li>
+                    <Link to="/ChoosePet"><li>PETS</li>
                      </Link>
                     
                     <Link to="/Vets"><li>VETS</li>
@@ -30,14 +29,13 @@ const Nav = () => {
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
-                    <Link to="/Login"><li>LOGIN</li>
-                    </Link>
+                    {/* <Link to="/"><li>LOGIN</li>
+                    </Link> */}
 
                     </div>
                 </ul>
             </div>
         </div>
-        </nav>
     )
 }
 

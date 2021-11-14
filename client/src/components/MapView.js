@@ -5,38 +5,56 @@ import 'leaflet/dist/leaflet.css';
 import './Vets.css';
 
 // leaflet/dist/images/marker-icon.png
-import icon from '../assets/icon-2.png';
+import vetIcon from '../assets/paw.svg';
+import homeIcon from '../assets/home.svg';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 const MapView = (props) => {
-    // when we connect components - send user info to fetch their coords
-    // - add marker to home & center map
 
-    // useEffect(() => {
-        
-    // }, [])
+    function getVetIcon() {
+        return L.icon( {
+            iconUrl: vetIcon,
+            iconSize: [25, 40],
+            shadowUrl: iconShadow
+        })
+    }
 
-    let homeIcon = L.icon({
-        iconUrl: icon,
-        shadowUrl: iconShadow,
-        iconSize: [25, 40]
-    });
-
-    L.Marker.prototype.options.icon = homeIcon;
+    function getHomeIcon() {
+        return L.icon({
+            iconUrl: homeIcon,
+            iconSize: [25, 40],
+            shadowUrl: iconShadow
+        })
+    }
 
     let vetCoords = null;
-    if(props.vets[0]) {vetCoords = props.vets[0].coords};
+    if(props.userVet.length > 0) {
+        vetCoords = props.userVet[0].coords
+    };
+
+    let homeCoords = null;
+    if(props.user) { homeCoords = props.user.coords };
+
+    let center = [ 55.53813 , -0.22522 ];
+    if(homeCoords) { center = homeCoords.split(",").reverse() } 
 
     return (
-        <MapContainer  center={[ 51.53813, -0.22522 ]} zoom={13}>
+        <MapContainer  center={ center } zoom={15}>
             <TileLayer 
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
             {vetCoords ? 
-            <Marker position={vetCoords.split(",").reverse()}>
-                <Popup>
+            <Marker position={vetCoords.split(",").reverse()} icon={getVetIcon()}>
+                {/* <Popup>
                     {props.vets[0].name} <br />
                     {props.vets[0].phone_number}
+                </Popup> */}
+            </Marker>
+            : null}
+            {homeCoords ? 
+            <Marker position={homeCoords.split(",").reverse()} icon={getHomeIcon()}>
+                <Popup>
+                    HOME
                 </Popup>
             </Marker>
             : null}

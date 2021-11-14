@@ -17,7 +17,7 @@ function App() {
 
           <div className="App">
                <h1> Pet Passport </h1>
-                    <Nav />
+                    {/* <Nav /> */}
                     <ReactRoutes /> 
           </div>
         

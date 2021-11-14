@@ -16,6 +16,13 @@ router.get('/pet/:id', async function(req, res) {
         .catch(err => res.status(500).send({ err: err.message }))
 });
 
+/* GET pets by user id */
+router.get('/pets/:id', async function(req, res) {
+    await db(`SELECT * FROM pets WHERE user_id = ${req.params.id}`)
+        .then(results => res.send(results.data))
+        .catch(err => res.status(500).send({ err: err.message }))
+});
+
 /* DELETE a pet by id - sends array of pets minus the deleted one */
 router.delete('/:id', async function(req, res) {
     await db(`DELETE FROM pets WHERE id = ${req.params.id}`)
@@ -37,7 +44,7 @@ router.post('/AddPet', async function(req, res) {
         '${req.body.dob}',
         '${req.body.user_id}'
     )`)
-    await db(`SELECT * FROM pets`)
+    await db(`SELECT * FROM pets WHERE user_id = ${req.body.user_id}`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });
