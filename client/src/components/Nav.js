@@ -17,7 +17,7 @@ const Nav = () => {
                     <Link to="/RegisterUser"><li>REGISTER</li> 
                     </Link>
                     
-                    <Link to="/ChoosePets"><li>PETS</li>
+                    <Link to="/ChoosePet"><li>PETS</li>
                      </Link>
                     
                     <Link to="/Vets"><li>VETS</li>

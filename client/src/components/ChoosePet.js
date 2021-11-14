@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { propTypes } from "react-bootstrap/esm/Image";
 import { Link } from "react-router-dom";
-import Nav from "./Nav";
+import Nav from './Nav';
 
 export const ChoosePet = () => {
 
