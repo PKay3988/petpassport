@@ -1,61 +1,52 @@
 import { Route, Routes } from 'react-router-dom'
-// import { Routes } from 'react-router'
-import AddPet from "./components/AddPet" 
+import React, { useState, useEffect } from 'react'
 import AddPhoto from "./components/AddPhoto"
-import ChoosePet from "./components/ChoosePet"  
+import ChoosePet from "./components/ChoosePet" 
+import AddPet from './components/AddPet' 
 import Dashboard from "./components/Dashboard"
 import DisplayProfile from "./components/DisplayProfile" 
 import Login from "./components/Login" 
-import Nav from "./components/Nav" 
+import Vets from './components/Vets'
 import PhotoGallery from "./components/PhotoGallery" 
 import Wellness from "./components/Wellness" 
+import RegisterUser from './components/RegisterUser'
+import countryList from 'react-select-country-list'
 
+export default function ReactRoutes() {
+  const [user, setUser] = useState();
+  const [pet, setPet] = useState();
 
-export default function ReactRoutes(){
-    return(
-    
-      <Routes>
-        <div>
-            <Route path ="/" exact></Route>
-      
-            <Route path ="/AddPet" >
-                <AddPet />
-              </Route>
-      
-            <Route path ="/AddPhoto" >
-                <AddPhoto />
-              </Route>
-      
-            <Route path ="/ChoosePet" > 
-              <ChoosePet />
-            </Route>
-          
-            <Route path ="/Dashboard" >
-                <Dashboard />
-            </Route>
-      
-            <Route path ="/DisplayProfile" >
-                <DisplayProfile />
-            </Route>
-      
-            <Route path ="/Login" > 
-              <Login /> 
-            </Route>
-          
-      
-            <Route path ="/Nav" >
-                <Nav />
-            </Route>
-      
-            <Route path ="/PhotoGallery" > 
-              <PhotoGallery />
-          </Route>
-          
-          <Route path ="/Wellness" > 
-              <Wellness />
-          </Route>
-        </div>
-      </Routes>
-        
-    )
-};
+  const [countries, setCountries] = useState([]);
+
+  useEffect(() => {
+      setCountries(countryList().getLabels());
+  }, [])
+
+  return (
+    <Routes>
+
+        {/* main address - login page  */}
+        <Route path="/" exact element={<Login onLogin={user => setUser(user)}/>} />
+
+        {/* dashboard - HOME buttons should point to it */}
+        <Route path="/Dashboard" element={<Dashboard user={user} pet={pet} />} />
+
+        {/* after login - choose pet */}
+        <Route path="/ChoosePet" element={<ChoosePet user={user} sendPet={(pet) => setPet(pet)}/>} />
+
+        <Route path="/Vets" element={<Vets user={user}/>} />
+
+        {/* <Route path="/Wellness" element={<Wellness />} /> */}
+
+        <Route path="/AddPhoto" element={<AddPhoto />} />
+
+        <Route path ="/PhotoGallery" element={<PhotoGallery />} />
+
+        <Route path ="/registeruser" element={<RegisterUser  countries={countries}/>} />
+
+        <Route path ="/Wellness" element={<Wellness />} />
+
+    </Routes>
+  );
+}
+

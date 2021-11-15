@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useEffect, useState } from "react";
 import countryList from 'react-select-country-list';
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -8,12 +8,11 @@ function AddVet(props) {
         name: "",
         street_name: "",
         street_number: "",
-        postal_code: "",
         city: "",
         country: "",
         country_code: "",
         phone_number: "",
-        user_id: 1
+        user_id: `${props.id}`
     };
     const [vet, setVet] = useState( emptyVet );
 
@@ -75,13 +74,6 @@ function AddVet(props) {
                                 onChange={handleChange} />
                             </div>
                         </label>
-                        <label className="addvet-item"> Postal code
-                            <input 
-                            type="text"
-                            name="postal_code" 
-                            value={vet.postal_code}
-                            onChange={handleChange}/>
-                        </label>
                         <label className="addvet-item"> City
                             <input 
                             type="text"
@@ -89,13 +81,12 @@ function AddVet(props) {
                             value={vet.city}
                             onChange={handleChange}/>
                         </label>
-                        <label className="addvet-item"> Country
-                            <input 
-                            type="text"
-                            name="country" 
-                            value={vet.country}
-                            onChange={handleChange}/>
-                        </label>
+                        <select className="select-form" name="country" value={vet.country} onChange={handleChange}>
+                            <option>Choose a country...</option>
+                            {props.countries.map(country => (
+                                <option key={country}>{country}</option>
+                            ))}
+                        </select>
                         <label className="addvet-item"> Phone number
                             <input 
                             type="text"
@@ -104,6 +95,10 @@ function AddVet(props) {
                             onChange={handleChange}/>
                         </label>
                         <br />
+                        <label>test
+                            <input 
+                            type="time" />
+                        </label>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>

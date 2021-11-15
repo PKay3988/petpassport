@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS pets;
 DROP TABLE IF EXISTS vets;
 DROP TABLE IF EXISTS treatments;
 DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS images;
 
 
 
@@ -11,11 +12,12 @@ CREATE TABLE `users` (
     `username` varchar(255) NOT NULL,
 	`email` varchar(255) NOT NULL,
 	`password` varchar(255) NOT NULL,
-    `postal_code` INT NOT NULL,
 	`city` varchar(255) NOT NULL,
     `country` varchar(255) NOT NULL,
+	`country_code` varchar(255) NOT NULL,
     `street_number` INT NOT NULL,
     `street_name` varchar(255) NOT NULL,
+	`coords` varchar(255),
 	PRIMARY KEY (`id`)
 );
 
@@ -23,15 +25,15 @@ CREATE TABLE `vets` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
 	`street_name` varchar(255) NOT NULL,
-    `postal_code` INT NOT NULL,
 	`phone_number` varchar(255) NOT NULL,
     `street_number` INT NOT NULL,
     `city` varchar(255) NOT NULL,
     `country` varchar(255) NOT NULL,
 	`country_code` varchar(255) NOT NULL,
 	`coords` varchar(255),
+	`appointment` varchar(255),
 	`user_id` INT NOT NULL,
-	PRIMARY KEY (`id`),
+	PRIMARY KEY (`id`)
 );
 
 CREATE TABLE `treatments` (
@@ -46,7 +48,7 @@ CREATE TABLE `treatments` (
 );
 
 CREATE TABLE `pets` (
-	`id` INT NOT NULL AUTO_INCREMENT,
+	`pet_id` INT NOT NULL AUTO_INCREMENT,
 	`pet_name` varchar(255) NOT NULL,
 	`breed` varchar(255) NOT NULL,
 	`dob` DATE NOT NULL,
@@ -73,4 +75,11 @@ CREATE TABLE `grooming` (
 	`notes` varchar(255) NOT NULL,
 	`pet_id` INT NOT NULL,
 	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `images` (
+	`img_id` INT NOT NULL AUTO_INCREMENT,
+	`pet_id` INT NOT NULL,
+	`image` varchar(255) NOT NULL,
+	PRIMARY KEY (`img_id`)
 );
