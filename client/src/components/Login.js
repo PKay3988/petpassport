@@ -114,7 +114,7 @@ function Login(props) {
             onChange={handleChange}
             name="username"
             type="text"
-            className="register-input"
+            className=""
           />
 
           <label>Password</label>
@@ -123,7 +123,7 @@ function Login(props) {
             onChange={handleChange}
             name="password"
             type="password"
-            className="register-input"
+            className=""
           />
         <div className="login-menu">
           <button className="button btn btn-primary" onClick={loginUser}>
@@ -131,7 +131,7 @@ function Login(props) {
           </button>
         
           <p> or <Link id="link" to="/registeruser">
-            register
+            sign up
             </Link> </p>
             </div>
           
@@ -156,7 +156,11 @@ function Login(props) {
       </button> */}
 
     <div className="illustration">
-      <img src={dogImage} alt="petpassport illustration" width="450" height="450"></img>
+      <img src={dogImage} alt="petpassport illustration" width="400" height="400"></img>
+
+      <div className="para">
+      <p>Pet Passport is an app to help you stay on track with keeping your pets healthy & thriving! Keep track of vet details, grooming appointments, dietary schedules in one place!  </p>
+      </div>
     </div>
     </div>
   );

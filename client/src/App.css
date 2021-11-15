@@ -24,12 +24,12 @@ html {
 
 }
 
-.login h2 {
+.login h2, .register h2 {
 margin-top: 20px;
 font-size: 25px;
 font-weight: bold;
 text-align: left;
-margin-left: 30px;
+margin-left: 35px;
 color: rgb(238,108,77);
 }
 .login-form {
@@ -40,20 +40,24 @@ color: rgb(238,108,77);
   text-align: left;
   line-height: 18px;
 
-
 }
 
-.login-form input {
+.login-form input, .register-form input, .register-form select {
   display: block;
   border-radius: 8px;
-  border: 0.5px solid rgb(114, 108, 108);
+  border: 0.5px solid transparent;
   height: 29px;
   width: 200px;
   padding: 10px;
+  background-color: rgb(242,242,242);
+  margin-bottom: 8px;
+  
 }
 
-.login-form label {
+
+.login-form, .register-form label {
   color: rgb(150, 148, 148);
+  margin-left: 5px;
 }
 
 .login-form button {
@@ -65,7 +69,7 @@ color: rgb(238,108,77);
   /* border: 1px solid red; */
 }
 
-.login-menu p {
+.login-menu p, .register-menu p {
   display: inline;
   position: relative;
   top: 10px;
@@ -85,14 +89,15 @@ color: rgb(238,108,77);
 .illustration {
   /* border: 1px solid red; */
   float: left;
-  margin-top: -350px;
+  margin-top: -400px;
+  width: 500px;
   margin-left: 200px;
-  
 }
 
 .btn-primary {
 background-color:rgb(36,117,193);
 border-color: transparent;
+margin-left: 5px;
 }
 
 .btn-primary:hover {
@@ -115,3 +120,93 @@ border-color: transparent;
 .login-success button {
   margin-top:30px;
 }
+
+.para {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+
+.register-container {
+  /* background-color: rgb(250,244,240);  */
+  /* border: 1px solid red; */
+  width: 800px;
+  height: 550px;
+  background-color: white;
+  border-radius: 20px;
+  margin: 40px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
+.register {
+  background-color:white;
+  /* border: 5px solid blue; */
+  position: relative;
+  width: 400px;
+  height: 500px;
+  /* border: 1px solid transparent;  */
+  border-radius: 20px;
+  /* margin-top: 80px;
+  margin-left: 55%; */
+  /* margin-right: 0%; */
+  padding: 15px;
+}
+
+.register-form {
+  /* border: 1px solid red; */
+  font-size: 12px;
+  margin-top: -18px;
+  padding: 30px;
+  text-align: left;
+  line-height: 18px;
+}
+
+.register-form input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 300px;
+  margin-left: 5px;
+}
+
+.register-form select {
+  font-size: 12px;
+  padding: -100px;
+  height: 40px;
+  width: 300px;
+  margin-left: 5px;
+}
+
+.register-menu p {
+  /* top: 0px; */
+  /* margin-left: 138px !important; */
+  top: 0px;
+ 
+}
+
+.register-form input, .register-form select{
+  background-color:rgb(242,242,242);
+  margin-left: 5px;
+  color: grey;
+}
+
+/* .register h2 {
+  color: rgb(36,117,193);
+} */
+
+.illu2 {
+  float: right;
+  position: relative;
+  /* border: 1px solid red; */
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.message {
+  margin-top: 10px;
+  /* float: right; */
+  /* border: 1px solid red; */
+  /* margin: 20px; */
+  /* margin-bottom: 30px;
+} */}

@@ -56,7 +56,7 @@ router.post('/register', async function(req, res) {
         "${homeCoords ? homeCoords.features[0].center.join(",") : "none"}"
       )`)
 
-    res.send({ message: "Registration successful! Now log in please." });
+    res.send({ message: "Registration successful!" });
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
