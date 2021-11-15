@@ -109,21 +109,22 @@ export const ChoosePet = (props) => {
 
   return (
     <div>
-      <h1>Choose a pet</h1>
+      <div className="choose-pet">
+      <h2>Choose a pet</h2>
 
       <ul>
         {pets &&
           pets.map((pet) => (
             <li key={pet.id}>
               <Link to="/Dashboard" onClick={() => onChoose(pet)}>
-                <button >{pet.pet_name}</button>
+                <button className="btn btn-primary-pet">{pet.pet_name}</button>
               </Link>
             </li>
           ))}
       </ul>
 
-      <button onClick={handleShow}>Add a pet</button>
-      <button>delete a pet</button>
+      <button className="btn btn-primary" onClick={handleShow}>Add a pet</button>
+      {/* <button className="btn btn-primary">delete a pet</button> */}
 
       {show ? (
         <AddPet
@@ -134,6 +135,7 @@ export const ChoosePet = (props) => {
       ) : (
         <div />
       )}
+      </div>
     </div>
   );
 };

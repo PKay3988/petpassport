@@ -24,7 +24,7 @@ html {
 
 }
 
-.login h2, .register h2 {
+.login h2, .register h2, .choose-pet h2 {
 margin-top: 20px;
 font-size: 25px;
 font-weight: bold;
@@ -140,7 +140,7 @@ margin-left: 5px;
   margin-top: 40px;
 
 }
-.register {
+.register, .choose-pet {
   background-color:white;
   /* border: 5px solid blue; */
   position: relative;
@@ -211,3 +211,38 @@ margin-left: 5px;
   /* margin: 20px; */
   /* margin-bottom: 30px;
 } */}
+
+.choose-pet ul{
+  list-style-type: none;
+  /* display: inline; */
+}
+
+.choose-pet li {
+  display: inline;
+}
+
+.choose-pet {
+  height: 300px;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.choose-pet h2 {
+  color: rgb(36,117,193);
+}
+
+.btn-primary-pet {
+  background-color: rgb(248, 108, 73);
+  margin: 20px;
+  font-size: 30px;
+  height: 70px;
+  width: 150px;
+  color: white;
+}
+
+.btn-primary-pet:hover {
+  background-color: white;
+  color: rgb(238,108,77);
+}
+
