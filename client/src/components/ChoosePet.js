@@ -3,6 +3,7 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import AddPet from "./AddPet";
+import "./DisplayProfile.css";
 
 export const ChoosePet = (props) => {
   // if sending user through routes doesn't work
@@ -22,7 +23,7 @@ export const ChoosePet = (props) => {
       .then((result) => result.json())
       .then((pets) => setPets(pets))
       .catch((err) => console.log(err.message));
-  }, [pets]);
+  }, []);
 
   function onChoose(pet) {
     props.sendPet(pet);
@@ -46,10 +47,10 @@ export const ChoosePet = (props) => {
     <div>
       <h1>Choose a pet</h1>
 
-      <ul>
+      <ul className="pets-list">
         {pets &&
           pets.map((pet) => (
-            <li key={pet.id}>
+            <li key={pet.pet_id}>
               <Link to="/Dashboard" onClick={() => onChoose(pet)}>
                 <button >{pet.pet_name}</button>
               </Link>

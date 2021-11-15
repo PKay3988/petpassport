@@ -4,11 +4,12 @@ import Nav from "./Nav";
 import "./PhotoGallery.css";
 // import Bird from './img/Bird.jpeg';
 
-export const PhotoGallery = () => {
+export const PhotoGallery = (props) => {
+  const [pet, setPet] = useState(props.pet);
   const [image, setImage] = useState([]);
 
   const getImages = async () => {
-    const result = await fetch("/image");
+    const result = await fetch(`/petimage/${pet.pet_id}`);
     const imageResult = await result.json();
     setImage(imageResult);
   };
@@ -20,9 +21,9 @@ export const PhotoGallery = () => {
   return (
       <div className="carousel-container">
         <Nav />
-        <Carousel key={image.image_id}>
+        <Carousel key={image.img_id}>
           {image.map((e) => (
-            <Carousel.Item key={e.image_id}>
+            <Carousel.Item key={e.img_id}>
               <img
                 key={image.image_id}
                 className="d-block w-100"

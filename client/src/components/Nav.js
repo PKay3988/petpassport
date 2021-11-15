@@ -20,8 +20,8 @@ const Nav = () => {
                     <Link to="/ChoosePet"><li>PETS</li>
                      </Link>
 
-                    <Link to="/AddPet"><li>Add PET</li>
-                     </Link>
+                    {/* <Link to="/AddPet"><li>Add PET</li>
+                     </Link> */}
                     
                     <Link to="/Vets"><li>VETS</li>
                     </Link>
@@ -30,6 +30,9 @@ const Nav = () => {
                     </Link>
 
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
+                    </Link>
+
+                    <Link to="/DisplayProfile"><li>PROFPIC</li>
                     </Link>
 
                     {/* <Link to="/"><li>LOGIN</li>

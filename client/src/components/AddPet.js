@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import DisplayProfile from "./DisplayProfile";
 
 function AddPet(props) {
   const emptyPet = {
@@ -34,7 +36,6 @@ function AddPet(props) {
 
   return (
     <div>
-
       <Modal show={true} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Create new pet</Modal.Title>
@@ -68,6 +69,10 @@ function AddPet(props) {
               />
             </label>
             <br />
+
+            <button> Add Photo: 
+              </button>
+          
           </div>
         </Modal.Body>
         <Modal.Footer>

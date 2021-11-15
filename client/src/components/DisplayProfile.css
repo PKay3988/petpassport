@@ -17,7 +17,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50% );
     border-radius: 50%;
-    /* overflow: hidden; */
+    overflow: hidden;
     border: 1px solid grey;
 }
 

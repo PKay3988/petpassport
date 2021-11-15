@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",
+    "antd": "^4.16.13",
     "axios": "^0.24.0",
     "bcrypt": "^5.0.1",
     "bootstrap": "^5.1.3",

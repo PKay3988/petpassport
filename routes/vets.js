@@ -33,7 +33,7 @@ API_KEY = process.env.API_KEY
 
 /* Get the coordinates from map api */
 const getCoords = async (street_number, street_name, city, country, country_code) => {
-    console.log(street_number, street_name, postal_code, city, country, country_code);
+    console.log(street_number, street_name, city, country, country_code);
     let address = encodeURI(`${street_number} ${street_name} ${city} ${country}`)
     let url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${address}.json?country=${country_code}&access_token=${API_KEY}`
     const response = await fetch(url);

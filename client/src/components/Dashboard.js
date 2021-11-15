@@ -3,9 +3,9 @@ import MapView from './MapView';
 import Nav from './Nav';
 import PhotoGallery from './PhotoGallery';
 import "./Dashboard.css";
-// import PhotoGallery from './PhotoGallery';
 
 export const Dashboard = (props) => {
+    let pet = props.pet;
     // // stores coords from browser position
     // const [position, setPosition] = useState();
 
@@ -41,7 +41,7 @@ export const Dashboard = (props) => {
             <div className="dashboard-container">
                 
                 <div className="dash-item midsection">
-                    <PhotoGallery />
+                    <PhotoGallery pet={pet} />
                     <div>
                         <span>appointments</span>
                     </div>
