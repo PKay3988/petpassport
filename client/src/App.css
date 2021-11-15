@@ -42,7 +42,7 @@ color: rgb(238,108,77);
 
 }
 
-.login-form input, .register-form input, .register-form select {
+.login-form input, .register-form input, .register-form select, .modal-body input {
   display: block;
   border-radius: 8px;
   border: 0.5px solid transparent;
@@ -246,3 +246,49 @@ margin-left: 5px;
   color: rgb(238,108,77);
 }
 
+.addvet-form, .modal-body {
+  /* background-color: red; */
+  border-radius: 20px;
+  border-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1.2px;
+ 
+}
+
+.addvet-form {
+  font-size: 12px;
+  display: block;
+}
+
+.addvet-item input {
+  /* background-color: red; */
+
+  
+}
+
+.modal {
+  background-color: rgb(36,117,193);
+ 
+  
+
+}
+
+.modal-content {
+  border-radius: 20px;
+  border-color: transparent;
+ 
+}
+#dob {
+  margin-top: -19px;
+  color: grey;
+}
+
+/* .close-button {
+  background-color: rgb(236, 145, 129);
+  
+
+} */
+.close-button:hover {
+  background-color: tomato;
+  border-color: transparent;
+}
