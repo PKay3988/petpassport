@@ -22,7 +22,7 @@ export const ChoosePet = (props) => {
       .then((result) => result.json())
       .then((pets) => setPets(pets))
       .catch((err) => console.log(err.message));
-  }, [pets]);
+  }, []);
 
   function onChoose(pet) {
     props.sendPet(pet);
