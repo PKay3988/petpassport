@@ -3,6 +3,9 @@ import AddVet from "./AddVet";
 import MapView from "./MapView";
 import Nav from "./Nav";
 import countryList from 'react-select-country-list';
+import DateTimePicker from 'react-datetime-picker';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 
 function Vets(props) {
     const [vets, setVets] = useState([]);
@@ -11,13 +14,21 @@ function Vets(props) {
     const [show, setShow] = useState(false);
 
     const [input, setInput] = useState(false);
-    const handleInput = () => setInput(!input);
 
-    const [appointment, setAppointment] = useState();
+    const [appointment, setAppointment] = useState({
+        day: "",
+        time: ""
+    });
 
     const handleAppointment = (e) => {
         e.preventDefault();
-        setAppointment(e.target.value);
+        let name = e.target.name;
+        let value = e.target.value;
+
+        setAppointment((state) => ({
+            ...state,
+            [name]: value,
+        }));
     }
 
     //functions to open - close the modal with addvet component
@@ -65,6 +76,22 @@ function Vets(props) {
             .catch(err => console.log(err.message));
         handleClose();
     }
+
+    // add the date of the new appointment to vets db
+    function addAppointment() {
+        fetch(`/vets/app/${userVet[0].id}`, {
+            method: 'PUT',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(appointment),
+        })
+            .then(result => result.json())
+            .then(vet => setUserVet(vet))
+            .catch(err => console.log(err.message))
+        
+            setInput(false);
+    }
     
     return (
         <div className="vets-container">
@@ -82,18 +109,34 @@ function Vets(props) {
                 </div>
                 <div className="card">
                     Next appointment: <br />
-                    {userVet.length > 0 ? userVet.appointment : <div></div>}
+                    {userVet.length > 0 ? userVet[0].appointment : <div></div>}
                     {input && 
                     <div>
-                        <label> Choose next appointment:
-                            <input 
-                            type="date"
-                            name="appointment"
-                            value={appointment}
-                            onChange={handleAppointment} />
-                        </label>
+                        <Modal show={input} onHide={() => setInput(false)}>
+                            <Modal.Header closeButton>
+                                <Modal.Title>Select new date and time for the vet appointment:</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>
+                            {/* <DateTimePicker 
+                                onChange={setAppointment}
+                                value={appointment}
+                                format="y MM dd HH mm" /> */}
+                            <label>
+                                <input name="day" value={appointment.day} type="date" onChange={handleAppointment}/>
+                                <input name="time" value={appointment.time} type="time" onChange={handleAppointment} />
+                            </label>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <Button variant="secondary" onClick={() => setInput(false)}>
+                                Close
+                                </Button>
+                                <Button variant="primary" onClick={addAppointment}>
+                                Save Changes
+                                </Button>
+                            </Modal.Footer>
+                        </Modal>
                     </div>}
-                    <button className="btn" onClick={handleInput}>add vet appointment</button>
+                    <button className="btn" onClick={() => setInput(true)}>add vet appointment</button>
                 </div>
 
                 {/* TODO - if there is already a vet with user id - render addvet with previous info & make it call a put request instead of post */}

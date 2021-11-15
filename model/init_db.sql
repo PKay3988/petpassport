@@ -31,7 +31,7 @@ CREATE TABLE `vets` (
     `country` varchar(255) NOT NULL,
 	`country_code` varchar(255) NOT NULL,
 	`coords` varchar(255),
-	`appointment` date,
+	`appointment` varchar(255),
 	`user_id` INT NOT NULL,
 	PRIMARY KEY (`id`)
 );
