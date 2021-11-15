@@ -8,6 +8,7 @@ import DisplayProfile from "./components/DisplayProfile"
 import Login from "./components/Login" 
 import Nav from "./components/Nav" 
 import PhotoGallery from "./components/PhotoGallery" 
+import Wellness from "./components/Wellness" 
 
 
 export default function ReactRoutes(){
@@ -48,6 +49,10 @@ export default function ReactRoutes(){
       
             <Route path ="/PhotoGallery" > 
               <PhotoGallery />
+          </Route>
+          
+          <Route path ="/Wellness" > 
+              <Wellness />
           </Route>
         </div>
       </Routes>

@@ -55,3 +55,22 @@ CREATE TABLE `pets` (
 	`treatment_id` INT,
 	PRIMARY KEY (`id`),
 );
+
+CREATE TABLE `diet` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`brand` varchar(255) NOT NULL,
+	`date` DATE NOT NULL,
+	`unit` varchar(255) NOT NULL,
+	`notes` varchar(255) NOT NULL,
+	`pet_id` INT NOT NULL,
+	PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `grooming` (
+	`id` INT NOT NULL AUTO_INCREMENT,
+	`type` varchar(255) NOT NULL,
+	`date` DATE NOT NULL,
+	`notes` varchar(255) NOT NULL,
+	`pet_id` INT NOT NULL,
+	PRIMARY KEY (`id`)
+);
