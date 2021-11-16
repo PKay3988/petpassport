@@ -95,10 +95,6 @@ function AddVet(props) {
                             onChange={handleChange}/>
                         </label>
                         <br />
-                        <label>test
-                            <input 
-                            type="time" />
-                        </label>
                     </div>
                 </Modal.Body>
                 <Modal.Footer>

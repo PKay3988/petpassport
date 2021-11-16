@@ -51,7 +51,7 @@ export const ChoosePet = (props) => {
           pets.map((pet) => (
             <li key={pet.id}>
               <Link to="/Dashboard" onClick={() => onChoose(pet)}>
-                <button >{pet.pet_name}</button>
+                <button key={pet.id}>{pet.pet_name}</button>
               </Link>
             </li>
           ))}
