@@ -46,6 +46,9 @@ const Nav = (props) => {
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
+                    <Link to="/DisplayProfile"><li>DISPPROF</li>
+                    </Link>
+
                     <Link to="/">
                         <button type="button" onClick={signout}>
                             Log out
