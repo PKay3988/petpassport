@@ -28,9 +28,10 @@ body {
 
 }
 
-/* #file {
-display:none
-} */
+#file {
+display:none;
+cursor: pointer;
+}
 
 #uploadBtn{
 height: 40px;

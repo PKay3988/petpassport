@@ -2,16 +2,20 @@ import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import DisplayProfile from "./DisplayProfile";
 import './Vets.css';
+import imgg from "./imgg.jpeg" 
 
-const Nav = () => {
+const Nav = (props) => {
+    const [pet, setPet] = useState(props.pet);
     
     return (
             <div className="navbar navbar-expand-md fixed-left">
             <div className="collapse navbar-collapse" id="navbar-content">
                 <ul className="navbar-nav">
                     <h3> Pet Passport 🐾 </h3>
+                    <div>
 
                     {/* <DisplayProfile/> */}
+                    </div>
 
                     <div className="nav-item">
                         {/* <DisplayProfile /> */}

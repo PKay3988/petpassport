@@ -104,7 +104,8 @@ const handleClose = () => {
 
         <div className="body">
       <div className="prof-pic-div">
-          <img src= {`/img/${pet.pet_img}` ? `/img/${pet.pet_img}` : `${imgg}`}  alt="avatar"id="pic"  onClick={handleClick}/>
+          <img src= {`/img/${pet.pet_img}` ? `/img/${pet.pet_img}` : require(`../components/${imgg.jpg}`)}  alt="avatar"id="pic"  onClick={handleClick}/>
+          console.log(pet.pet_img);
        <label>Profile Picture:</label><br/>
            <input type="file" ref={hiddenFileInput} id="file" accept="image/*" onChange={onFileChange} />
            <button className="e-file" id="uploadBtn" onClick={onFileUpload}>Upload</button>
@@ -112,6 +113,9 @@ const handleClose = () => {
            </div>
 
            {/* <img src={`/img/${pet.pet_img}`} /> */}
+
+           {/* <img src= {`/img/${pet.pet_img}` ? `/img/${pet.pet_img}` : require(`../components/${imgg.jpg}`)}  alt="avatar"id="pic"  onClick={handleClick}/> */}
+           
             
           
         {/* </Modal.Body>
