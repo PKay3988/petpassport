@@ -1,0 +1,94 @@
+/* general display of vets */
+.vets-container {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+/* navbar component  */
+.navbar.fixed-left {
+    bottom: 0;
+    width: 15em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid black;
+    z-index: 1030; 
+    background: turquoise;
+}
+
+.navbar.fixed-left .navbar-collapse .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+}
+
+/* vet card */
+.vet-cards {
+    display: flex;
+    width: 50%;
+    height: 12em;
+    gap: 2em;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card button {
+    border: 1px solid black;
+    width: 50%;
+}
+
+/* add vet component  */
+.addvet-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+}
+
+.addvet-item {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 1em;
+}
+
+.addvet-item input {
+    width: 70%;
+}
+
+.addvet-form select {
+    width: 80%;
+    height: 70%;
+    margin: 1em;
+}
+
+#number {
+    width: 20%;
+    margin-left: 1em;
+}
+
+.addvet-form button {
+    margin: 1em 2em;
+    border: 1px solid black;
+}
+
+/* map size  */
+.leaflet-container {
+    width: 43vw;
+    height: 38vh;
+    border: 2px solid black;
+    margin-right: 1em;
+}
