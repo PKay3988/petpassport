@@ -58,7 +58,7 @@ export const ChoosePet = (props) => {
       </ul>
 
       <button onClick={handleShow}>Add a pet</button>
-      <button>delete a pet</button>
+      <button>Delete a pet</button>
 
       {show ? (
         <AddPet

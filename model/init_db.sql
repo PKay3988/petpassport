@@ -55,7 +55,7 @@ CREATE TABLE `pets` (
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,
-	PRIMARY KEY (`id`),
+	PRIMARY KEY (`pet_id`)
 );
 
 CREATE TABLE `diet` (
