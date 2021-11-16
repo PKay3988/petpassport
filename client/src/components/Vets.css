@@ -25,6 +25,14 @@
     width: 100%;
 }
 
+.navbar .prof-pic-div {
+    position:absolute;
+    top:4px;
+    right:16px;
+    margin-top: 4px;
+    border-top: 10px;
+}
+
 /* vet card */
 .vet-cards {
     display: flex;

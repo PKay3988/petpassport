@@ -49,6 +49,7 @@ CREATE TABLE `treatments` (
 CREATE TABLE `pets` (
 	`pet_id` INT NOT NULL AUTO_INCREMENT,
 	`pet_name` varchar(255) NOT NULL,
+	`type` varchar(255) NOT NULL,
 	`breed` varchar(255) NOT NULL,
 	`dob` DATE NOT NULL,
 	`user_id` INT NOT NULL,

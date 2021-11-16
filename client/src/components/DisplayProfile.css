@@ -19,6 +19,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
+    object-fit: cover;
 }
 
 #pic {

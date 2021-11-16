@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import { Link } from "react-router-dom";
+import DisplayProfile from "./DisplayProfile";
 import './Vets.css';
 
 const Nav = () => {
@@ -9,7 +10,11 @@ const Nav = () => {
             <div className="collapse navbar-collapse" id="navbar-content">
                 <ul className="navbar-nav">
                     <h3> Pet Passport 🐾 </h3>
+
+                    {/* <DisplayProfile/> */}
+
                     <div className="nav-item">
+                        {/* <DisplayProfile /> */}
 
                     <Link to="/Dashboard"><li>HOME</li> 
                     </Link>

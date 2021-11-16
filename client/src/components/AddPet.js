@@ -7,6 +7,7 @@ import DisplayProfile from "./DisplayProfile";
 function AddPet(props) {
   const emptyPet = {
     pet_name: "",
+    type:"",
     breed: "",
     dob: "",
     user_id: `${props.id}`,
@@ -50,6 +51,16 @@ function AddPet(props) {
                 onChange={handleChange}
               />
             </label>
+            {/* <label className="addvet-item">
+              Type
+              <input
+                type="text"
+                name="type"
+                value={pet.type}
+                onChange={handleChange}
+              />
+            </label> */}
+
             <label className="addvet-item">
               Breed
               <input
@@ -59,6 +70,7 @@ function AddPet(props) {
                 onChange={handleChange}
               />
             </label>
+
             <label className="addvet-item">
               Date of birth
               <input

@@ -4,13 +4,13 @@ import axios from "axios";
 import "./PhotoGallery.css";
 import 'antd/dist/antd.css';
 import Modal from "react-bootstrap/Modal";
-// import { Modal } from 'antd';
+// // import { Modal } from 'antd';
+import imgg from "./imgg.jpeg" 
 
 const DisplayProfile = (props) => {
     const [pet, setPet] = useState(props.pet);
     const [selectedFile, setSelectedFile] = useState(null);
-
-      const [show, setShow] = useState(false);
+    const [show, setShow] = useState(false);
 
 
     // const [isModalVisible, setIsModalVisible] = useState(false);
@@ -32,7 +32,7 @@ const DisplayProfile = (props) => {
     const hiddenFileInput = React.useRef(null);
 
     const handleClick = e => {
-        hiddenFileInput.current.click();
+        hiddenFileInput.current.click(e);
       };
     
     // On file select (from the pop up)
@@ -44,28 +44,40 @@ const DisplayProfile = (props) => {
 
     // On file upload (click the upload button)
     const onFileUpload = async () => {
+        console.log("Hi")
         // Create an object of formData
         const formData = new FormData();
 
     // Update the formData object
       formData.append("imagefile", selectedFile, selectedFile.name);
+      console.log("formdata")
 
       try {
         // Request made to the backend api
         // Send formData object
         //replace axios with fetch
         //replace 1 with id dynamic
-        const res = await axios.post(`/pet/${pet.pet_img}`, formData, {
+        const res = await axios.put(`/pets/image/${pet.pet_id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
   
-        console.log(res);
+       let newPet = pet;
+       newPet.pet_img = res.data;
+       console.log(res.data);
+       setPet(newPet);
       } catch (err) {
         console.log(  err);
       }
     }; 
+
+    // useEffect(() => {
+    //     fetch(`/pet/${pet.pet_id}`) 
+    //         .then(result => result.json())
+    //         .then(pet =>setPet(pet))
+    //         .catch(err => console.log(err.message))
+    // }, []);
 
 
 
@@ -84,23 +96,25 @@ const handleClose = () => {
       <div>
 
 
-           <Modal show={true} onHide={handleClose} size="lg">
+           {/* <Modal show={true} onHide={handleClose} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>Add Profile Photo</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body> */}
 
         <div className="body">
       <div className="prof-pic-div">
-       <img src ="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="avatar"id="pic"  onClick={handleClick}/>
+          <img src= {`/img/${pet.pet_img}` ? `/img/${pet.pet_img}` : `${imgg}`}  alt="avatar"id="pic"  onClick={handleClick}/>
        <label>Profile Picture:</label><br/>
            <input type="file" ref={hiddenFileInput} id="file" accept="image/*" onChange={onFileChange} />
            <button className="e-file" id="uploadBtn" onClick={onFileUpload}>Upload</button>
            </div>
            </div>
+
+           {/* <img src={`/img/${pet.pet_img}`} /> */}
             
           
-        </Modal.Body>
+        {/* </Modal.Body>
         <Modal.Footer>
           <button variant="secondary" onClick={handleClose}>
             Close
@@ -108,8 +122,8 @@ const handleClose = () => {
           {/* <button variant="primary" onClick={addPet}>
             Save Changes
           </button> */}
-        </Modal.Footer>
-      </Modal>
+        {/* </Modal.Footer> */}
+      {/* </Modal>  */}
 
 
 
