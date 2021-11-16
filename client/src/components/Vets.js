@@ -117,10 +117,6 @@ function Vets(props) {
                                 <Modal.Title>Select new date and time for the vet appointment:</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                            {/* <DateTimePicker 
-                                onChange={setAppointment}
-                                value={appointment}
-                                format="y MM dd HH mm" /> */}
                             <label>
                                 <input name="day" value={appointment.day} type="date" onChange={handleAppointment}/>
                                 <input name="time" value={appointment.time} type="time" onChange={handleAppointment} />

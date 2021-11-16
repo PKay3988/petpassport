@@ -3,6 +3,11 @@ import { Link } from "react-router-dom";
 import './Vets.css';
 
 const Nav = () => {
+
+    const signout = () => {
+        localStorage.clear("token");
+        console.log("Bye!");
+      };
     
     return (
             <div className="navbar navbar-expand-md fixed-left">
@@ -29,9 +34,11 @@ const Nav = () => {
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
-                    {/* <Link to="/"><li>LOGIN</li>
-                    </Link> */}
-
+                    <Link to="/">
+                        <button type="button" onClick={signout}>
+                            Log out
+                        </button>
+                    </Link>
                     </div>
                 </ul>
             </div>
