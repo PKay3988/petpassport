@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import AddPet from "./AddPet";
 import "./DisplayProfile.css";
+import DisplayProfile from "./DisplayProfile";
+import imgg from "./imgg.jpeg"
 
 export const ChoosePet = (props) => {
   // if sending user through routes doesn't work
@@ -51,8 +53,8 @@ export const ChoosePet = (props) => {
         {pets &&
           pets.map((pet) => (
             <li key={pet.pet_id}>
-              <Link to="/Dashboard" onClick={() => onChoose(pet)}>
-                <button >{pet.pet_name}</button>
+              <Link to="/Dashboard" onClick={() => onChoose(pet)}> 
+                <button >{pet.pet_name} </button>
               </Link>
             </li>
           ))}

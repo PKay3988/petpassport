@@ -11,6 +11,8 @@ const DisplayProfile = (props) => {
     const [pet, setPet] = useState(props.pet);
     const [selectedFile, setSelectedFile] = useState(null);
     const [show, setShow] = useState(false);
+    // const [upload, SetUploaded] = useState(false);
+
 
 
     // const [isModalVisible, setIsModalVisible] = useState(false);
@@ -68,16 +70,12 @@ const DisplayProfile = (props) => {
        console.log(res.data);
        setPet(newPet);
       } catch (err) {
-        console.log(  err);
+        console.log(err);
       }
     }; 
 
-    // useEffect(() => {
-    //     fetch(`/pet/${pet.pet_id}`) 
-    //         .then(result => result.json())
-    //         .then(pet =>setPet(pet))
-    //         .catch(err => console.log(err.message))
-    // }, []);
+    useEffect(() => {
+    }, [pet]);
 
 
 
@@ -89,6 +87,10 @@ const DisplayProfile = (props) => {
 const handleClose = () => {
     setShow(false);
   };
+
+//   const handleSetUpload = (upload) => {
+//     SetUploaded(upload);
+//   };
 
     return(
 
@@ -104,8 +106,9 @@ const handleClose = () => {
 
         <div className="body">
       <div className="prof-pic-div">
-          <img src= {`/img/${pet.pet_img}` ? `/img/${pet.pet_img}` : require(`../components/${imgg.jpg}`)}  alt="avatar"id="pic"  onClick={handleClick}/>
-          console.log(pet.pet_img);
+      {pet && pet.pet_img ? <img src={`/img/${pet.pet_img}`}alt="avatar"id="pic"  onClick={handleClick} /> : <img src={imgg} alt="avatar"id="pic"  onClick={handleClick}/>}
+   
+          {/* console.log(pet.pet_img); */}
        <label>Profile Picture:</label><br/>
            <input type="file" ref={hiddenFileInput} id="file" accept="image/*" onChange={onFileChange} />
            <button className="e-file" id="uploadBtn" onClick={onFileUpload}>Upload</button>

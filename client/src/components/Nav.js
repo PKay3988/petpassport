@@ -12,9 +12,10 @@ const Nav = (props) => {
             <div className="collapse navbar-collapse" id="navbar-content">
                 <ul className="navbar-nav">
                     <h3> Pet Passport 🐾 </h3>
-                    <div>
+                    <div className="prof-pic-holder">
 
-                    {/* <DisplayProfile/> */}
+                    <DisplayProfile  pet={pet} />
+
                     </div>
 
                     <div className="nav-item">
@@ -46,6 +47,8 @@ const Nav = (props) => {
 
                     {/* <Link to="/"><li>LOGIN</li>
                     </Link> */}
+
+                    {/* <DisplayProfile /> */}
 
                     </div>
                 </ul>

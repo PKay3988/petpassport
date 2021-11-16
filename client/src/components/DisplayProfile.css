@@ -29,7 +29,7 @@ body {
 }
 
 #file {
-display:none;
+/* display:none; */
 cursor: pointer;
 }
 
@@ -47,6 +47,8 @@ line-height: 30px;
 font-size: 15px;
 cursor: pointer;
 }
+
+
 /* 
 .photo-add {
 float: left;

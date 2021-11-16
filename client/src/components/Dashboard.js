@@ -36,7 +36,7 @@ export const Dashboard = (props) => {
 
     return (
         <div>
-            <Nav />
+            <Nav pet={pet}/>
 
             <div className="dashboard-container">
                 
