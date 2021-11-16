@@ -19,7 +19,7 @@ export const PhotoGallery = () => {
 
   return (
       <div className="carousel-container">
-        <Nav />
+        {/* <Nav /> */}
         <Carousel key={image.image_id}>
           {image.map((e) => (
             <Carousel.Item key={e.image_id}>

@@ -8,22 +8,6 @@
     gap: 1em;
 }
 
-/* navbar component  */
-.navbar.fixed-left {
-    bottom: 0;
-    width: 15em;
-    position: absolute;
-    top: 0;
-    left: 0;
-    border: 1px solid black;
-    z-index: 1030; 
-    background: turquoise;
-}
-
-.navbar.fixed-left .navbar-collapse .navbar-nav {
-    flex-direction: column;
-    width: 100%;
-}
 
 /* vet card */
 .vet-cards {
@@ -87,8 +71,12 @@
 
 /* map size  */
 .leaflet-container {
-    width: 43vw;
-    height: 38vh;
-    border: 2px solid black;
-    margin-right: 1em;
+    width: 800px;
+    height: 300px;
+    /* border: 2px solid black; */
+    position: relative;
+    top: 40px;
+    border-radius: 20px;
+    /* padding-top: 200px; */
+    margin: 0 auto;
 }

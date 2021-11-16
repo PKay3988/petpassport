@@ -292,3 +292,80 @@ margin-left: 5px;
   background-color: tomato;
   border-color: transparent;
 }
+
+.nav-item {
+  border: 1px solid transparent;
+  background-color: white;
+  position: relative;
+  /* top: 300px; */
+  height: 800px;
+  width: 200px;
+  border-radius: 20px 0 0 20px;
+  text-align: left;
+  padding: 30px;
+  font-size: 15px;
+  /* font-weight: bold; */
+ 
+}
+
+.nav-item {
+padding-top: 200px;
+}
+.nav-item li, a {
+  text-decoration: none;
+  margin-top: 30px;
+  color:   rgb(36,117,193);
+  font-weight: bold;
+  
+  /* border: 1px solid red; */
+}
+
+.nav-item li:hover {
+  color: black;
+}
+
+.navbar-nav {
+  
+}
+
+
+.dashboard-view {
+  /* border: 1px solid red; */
+  margin: 80px 50px;
+  /* height: 600px; */
+}
+
+/* .dash-center {
+  margin: 0 auto;
+  border: 1px solid blue;
+} */
+
+.photo-card {
+  /* border: 1px solid red; */
+  border-radius: 20px;
+  height: 300px;
+  width:300px;
+  margin-top: 50px;
+  float: right;
+  position: relative;
+  left: -200px;
+  /* background-color: rgb(36,117,193); */
+  border-radius: 20px;
+}
+
+.appointment-card {
+  border: 1px solid red;
+  height: 300px;
+  width:300px;
+  float: left;
+  position: relative;
+  margin: 50px;
+  
+
+}
+
+.dash-item {
+  padding: 1em;
+  /* border:1px solid red; */
+  height: 800px;
+}

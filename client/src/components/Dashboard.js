@@ -35,22 +35,25 @@ export const Dashboard = (props) => {
 
     return (
         <div>
-            <Nav />
+
+            <div className="dashboard-view">
+            
+            <div className="dash-center">
+                <Nav />
 
             <div className="dashboard-container">
-                
-                <div className="dash-item midsection">
-                    <PhotoGallery />
-                    <div>
-                        <span>appointments</span>
+                 <div className="appointment-card">
+                    <span>appointments</span>
                     </div>
-                </div>
-
+                    <div className="photo-card">
+                    <PhotoGallery />
+                </div> 
                 <div className="dash-item">
                     <MapView userVet={userVet} user={user}/>
                 </div>
+                </div>
             </div>
-
+            </div>
         </div>
         
     )
