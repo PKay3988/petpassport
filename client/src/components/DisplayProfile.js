@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Nav from "./Nav";
 import axios from "axios";
 import "./PhotoGallery.css";
-import 'antd/dist/antd.css';
+// import 'antd/dist/antd.css';
 import Modal from "react-bootstrap/Modal";
 // // import { Modal } from 'antd';
 import imgg from "./imgg.jpeg" 

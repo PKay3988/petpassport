@@ -5,7 +5,11 @@ import './Vets.css';
 import imgg from "./imgg.jpeg" 
 
 const Nav = (props) => {
-    const [pet, setPet] = useState(props.pet);
+
+    const signout = () => {
+        localStorage.clear("token");
+        console.log("Bye!");
+      };
     
     return (
             <div className="navbar navbar-expand-md fixed-left">
@@ -14,7 +18,7 @@ const Nav = (props) => {
                     <h3> Pet Passport 🐾 </h3>
                     <div className="prof-pic-holder">
 
-                    <DisplayProfile  pet={pet} />
+                    <DisplayProfile   />
 
                     </div>
 
@@ -42,14 +46,11 @@ const Nav = (props) => {
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
-                    <Link to="/DisplayProfile"><li>PROFPIC</li>
+                    <Link to="/">
+                        <button type="button" onClick={signout}>
+                            Log out
+                        </button>
                     </Link>
-
-                    {/* <Link to="/"><li>LOGIN</li>
-                    </Link> */}
-
-                    {/* <DisplayProfile /> */}
-
                     </div>
                 </ul>
             </div>

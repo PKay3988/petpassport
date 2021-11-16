@@ -52,9 +52,9 @@ export const ChoosePet = (props) => {
       <ul className="pets-list">
         {pets &&
           pets.map((pet) => (
-            <li key={pet.pet_id}>
-              <Link to="/Dashboard" onClick={() => onChoose(pet)}> 
-                <button >{pet.pet_name} </button>
+            <li key={pet.id}>
+              <Link to="/Dashboard" onClick={() => onChoose(pet)}>
+                <button key={pet.id}>{pet.pet_name}</button>
               </Link>
             </li>
           ))}

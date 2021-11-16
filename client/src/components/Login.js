@@ -78,12 +78,11 @@ function Login(props) {
     // setToken(token);
   };
 
-  const signout = () => {
-    localStorage.clear("token");
-    console.log("Bye!");
-    setAuthUser("");
-    // getToken();
-  };
+  // const signout = () => {
+  //   localStorage.clear("token");
+  //   console.log("Bye!");
+  //   setAuthUser("");
+  // };
 
   useEffect(() => {
     getToken();
@@ -124,9 +123,9 @@ function Login(props) {
             </Link>
           </button>
 
-          <button type="button" onClick={signout}>
+          {/* <button type="button" onClick={signout}>
             Log out
-          </button>
+          </button> */}
           {/* </form> */}
         </div>
       </div>
