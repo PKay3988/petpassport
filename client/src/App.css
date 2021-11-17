@@ -83,6 +83,7 @@ color: rgb(238,108,77);
 #link {
   text-decoration: none;
   color: rgb(68, 65, 65);
+  font-weight:normal;
 }
 
 #link:hover {
@@ -209,7 +210,11 @@ margin-left: 5px;
   /* border: 1px solid red; */
   margin-right: 50px;
   margin-top: 20px;
+  height: 400px;
+  width: 300px;
 }
+
+
 
 .message {
   margin-top: 10px;
@@ -237,6 +242,10 @@ margin-left: 5px;
 
 .choose-pet h2 {
   color: rgb(36,117,193);
+}
+
+.pets-list {
+  padding: 0px 0px 0px 0px;
 }
 
 .btn-primary-pet {
