@@ -102,7 +102,7 @@ router.put("/:id", async function (req, res) {
 /* PUT to add an appointment to vet */
 router.put("/app/:id", async function (req, res) {
     console.log(req.body)
-    let time = req.body.day + " " + req.body.time
+    let time = req.body.day + " " +req.body.time
   await db(`UPDATE vets SET
     appointment = '${time}'
     WHERE id = ${req.params.id}`);

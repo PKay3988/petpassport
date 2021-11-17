@@ -4,7 +4,6 @@ import Nav from "./Nav";
 
 const AddPhoto = () => {
     const [selectedFile, setSelectedFile] = useState(null);
-  
     // On file select (from the pop up)
     const onFileChange = (event) => {
       // Update the state

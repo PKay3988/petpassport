@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
 import PhotoGallery from './PhotoGallery';
+import Events from './Events';
 import "./Dashboard.css";
 
 export const Dashboard = (props) => {
@@ -42,7 +43,7 @@ export const Dashboard = (props) => {
                 <div className="dash-item midsection">
                     <PhotoGallery />
                     <div>
-                        <span>appointments</span>
+                        <Events />
                     </div>
                 </div>
 

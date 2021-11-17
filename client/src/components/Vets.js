@@ -51,7 +51,6 @@ function Vets(props) {
             // .then(text => console.log(text))
     }, []);
 
-<<<<<<< HEAD
     let user = props.user;
 
     // pass user id as props and get the specific vet associated to it
@@ -65,10 +64,6 @@ function Vets(props) {
     //add new vet to db & closes the modal
     function submitVet(newVet) {
         // console.log(newVet);
-=======
-    function submitVet(newVet) {
-        console.log(newVet)
->>>>>>> 9cd906e (add vet + country code working)
         fetch('/vets', {
             method: "POST",
             headers: {
@@ -78,7 +73,6 @@ function Vets(props) {
         })
             .then(result => result.json())
             .then(vets => setVets(vets))
-<<<<<<< HEAD
             .catch(err => console.log(err.message));
         handleClose();
     }
@@ -99,17 +93,11 @@ function Vets(props) {
             setInput(false);
     }
     
-=======
-            .catch(err => console.log(err.message))
-    }
-
->>>>>>> 9cd906e (add vet + country code working)
     return (
         <div className="vets-container">
             <Nav/>
             <h3>my vets</h3>
             <div className="vet-cards">
-<<<<<<< HEAD
                 <div className="card" key="card"> Primary vet:
                     {userVet.length > 0 ? <div className="card-content">
                         <span>{userVet[0].name}</span>
@@ -129,10 +117,6 @@ function Vets(props) {
                                 <Modal.Title>Select new date and time for the vet appointment:</Modal.Title>
                             </Modal.Header>
                             <Modal.Body>
-                            {/* <DateTimePicker 
-                                onChange={setAppointment}
-                                value={appointment}
-                                format="y MM dd HH mm" /> */}
                             <label>
                                 <input name="day" value={appointment.day} type="date" onChange={handleAppointment}/>
                                 <input name="time" value={appointment.time} type="time" onChange={handleAppointment} />
@@ -158,25 +142,6 @@ function Vets(props) {
 
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
             <MapView userVet={userVet} user={user}/>
-=======
-                {/* {vets && 
-                vets.findIndex(vet => vet.id === props.pet.vet_id)
-                } */}
-                <div className="card" key="card">
-                {vets && vets.map(vet => (
-                    <div>
-                        <span>{vet.name}</span>
-                        <span>{vet.street_name}, {vet.street_number}, {vet.city}</span>
-                        <span>{vet.phone_number}</span>
-                    </div>
-                ))}
-                    <button className="btn">add primary vet</button>
-                </div>
-                <a className="card">treatment</a>
-            </div>
-            <AddVet onSubmit={(newVet) => submitVet(newVet)} />
-            <MapView />
->>>>>>> 9cd906e (add vet + country code working)
         </div>
     )
 }
