@@ -61,7 +61,7 @@ router.post('/AddPet', async function(req, res) {
         user_id
     ) VALUES (
         '${req.body.pet_name}',
-        '${req.body.breed}',
+        '${req.body.type}',
         '${req.body.breed}',
         '${req.body.dob}',
         '${req.body.user_id}'

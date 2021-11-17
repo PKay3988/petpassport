@@ -58,12 +58,11 @@ router.post("/", async function (req, res) {
     req.body.country,
     req.body.country_code
   );
-  // console.log(mapBox)
+  console.log(mapBox)
   await db(`INSERT INTO vets (
         name,
         street_name,
         street_number,
-        postal_code,
         city,
         country,
         country_code,
