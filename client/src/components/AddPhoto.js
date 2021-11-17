@@ -39,7 +39,7 @@ const AddPhoto = (props) => {
   
     return (
       <div>
-        <Nav />
+        {/* <Nav /> */}
       <div className="App">
         <h3>Select file to upload:</h3>
         <input type="file" onChange={onFileChange} />

@@ -1,15 +1,24 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import { Link } from "react-router-dom";
 import DisplayProfile from "./DisplayProfile";
 import './Vets.css';
 import imgg from "./imgg.jpeg" 
 
 const Nav = (props) => {
+    const [pet, setPet] = useState(props.pet);
+    // let pet = props.pet;
+console.log("Nav", props);
+console.log("Nav", JSON.stringify(props.pet));
+
 
     const signout = () => {
         localStorage.clear("token");
         console.log("Bye!");
       };
+
+    useEffect(() => {
+        setPet(pet);
+    }, [])
     
     return (
             <div className="navbar navbar-expand-md fixed-left">
@@ -18,7 +27,19 @@ const Nav = (props) => {
                     <h3> Pet Passport 🐾 </h3>
                     <div className="prof-pic-holder">
 
-                    <DisplayProfile   />
+                    <DisplayProfile pet={pet} />
+                    {/*<h3>{pet.pet_name}</h3>
+                    <ul>
+                        <li>
+                            <label>Breed:</label>
+                            <p>{pet.breed}</p>
+                        </li>
+
+                        <li>
+                            <label>Date of Birth:</label>
+                            <p>{pet.dob}</p>
+                        </li>
+                    </ul> */}
 
                     </div>
 

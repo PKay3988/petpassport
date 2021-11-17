@@ -55,11 +55,13 @@ router.delete('/:id', async function(req, res) {
 router.post('/AddPet', async function(req, res) {
     await db(`INSERT INTO pets (
         pet_name,
+        type,
         breed,
         dob,
         user_id
     ) VALUES (
         '${req.body.pet_name}',
+        '${req.body.breed}',
         '${req.body.breed}',
         '${req.body.dob}',
         '${req.body.user_id}'

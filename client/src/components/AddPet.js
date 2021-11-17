@@ -52,7 +52,7 @@ function AddPet(props) {
                 onChange={handleChange}
               />
             </label>
-            {/* <label className="addvet-item">
+            <label className="addvet-item">
               Type
               <input
                 type="text"
@@ -60,7 +60,7 @@ function AddPet(props) {
                 value={pet.type}
                 onChange={handleChange}
               />
-            </label> */}
+            </label>
 
             <label className="addvet-item">
               Breed
@@ -88,8 +88,8 @@ function AddPet(props) {
             </label>
             <br />
 
-            <button> Add Photo: 
-              </button>
+            {/* <button> Add Photo: 
+              </button> */}
           
           </div>
         </Modal.Body>

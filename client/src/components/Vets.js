@@ -95,7 +95,7 @@ function Vets(props) {
     
     return (
         <div className="vets-container">
-            <Nav/>
+            {/* <Nav/> */}
             <h3>my vets</h3>
             <div className="vet-cards">
                 <div className="card" key="card"> Primary vet:

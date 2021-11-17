@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
 import PhotoGallery from './PhotoGallery';
+import AddPhoto from './AddPhoto';
 import Events from './Events';
 import "./Dashboard.css";
 
@@ -43,6 +44,7 @@ export const Dashboard = (props) => {
                 
                 <div className="dash-item midsection">
                     <PhotoGallery pet={pet} />
+                    {/* <AddPhoto/> */}
                     <div>
                         <Events />
                     </div>

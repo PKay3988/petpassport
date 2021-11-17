@@ -19,20 +19,24 @@ export const PhotoGallery = (props) => {
   }, []);
 
   return (
+    <div className="carousel-mover">
       <div className="carousel-container">
-        <Nav />
+        {/* <Nav /> */}
         <Carousel key={image.img_id}>
           {image.map((e) => (
-            <Carousel.Item key={e.img_id}>
+            <Carousel.Item variant="dark" key={e.img_id}>
               <img
+              width={200}
+              height={200}
                 key={image.image_id}
                 className="d-block w-100"
-                src={`/img/${e.image}`}
+                src={`/img/${e.image}`} 
                 alt="slide"
               />
             </Carousel.Item>
           ))}
         </Carousel>
+      </div>
       </div>
   );
 };
