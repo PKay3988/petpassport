@@ -28,11 +28,19 @@ app.use(
   //img is inside of public folder
   app.use(express.static("public"));
 
+// Location of static assets
+app.use(express.static(path.join(__dirname, '/client/build')));
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/pets', petsRouter);
 app.use('/vets', vetsRouter);
 app.use('/treatments', treatmentsRouter);
+
+// Respond with index.html for unmatched routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + '/client/build', 'index.html'));
+  });  
 
 app.use(express.static(path.join(__dirname, "../client/build")));
 app.get("*", (req, res) => {
