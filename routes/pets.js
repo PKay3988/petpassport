@@ -44,11 +44,7 @@ router.post('/AddPet', async function(req, res) {
         '${req.body.dob}',
         '${req.body.user_id}'
     )`)
-<<<<<<< HEAD
     await db(`SELECT * FROM pets WHERE user_id = ${req.body.user_id}`)
-=======
-    await db(`SELECT * FROM pet`)
->>>>>>> a7869a9 (routes - db fixes)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });
