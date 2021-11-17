@@ -75,6 +75,7 @@ const DisplayProfile = (props) => {
            <button className="e-file" id="uploadBtn" onClick={onFileUpload}>Upload</button>
            </div>
            </div>
+           
 
            {/* <img src={`/img/${pet.pet_img}`} /> */}
 

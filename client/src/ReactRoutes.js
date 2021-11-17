@@ -26,7 +26,7 @@ export default function ReactRoutes() {
     <Routes>
 
         {/* main address - login page  */}
-        <Route path="/" exact element={<Login onLogin={user => setUser(user)} pet={pet}/>} />
+        <Route path="/" exact element={<Login onLogin={user => setUser(user)}/>} />
 
         {/* dashboard - HOME buttons should point to it */}
         <Route path="/Dashboard" element={<Dashboard user={user} pet={pet} />} />

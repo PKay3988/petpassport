@@ -1,0 +1,24 @@
+/* img {
+    height: 100%;
+    width: 100%;
+    } */
+    
+    
+    body {
+        height: 75vh;
+        width: 100%;
+    
+    }
+    .prof-pic-hard-div img{
+        height: 120px;
+        width: 120px;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50% );
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid grey;
+        object-fit: cover;
+    }
+    

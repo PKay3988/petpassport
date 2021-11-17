@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Nav from "./Nav";
+import Nav2 from "./Nav2";
 import "./PhotoGallery.css";
+import AddPhoto from "./AddPhoto";
 // import Bird from './img/Bird.jpeg';
 
 export const PhotoGallery = (props) => {
@@ -21,7 +22,7 @@ export const PhotoGallery = (props) => {
   return (
     <div className="carousel-mover">
       <div className="carousel-container">
-        {/* <Nav /> */}
+        <Nav2 />
         <Carousel key={image.img_id}>
           {image.map((e) => (
             <Carousel.Item variant="dark" key={e.img_id}>
@@ -37,6 +38,9 @@ export const PhotoGallery = (props) => {
           ))}
         </Carousel>
       </div>
+      <br />
+      <br />
+      {/* <AddPhoto /> */}
       </div>
   );
 };

@@ -39,17 +39,17 @@ export const Dashboard = (props) => {
     return (
         <div>
             <Nav pet={pet}/>
-
+            <p>Hello</p>
             <div className="dashboard-container">
                 
                 <div className="dash-item midsection">
                     <PhotoGallery pet={pet} />
                     {/* <AddPhoto/> */}
                     <div>
-                        <Events />
+                        <Events user={user}/>
                     </div>
                 </div>
-
+                <Nav pet={pet}/>
                 <div className="dash-item">
                     <MapView userVet={userVet} user={user}/>
                 </div>
