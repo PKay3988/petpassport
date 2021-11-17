@@ -5,6 +5,11 @@ import './Vets.css';
 import homeSolidIcon from '../assets/home-solid.svg';
 
 const Nav = () => {
+
+    const signout = () => {
+        localStorage.clear("token");
+        console.log("Bye!");
+      };
     
     return (
 
@@ -25,12 +30,35 @@ const Nav = () => {
 
                     {/* <Link to="/RegisterUser"><li>REGISTER</li> 
                     </Link> */}
+<<<<<<< HEAD
                     {/* <Link to="/PhotoGallery"><li>GALLERY</li>
                     </Link> */}
                     {/* <Link to="/"><li>LOGIN</li>
                     </Link> */}
 
                   
+=======
+                    
+                    <Link to="/ChoosePet"><li>PETS</li>
+                     </Link>
+                    
+                    <Link to="/Vets"><li>VETS</li>
+                    </Link>
+
+                    <Link to="/PhotoGallery"><li>GALLERY</li>
+                    </Link>
+
+                    <Link to="/AddPhoto"><li>ADD PHOTOS</li>
+                    </Link>
+
+                    <Link to="/">
+                        <button type="button" onClick={signout}>
+                            Log out
+                        </button>
+                    </Link>
+                    </div>
+                </ul>
+>>>>>>> staging
             </div>
         </div>
         

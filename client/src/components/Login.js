@@ -80,12 +80,11 @@ function Login(props) {
     // setToken(token);
   };
 
-  const signout = () => {
-    localStorage.clear("token");
-    console.log("Bye!");
-    setAuthUser("");
-    // getToken();
-  };
+  // const signout = () => {
+  //   localStorage.clear("token");
+  //   console.log("Bye!");
+  //   setAuthUser("");
+  // };
 
   useEffect(() => {
     getToken();

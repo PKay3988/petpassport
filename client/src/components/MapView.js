@@ -5,8 +5,8 @@ import 'leaflet/dist/leaflet.css';
 import './Vets.css';
 
 // leaflet/dist/images/marker-icon.png
-import vetIcon from '../assets/paw.svg';
-import homeIcon from '../assets/home.svg';
+import vetIcon from '../assets/paw2.png';
+import homeIcon from '../assets/home3.png';
 import iconShadow from 'leaflet/dist/images/marker-shadow.png';
 
 const MapView = (props) => {
@@ -14,7 +14,7 @@ const MapView = (props) => {
     function getVetIcon() {
         return L.icon( {
             iconUrl: vetIcon,
-            iconSize: [25, 40],
+            iconSize: [45, 40],
             shadowUrl: iconShadow
         })
     }
@@ -22,7 +22,7 @@ const MapView = (props) => {
     function getHomeIcon() {
         return L.icon({
             iconUrl: homeIcon,
-            iconSize: [25, 40],
+            iconSize: [40, 40],
             shadowUrl: iconShadow
         })
     }
@@ -45,10 +45,10 @@ const MapView = (props) => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' />
             {vetCoords ? 
             <Marker position={vetCoords.split(",").reverse()} icon={getVetIcon()}>
-                {/* <Popup>
-                    {props.vets[0].name} <br />
-                    {props.vets[0].phone_number}
-                </Popup> */}
+                <Popup>
+                    {props.userVet[0].name} <br />
+                    {props.userVet[0].phone_number}
+                </Popup>
             </Marker>
             : null}
             {homeCoords ? 
