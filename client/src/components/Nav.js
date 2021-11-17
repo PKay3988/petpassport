@@ -23,34 +23,8 @@ const Nav = () => {
                     <Link to="/ChoosePet"><li>Pets</li></Link>
                     <Link to="/Vets"><li>Vet</li></Link>
                     <Link to="/AddPhoto"><li>Add Photos</li></Link>
-             
-                    </div>
-                </ul>
-               
-
-                    {/* <Link to="/RegisterUser"><li>REGISTER</li> 
-                    </Link> */}
-<<<<<<< HEAD
-                    {/* <Link to="/PhotoGallery"><li>GALLERY</li>
-                    </Link> */}
-                    {/* <Link to="/"><li>LOGIN</li>
-                    </Link> */}
-
-                  
-=======
-                    
-                    <Link to="/ChoosePet"><li>PETS</li>
-                     </Link>
-                    
-                    <Link to="/Vets"><li>VETS</li>
-                    </Link>
-
                     <Link to="/PhotoGallery"><li>GALLERY</li>
                     </Link>
-
-                    <Link to="/AddPhoto"><li>ADD PHOTOS</li>
-                    </Link>
-
                     <Link to="/">
                         <button type="button" onClick={signout}>
                             Log out
@@ -58,7 +32,11 @@ const Nav = () => {
                     </Link>
                     </div>
                 </ul>
->>>>>>> staging
+               
+
+                    
+                    
+                  
             </div>
         </div>
         
