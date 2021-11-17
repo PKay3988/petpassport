@@ -21,21 +21,21 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Location of static assets
 app.use(express.static(path.join(__dirname, '/client/build')));
 
-//where to store your file temporarily
-app.use(
-    fileUpload({
-      useTempFiles: true,
-      tempFileDir: "./tmp/",
-    })
-  );
-  //img is inside of public folder
-  app.use(express.static("public"));
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/pets', petsRouter);
 app.use('/vets', vetsRouter);
 app.use('/treatments', treatmentsRouter);
+
+//where to store your file temporarily
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "./tmp/",
+  })
+);
+//img is inside of public folder
+app.use(express.static("public"));
 
 // Respond with index.html for unmatched routes
 app.get("*", (req, res) => {
