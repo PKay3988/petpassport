@@ -2,7 +2,7 @@ import { Route, Routes } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import AddPhoto from "./components/AddPhoto"
 import ChoosePet from "./components/ChoosePet" 
-import AddPet from './components/AddPet' 
+// import AddPet from './components/AddPet' 
 import Dashboard from "./components/Dashboard"
 import DisplayProfile from "./components/DisplayProfile" 
 import Login from "./components/Login" 
@@ -11,6 +11,7 @@ import PhotoGallery from "./components/PhotoGallery"
 import Wellness from "./components/Wellness" 
 import RegisterUser from './components/RegisterUser'
 import countryList from 'react-select-country-list'
+import ProfPic from './components/DisplayProfile'
 
 export default function ReactRoutes() {
   const [user, setUser] = useState();
@@ -37,9 +38,14 @@ export default function ReactRoutes() {
 
         <Route path="/Vets" element={<Vets user={user}/>} />
 
-        <Route path="/AddPhoto" element={<AddPhoto />} />
+        {/* <Route path="/Wellness" element={<Wellness />} /> */}
 
-        <Route path ="/PhotoGallery" element={<PhotoGallery />} />
+        <Route path="/AddPhoto" element={<AddPhoto pet={pet} />} />
+
+
+        <Route path="/DisplayProfile" element={<DisplayProfile pet={pet} /*onClose={handleClose}*/ />} />
+
+        <Route path ="/PhotoGallery" element={<PhotoGallery pet={pet} />} />
 
         <Route path ="/registeruser" element={<RegisterUser  countries={countries}/>} />
 

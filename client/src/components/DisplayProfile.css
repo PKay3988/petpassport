@@ -1,0 +1,61 @@
+img {
+height: 100px;
+width: 100px;
+}
+
+
+body {
+    height: 75vh;
+    width: 100%;
+
+}
+.prof-pic-div {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50% );
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid grey;
+    object-fit: cover;
+}
+
+#pic {
+    height: 100%;
+    width: 100%;
+
+}
+
+#file {
+/* display:none; */
+cursor: pointer;
+}
+
+#uploadBtn{
+height: 40px;
+width: 100%;
+position: absolute;
+bottom: 0;
+left: 50%;
+transform: translateX(-50%);
+text-align: center;
+background: rgba(0, 0, 0, 0.7);
+color: wheat;
+line-height: 30px;
+font-size: 15px;
+cursor: pointer;
+}
+
+
+/* 
+.photo-add {
+float: left;
+margin-left: 5px;
+}
+
+.choose-file input {
+margin-left: 5px;
+
+} */

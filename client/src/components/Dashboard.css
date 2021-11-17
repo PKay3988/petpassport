@@ -6,6 +6,14 @@
     padding-top: 2em;
 }
 
+/* .carousel-container {
+    float: right;
+
+} */
+.carousel-mover {
+    float:right;
+}
+
 .dash-item {
     padding: 1em;
 }

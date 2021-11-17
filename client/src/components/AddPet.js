@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import DisplayProfile from "./DisplayProfile";
+import imgg from "./imgg.jpeg"
 
 function AddPet(props) {
   const emptyPet = {
     pet_name: "",
+    type:"",
     breed: "",
     dob: "",
     user_id: `${props.id}`,
@@ -49,6 +53,16 @@ function AddPet(props) {
               />
             </label>
             <label className="addvet-item">
+              Type
+              <input
+                type="text"
+                name="type"
+                value={pet.type}
+                onChange={handleChange}
+              />
+            </label>
+
+            <label className="addvet-item">
               Breed
               <input
                 type="text"
@@ -57,6 +71,12 @@ function AddPet(props) {
                 onChange={handleChange}
               />
             </label>
+            <div className="add-prof-pic-holder">
+
+            {/* <DisplayProfile immg={imgg} pet={pet} /> */}
+
+            </div>
+
             <label className="addvet-item">
               Date of birth
               <input
@@ -67,6 +87,10 @@ function AddPet(props) {
               />
             </label>
             <br />
+
+            {/* <button> Add Photo: 
+              </button> */}
+          
           </div>
         </Modal.Body>
         <Modal.Footer>

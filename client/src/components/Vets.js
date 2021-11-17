@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddVet from "./AddVet";
 import MapView from "./MapView";
-import Nav from "./Nav";
+import Nav2 from "./Nav2";
 import countryList from 'react-select-country-list';
 import DateTimePicker from 'react-datetime-picker';
 import Modal from 'react-bootstrap/Modal';
@@ -95,7 +95,7 @@ function Vets(props) {
     
     return (
         <div className="vets-container">
-            <Nav/>
+            <Nav2 />
             <h3>my vets</h3>
             <div className="vet-cards">
                 <div className="card" key="card"> Primary vet:

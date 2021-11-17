@@ -51,11 +51,13 @@ CREATE TABLE `treatments` (
 CREATE TABLE `pets` (
 	`pet_id` INT NOT NULL AUTO_INCREMENT,
 	`pet_name` varchar(255) NOT NULL,
+	`type` varchar(255) NOT NULL,
 	`breed` varchar(255) NOT NULL,
 	`dob` DATE NOT NULL,
 	`user_id` INT NOT NULL,
 	`vet_id` INT,
 	`treatment_id` INT,
+	`pet_img`varchar(255) NULL,
 	PRIMARY KEY (`pet_id`)
 );
 
