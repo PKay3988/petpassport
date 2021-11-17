@@ -64,7 +64,7 @@ import React from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
 import Icon from '../assets/icon-1.svg';
-import './MapView.css';
+import './Vets.css';
 
 const MapView = () => {
     return (

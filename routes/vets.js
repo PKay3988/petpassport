@@ -74,6 +74,7 @@ router.post("/", async function (req, res) {
         '${req.body.street_name}',
         '${req.body.street_number}',
         '${req.body.city}',
+        '${req.body.country_code}',
         '${req.body.country}',
         '${req.body.country_code}',
         '${req.body.phone_number}',
