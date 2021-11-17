@@ -21,12 +21,6 @@ app.use(cookieParser());
 // Location of static assets
 app.use(express.static(path.join(__dirname, '/client/build')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/pets', petsRouter);
-app.use('/vets', vetsRouter);
-app.use('/treatments', treatmentsRouter);
-
 //where to store your file temporarily
 app.use(
   fileUpload({
@@ -34,6 +28,13 @@ app.use(
     tempFileDir: "./tmp/",
   })
 );
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
+app.use('/pets', petsRouter);
+app.use('/vets', vetsRouter);
+app.use('/treatments', treatmentsRouter);
+
 //img is inside of public folder
 app.use(express.static("public"));
 
