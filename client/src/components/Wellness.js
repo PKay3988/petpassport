@@ -1,4 +1,5 @@
 import React , { useEffect , useState} from 'react'
+import Nav from './Nav';
 import { Popup } from 'react-leaflet';
 import {Link} from 'react-router-dom'
 
@@ -112,6 +113,7 @@ function Wellness(props) {
 
     return (
      <div>
+       < Nav/>
         <h2> Wellness Status of {pet.pet_name}</h2>
         <h3> Food </h3>
 
