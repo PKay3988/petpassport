@@ -295,7 +295,7 @@ margin-left: 5px;
 
 .nav-item {
   border: 1px solid transparent;
-  background-color: white;
+  background-color:rgb(36,117,193);
   position: relative;
   /* top: 300px; */
   height: 800px;
@@ -310,11 +310,12 @@ margin-left: 5px;
 
 .nav-item {
 padding-top: 200px;
+
 }
 .nav-item li, a {
   text-decoration: none;
   margin-top: 30px;
-  color:   rgb(36,117,193);
+  color:   white;
   font-weight: bold;
   
   /* border: 1px solid red; */
@@ -346,14 +347,24 @@ padding-top: 200px;
   height: 300px;
   width:300px;
   margin-top: 50px;
+  /* margin-bottom: 50px; */
   float: right;
   position: relative;
-  left: -200px;
+  left: -270px;
   /* background-color: rgb(36,117,193); */
   border-radius: 20px;
+ 
 }
 
+.photo-card h3 {
+  color: tomato;
+  font-weight:  bold;
+  position: relative;
+  left: 40px;
+  
+}
 .appointment-card {
+  border-radius: 20px;
   border: 1px solid red;
   height: 300px;
   width:300px;
@@ -361,11 +372,38 @@ padding-top: 200px;
   position: relative;
   margin: 50px;
   
+  
 
 }
 
 .dash-item {
   padding: 1em;
   /* border:1px solid red; */
-  height: 800px;
+  /* height: 400px;
+  border: 1px solid red;
+  position: relative;
+  top: 400px; */
+  margin-top: 100px;
 }
+
+.dash-item h3 {
+  position: relative;
+  top: 350px;
+  left: -50px;
+  color: rgb(238,97,68);
+  font-weight:  bold;
+  
+ 
+}
+.leaflet-container {
+  width: 800px;
+  height: 250px;
+  /* border: 2px solid black; */
+  border-radius: 20px;
+  /* padding-top: 200px; */
+  margin: 0 auto;
+  position: relative;
+  top: 120px;
+  /* margin-top: 100px; */
+}
+

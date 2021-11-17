@@ -23,12 +23,11 @@ const Nav = () => {
                     <Link to="/ChoosePet"><li>Pets</li></Link>
                     <Link to="/Vets"><li>Vet</li></Link>
                     <Link to="/AddPhoto"><li>Add Photos</li></Link>
-                    <Link to="/PhotoGallery"><li>GALLERY</li>
-                    </Link>
-                    <Link to="/">
-                        <button type="button" onClick={signout}>
-                            Log out
-                        </button>
+                    {/* <Link to="/PhotoGallery"><li>GALLERY</li></Link> */}
+                    <Link to="/"><li> Log out</li>
+                        {/* <button type="button" onClick={signout}>
+                           Log out
+                        </button> */}
                     </Link>
                     </div>
                 </ul>

@@ -95,7 +95,10 @@ function Vets(props) {
     
     return (
         <div className="vets-container">
+
+            <div>
             <Nav/>
+            <div className="vet-view">
             <h3>my vets</h3>
             <div className="vet-cards">
                 <div className="card" key="card"> Primary vet:
@@ -142,6 +145,8 @@ function Vets(props) {
 
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
             <MapView userVet={userVet} user={user}/>
+        </div>
+        </div>
         </div>
     )
 }

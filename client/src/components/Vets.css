@@ -1,13 +1,28 @@
 /* general display of vets */
 .vets-container {
-    height: 100%;
+    /* height: 100%;
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 1em; */
+    /* border: 1px solid red; */
+    margin: 80px 50px;
 }
 
+.vet-view {
+ /* border: 1px solid red;  */
+ border: 1px solid transparent;
+    position: relative;
+    left: 200px;
+    top: -808px;
+    border-radius: 0 20px 20px 0px;
+    height: 800px;
+    width: 1120px;
+    background-color: rgb(255, 255, 255);
+    /* border: 1px solid red; */
+    display: block;
+}
 
 /* vet card */
 .vet-cards {
@@ -70,13 +85,3 @@
 }
 
 /* map size  */
-.leaflet-container {
-    width: 800px;
-    height: 300px;
-    /* border: 2px solid black; */
-    position: relative;
-    top: 40px;
-    border-radius: 20px;
-    /* padding-top: 200px; */
-    margin: 0 auto;
-}
