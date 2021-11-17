@@ -63,6 +63,7 @@ router.post("/", async function (req, res) {
         name,
         street_name,
         street_number,
+        postal_code,
         city,
         country,
         country_code,
