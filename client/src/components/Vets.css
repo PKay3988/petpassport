@@ -41,11 +41,14 @@
     align-items: center;
 }
 
+<<<<<<< HEAD
 .card-content {
     display: flex;
     flex-direction: column;
 }
 
+=======
+>>>>>>> 9cd906e (add vet + country code working)
 .card button {
     border: 1px solid black;
     width: 50%;
@@ -59,7 +62,7 @@
 }
 
 .addvet-item {
-    width: 100%;
+    width: 20em;
     display: flex;
     flex-direction: column;
     padding-left: 1em;
@@ -69,12 +72,15 @@
     width: 70%;
 }
 
+<<<<<<< HEAD
 .addvet-form select {
     width: 80%;
     height: 70%;
     margin: 1em;
 }
 
+=======
+>>>>>>> 9cd906e (add vet + country code working)
 #number {
     width: 20%;
     margin-left: 1em;
@@ -87,8 +93,13 @@
 
 /* map size  */
 .leaflet-container {
+<<<<<<< HEAD
     width: 43vw;
     height: 38vh;
     border: 2px solid black;
     margin-right: 1em;
+=======
+    width: 40vw;
+    height: 40vh;
+>>>>>>> 9cd906e (add vet + country code working)
 }

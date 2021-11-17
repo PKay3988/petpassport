@@ -4,14 +4,14 @@ const db = require('../model/helper');
 
 /* GET pets listing - sends array of pets */
 router.get('/', async function(req, res, next) {
-    await db(`SELECT * FROM pet`)
+    await db(`SELECT * FROM pets`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });
 
 /* GET one pet by id - sends it back */
 router.get('/pet/:id', async function(req, res) {
-    await db(`SELECT * FROM pet WHERE id = ${req.params.id}`)
+    await db(`SELECT * FROM pets WHERE id = ${req.params.id}`)
         .then(results => res.send(results.data))
         .catch(err => res.status(500).send({ err: err.message }))
 });
@@ -51,7 +51,7 @@ router.post('/AddPet', async function(req, res) {
 
 /* PUT - edit something. for now, this one updates the vet_id */
 router.post('/vet/:id', async function(req, res) {
-    await db(`UPDATE pet SET 
+    await db(`UPDATE pets SET 
     vet_id = '${req.body.vet_id}'
     WHERE id = ${req.params.id}`
     )
