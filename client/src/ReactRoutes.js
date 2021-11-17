@@ -8,6 +8,7 @@ import DisplayProfile from "./components/DisplayProfile"
 import Login from "./components/Login" 
 import Vets from './components/Vets'
 import PhotoGallery from "./components/PhotoGallery" 
+import Wellness from "./components/Wellness" 
 import RegisterUser from './components/RegisterUser'
 import countryList from 'react-select-country-list'
 import ProfPic from './components/DisplayProfile'
@@ -19,6 +20,7 @@ export default function ReactRoutes() {
   const [countries, setCountries] = useState([]);
 
   useEffect(() => {
+      console.log("react-routes", pet)
       setCountries(countryList().getLabels());
   }, [])
 
@@ -40,12 +42,16 @@ export default function ReactRoutes() {
 
         <Route path="/AddPhoto" element={<AddPhoto pet={pet} />} />
 
+
         <Route path="/DisplayProfile" element={<DisplayProfile pet={pet} /*onClose={handleClose}*/ />} />
 
         <Route path ="/PhotoGallery" element={<PhotoGallery pet={pet} />} />
 
         <Route path ="/registeruser" element={<RegisterUser  countries={countries}/>} />
 
+        <Route path ="/Wellness" element={<Wellness pet={pet} />} />
+
     </Routes>
   );
 }
+
