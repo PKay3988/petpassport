@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var petsRouter = require('./routes/pets');
 var vetsRouter = require('./routes/vets');
 var treatmentsRouter = require('./routes/treatments');
+var wellnessRouter = require('./routes/wellness');
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use('/users', usersRouter);
 app.use('/pets', petsRouter);
 app.use('/vets', vetsRouter);
 app.use('/treatments', treatmentsRouter);
+app.use('/wellness', wellnessRouter);
 
 // Respond with index.html for unmatched routes
 app.get("*", (req, res) => {
