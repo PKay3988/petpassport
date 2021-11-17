@@ -21,8 +21,38 @@
 }
 
 .navbar.fixed-left .navbar-collapse .navbar-nav {
+   
     flex-direction: column;
     width: 100%;
+}
+
+.pet-info {
+    position: absolute;
+    top: 60%;
+    left: 0;
+}
+
+
+.navbar-item{
+    position: absolute;
+    top: 80%;
+    left: 0;
+}
+
+.navbar .prof-pic-div {
+    position:absolute;
+    height: 180px;
+    width: 180px;
+    top:12%;
+    right:50%;
+    margin-top: 20px;
+    border-top: 10px;
+}
+.navbar button {
+    position: absolute;
+    top: 90%;
+    left: 36%;
+
 }
 
 /* vet card */
