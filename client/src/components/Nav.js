@@ -68,7 +68,7 @@ console.log("Nav", JSON.stringify(props.pet));
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
-                    <Link to="/DisplayProfile"><li>DISPPROF</li>
+                    <Link to="/Wellness"><li>WELLNESS</li>
                     </Link>
 
                     <br />
