@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
+    "start": "node ./bin/www",
     "migrate": "node model/database.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
