@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddVet from "./AddVet";
 import MapView from "./MapView";
+import Nav2 from "./Nav2";
 import Nav from "./Nav";
 import countryList from 'react-select-country-list';
 import DateTimePicker from 'react-datetime-picker';
@@ -151,4 +152,4 @@ function Vets(props) {
     )
 }
 
-export default Vets 
+export default Vets;

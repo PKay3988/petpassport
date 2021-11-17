@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "migrate": "node model/database.js"
+    "start": "node ./bin/www",
+    "migrate": "node model/database.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
     "@popperjs/core": "^2.10.2",

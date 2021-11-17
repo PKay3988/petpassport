@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
 import PhotoGallery from './PhotoGallery';
+import AddPhoto from './AddPhoto';
 import Events from './Events';
 import "./Dashboard.css";
 
 export const Dashboard = (props) => {
+    let pet = props.pet;
     // // stores coords from browser position
     // const [position, setPosition] = useState();
 
@@ -37,7 +39,7 @@ export const Dashboard = (props) => {
     return (
         <div>
 
-            <div className="dashboard-view">
+            {/* <div className="dashboard-view">
             
             <div className="dash-center">
                 <Nav />
@@ -49,15 +51,26 @@ export const Dashboard = (props) => {
                     <div className="photo-card">
                         <h3>Gallery</h3>
                     <PhotoGallery />
-                </div> 
+                </div>  */}
+            <Nav pet={pet}/>
+            <p>Hello</p>
+            <div className="dashboard-container">
+                
+                <div className="dash-item midsection">
+                    <PhotoGallery pet={pet} />
+                    {/* <AddPhoto/> */}
+                    <div>
+                        <Events user={user}/>
+                    </div>
+                </div>
+                <Nav pet={pet}/>
                 <div className="dash-item">
                     <h3>Places of Interest</h3>
                     <MapView className="map" userVet={userVet} user={user}/>
                 </div>
                 </div>
             </div>
-            </div>
-        </div>
+         
         
     )
 }

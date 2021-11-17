@@ -3,6 +3,9 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import { Link } from "react-router-dom";
 import Nav from "./Nav";
 import AddPet from "./AddPet";
+import "./DisplayProfile.css";
+import DisplayProfile from "./DisplayProfile";
+import imgg from "./imgg.jpeg"
 
 export const ChoosePet = (props) => {
   // if sending user through routes doesn't work
@@ -112,7 +115,7 @@ export const ChoosePet = (props) => {
       <div className="choose-pet">
       <h2>Choose a pet</h2>
 
-      <ul>
+      <ul className="pets-list">
         {pets &&
           pets.map((pet) => (
             <li key={pet.id}>
