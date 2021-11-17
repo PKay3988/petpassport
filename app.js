@@ -18,6 +18,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Location of static assets
+app.use(express.static(path.join(__dirname, '/client/build')));
+
 //where to store your file temporarily
 app.use(
     fileUpload({
@@ -27,9 +30,6 @@ app.use(
   );
   //img is inside of public folder
   app.use(express.static("public"));
-
-// Location of static assets
-app.use(express.static(path.join(__dirname, '/client/build')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
