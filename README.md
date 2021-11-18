@@ -10,18 +10,17 @@ Pet Passport is an app to help you stay on track with keeping your pets healthy 
 
 ### _Features_
 
-- Ability to create user profiles 
-- Ability to add a new pet, edit, and delete it
-- Ability to store pet vital information
-- Ability to learn about local pet resources
-- Ability to make and interact with new pet friends!
-- Ability to use git.
+- Ability to log in and create different authenticated user profiles 
+- Ability to add a new pet, delete it, and store pet vital information
+- Ability to track past and upcoming appointments & treatments
+- Ability to post enjoy uploaded pictures of your pet
+
 
 ## Setup
 
 ### _Dependencies_
 
-- Run `npm install` in project directory. This will install server-related dependencies such as `express`.
+- Run `npm install` in project directory. This will install server-related dependencies such as `express`, `bcrypt`, `leaflet`, `express-fileupload`.
 
 - `cd client` and run `npm install`. This will install client dependencies (React).
 
@@ -31,14 +30,16 @@ Pet Passport is an app to help you stay on track with keeping your pets healthy 
 - Create a new database called passport: `create database passport`
 - Add a `.env` file to the project folder of this repository containing the MySQL authentication information for MySQL user. For example:
 
+
 ```bash
   DB_HOST=localhost
   DB_USER=root
   DB_NAME=passport
   DB_PASS=YOURPASSWORD
 ```
+- You will also need to store your leaflet API key and your `API_KEY=` and your bcrypt secret key `SUPER_SECRET=`. These will allow for login and access to protected map data
 
-- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create 2 tables called 'plantsTable' and 'usersTable' in your database.
+- Run `npm run migrate` in the project folder of this repository, in a new terminal window. This will create 7 tables called 'users', 'pets', 'vets', 'treatments', 'diet','grooming', and 'images' in your database.
 
 ![DB](photos/DBPhoto.png)
 
@@ -59,14 +60,27 @@ init("yourUserId");
 ## Technologies
 
 - React
-- CSS
+  - React Router 6  
+  - Reect File Upload
+  - React Select Country List
+- React boostrap
 - MySql
-- Express
+- JSON web token
+- bcrypt
+- dotenv
+- axios
+- express
 - Nodemon
+- CSS
 - (...)
 
 ## Possible Future Features
 
-- In the future, this app could have a messaging feature
+- In the future, this app could have a community posts board or messaging feature
+- It could have different types of users/ access-- vets, pets stores, sitters, etc. 
+- It could track favorite locations or upcoming events on the map feature
+- It could have calendar and reminders for appointment maintenance
+- The map could also have a search bar
+
 
 _This is a student project that was created at [CodeOp](http://codeop.tech), a full stack development bootcamp in Barcelona._
