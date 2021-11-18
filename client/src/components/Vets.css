@@ -59,12 +59,12 @@
 /* vet card */
 .vet-cards {
     display: flex;
-    width: 60%;
+    width: 70%;
     height: 17em;
     gap: 2em;
     /* border: 1px solid red; */
     position: relative;
-    left: 400px;
+    left: 320px;
     top: -100px;
 }
 
@@ -123,7 +123,7 @@
 
 .addvet-form button {
     margin: 1em 2em;
-    /* border: 1px solid black; */
+    border: 1px solid black;
 }
 
 /* map size  */

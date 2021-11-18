@@ -133,7 +133,7 @@ function Vets(props) {
                             </Modal.Footer>
                         </Modal>
                     </div>}
-                    <button className="btn" onClick={() => setInput(true)}>add vet appointment</button>
+                    <button className="btn btn-primary" onClick={() => setInput(true)}>add vet appointment</button>
                 </div>
 
                 {/* TODO - if there is already a vet with user id - render addvet with previous info & make it call a put request instead of post */}

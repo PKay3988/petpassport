@@ -527,15 +527,15 @@ margin-top: 80px;
  
 }
 .leaflet-container {
-  width: 800px;
-  height: 250px;
+  width: 870px;
+  height: 300px;
   /* border: 2px solid black; */
   border-radius: 20px;
   /* padding-top: 200px; */
   margin: 0 auto;
   position: relative;
-  /* top: -350px; */
-  left: 110px;
+  top: -50px;
+  left: 120px;
   /* margin-top: 100px; */
 }
 
