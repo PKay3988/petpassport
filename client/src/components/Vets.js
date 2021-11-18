@@ -3,7 +3,6 @@ import AddVet from "./AddVet";
 import MapView from "./MapView";
 import Nav2 from "./Nav2";
 import countryList from 'react-select-country-list';
-import DateTimePicker from 'react-datetime-picker';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 

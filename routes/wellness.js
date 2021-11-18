@@ -58,7 +58,6 @@ router.post('/grooming', async function(req, res) {
         date,
         notes,
         pet_id
-
     ) VALUES (
         '${req.body.type}',
         '${req.body.date}',

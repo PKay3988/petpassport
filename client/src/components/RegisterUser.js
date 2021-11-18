@@ -80,6 +80,7 @@ const registerUser = async () => {
             value={user.country}
             onChange={handleChange}
           >
+            <option>Choose a country...</option>
             {props.countries.map((country) => (
               <option key={country}>{country}</option>
             ))}
