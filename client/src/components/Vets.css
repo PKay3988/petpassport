@@ -1,13 +1,16 @@
 /* general display of vets */
 .vets-container {
-    /* height: 100%;
-    display: flex;
-    width: 100%;
+    /* /* height: 100%; */
+    height: 800px;
+    /* display: flex; */
+    width: 93%;
     flex-direction: column;
     align-items: center;
-    gap: 1em; */
-    /* border: 1px solid red; */
+    gap: 1em; 
+    border: 1px solid transparent;
     margin: 80px 50px;
+    background-color: white;
+    border-radius: 20px;
 }
 
 .vet-view {
@@ -56,9 +59,13 @@
 /* vet card */
 .vet-cards {
     display: flex;
-    width: 50%;
-    height: 12em;
+    width: 70%;
+    height: 17em;
     gap: 2em;
+    /* border: 1px solid red; */
+    position: relative;
+    left: 320px;
+    top: -100px;
 }
 
 .card {
@@ -67,6 +74,12 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    border-radius: 20px;
+    margin-left: 30px;
+    border-color: transparent;
+    background-color: rgb(248,237,234); 
+    color: tomato;
+    /* padding: 100px; */
 }
 
 .card-content {
@@ -75,7 +88,7 @@
 }
 
 .card button {
-    border: 1px solid black;
+    border: 1px solid transparent;
     width: 50%;
 }
 
@@ -84,6 +97,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
+}
+.addvet-form select {
+    display: block;
+  border-radius: 8px;
+  border: 0.5px solid transparent;
+  height: 10px;
+  /* width: 90px; */
+  padding: 0 10px;
+  background-color: rgb(242,242,242);
+  margin-bottom: 8px;
 }
 
 .addvet-item {

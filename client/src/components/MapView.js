@@ -39,6 +39,7 @@ const MapView = (props) => {
     if(homeCoords) { center = homeCoords.split(",").reverse() } 
 
     return (
+        <div className="map-view">
         <MapContainer  center={ center } zoom={15}>
             <TileLayer 
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' 
@@ -59,6 +60,7 @@ const MapView = (props) => {
             </Marker>
             : null}
         </MapContainer>
+        </div>
     )
 }
 
