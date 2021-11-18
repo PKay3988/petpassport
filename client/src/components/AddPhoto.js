@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Nav from "./Nav";
+import illu3 from '../assets/illu3.jpg';
 // import Nav from "./Nav";
 
 
@@ -47,7 +48,9 @@ const AddPhoto = (props) => {
         <input className="upload-file" type="file" onChange={onFileChange} />
         <button className="btn btn-primary" onClick={onFileUpload}>Upload</button>
       </div>
+      <img  className="illu2 illu3" src={illu3} width="300" height="400"></img>
       </div>
+     
     );
   }
   
