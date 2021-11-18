@@ -62,6 +62,9 @@ console.log("Nav", JSON.stringify(props.pet));
                     <Link to="/Vets"><li>VETS</li>
                     </Link>
 
+                    <Link to="/Wellness">WELLNESS<li></li>
+                    </Link>
+
                     <Link to="/PhotoGallery"><li>GALLERY</li>
                     </Link>
 
