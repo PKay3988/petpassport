@@ -23,9 +23,9 @@ console.log("Nav", JSON.stringify(props.pet));
     
     return (
 
-        <div className="navbar navbar-expand-md fixed-left">
-            <div className="collapse navbar-collapse" id="navbar-content">
-                <ul className="navbar-nav">
+        <div className="nav-container">
+        
+            
                     {/* <h3> Pet Passport 🐾 </h3> */}
                     <div className="nav-item">
                         {/* <DisplayProfile /> */}
@@ -88,10 +88,10 @@ console.log("Nav", JSON.stringify(props.pet));
                             Log out
                         </button>
                     </Link> */}
-                    </div>
+                   
                     </div> 
                     
-                </ul>
+                
                
 
                     

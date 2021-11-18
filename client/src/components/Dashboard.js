@@ -53,7 +53,7 @@ export const Dashboard = (props) => {
                     <PhotoGallery />
                 </div>   */}
             {/* <Nav pet={pet}/> */}
-            <p>Hello</p>
+            {/* <p>Hello</p> */}
             <div className="dashboard-container">
             
              <Nav pet={pet}/>

@@ -8,15 +8,16 @@
     width: 800px;
     margin: 0 auto; */
     border: 1px solid transparent;
-    position: relative;
-    left: 200px;
-    top: -808px;
+    /* position: relative; */
+    /* left: 200px; */
+    /* top: -808px; */
     border-radius: 0 20px 20px 0px;
-    height: 800px;
-    width: 1120px;
+    /* height: 800px; */
+    /* width: 1120px; */
     background-color: rgb(255, 255, 255);
     /* border: 1px solid red; */
-    display: block;
+    /* display: block; */
+    margin-top: -200px;
 }
 
 
