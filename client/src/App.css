@@ -44,13 +44,13 @@ color: rgb(238,108,77);
 
 }
 
-.login-form input, .register-form input, .register-form select, .modal-body input {
+.login-form input, .register-form input, .register-form select, .modal-body input  {
   display: block;
   border-radius: 8px;
   border: 0.5px solid transparent;
   height: 29px;
   width: 200px;
-  padding: 10px;
+  padding: 0 10px;
   background-color: rgb(242,242,242);
   margin-bottom: 8px;
   

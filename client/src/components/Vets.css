@@ -98,6 +98,16 @@
     grid-template-columns: 1fr 1fr 1fr;
     width: 100%;
 }
+.addvet-form select {
+    display: block;
+  border-radius: 8px;
+  border: 0.5px solid transparent;
+  height: 10px;
+  /* width: 90px; */
+  padding: 0 10px;
+  background-color: rgb(242,242,242);
+  margin-bottom: 8px;
+}
 
 .addvet-item {
     width: 100%;

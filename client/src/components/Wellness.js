@@ -250,7 +250,7 @@ function Wellness(props) {
         <div>
           <Modal show={showGrooming} onHide={() => setShowGrooming(false)}>
             <Modal.Header closeButton>
-              <Modal.Title>Add grooming appointment:</Modal.Title>
+              <Modal.Title>Last appointment:</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <input
