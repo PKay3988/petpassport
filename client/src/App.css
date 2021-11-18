@@ -562,6 +562,12 @@ margin-top: 80px;
 
 }
 
+.illu3 {
+  margin-top: -400px;
+  position: relative;
+  left: -40px;
+  /* border: 1px solid red; */
+}
 /* .upload-file input [type="file"] {
   background-color: red !important;
   border-radius: 20px;
