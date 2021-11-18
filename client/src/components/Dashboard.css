@@ -11,13 +11,13 @@
     /* position: relative; */
     /* left: 200px; */
     /* top: -808px; */
-    border-radius: 0 20px 20px 0px;
-    /* height: 800px; */
+    border-radius: 20px;
+    height: 800px;
     /* width: 1120px; */
     background-color: rgb(255, 255, 255);
     /* border: 1px solid red; */
     /* display: block; */
-    margin-top: -200px;
+    margin: 120px 80px;
 }
 
 

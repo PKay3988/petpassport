@@ -24,8 +24,6 @@ console.log("Nav", JSON.stringify(props.pet));
     return (
 
         <div className="nav-container">
-        
-            
                     {/* <h3> Pet Passport 🐾 </h3> */}
                     <div className="nav-item">
                         {/* <DisplayProfile /> */}

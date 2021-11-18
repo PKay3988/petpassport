@@ -10,7 +10,7 @@ body {
 
 }
 .prof-pic-div {
-    height: 200px;
+    max-height: 200px;
     width: 200px;
     position: absolute;
     top: 15%;
@@ -19,7 +19,7 @@ body {
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
-    object-fit: cover;
+    object-fit: cover !important;
     border: 1px solid transparent;
 }
 

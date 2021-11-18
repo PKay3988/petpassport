@@ -38,22 +38,6 @@ export const Dashboard = (props) => {
 
     return (
         <div className="dashboard-view">
-
-            {/* <div className="dashboard-view">
-            
-            <div className="dash-center">
-                <Nav />*/}
-
-            {/* <div className="dashboard-container">
-                 <div className="appointment-card">
-                    <span>appointments</span>
-                    </div>
-                    <div className="photo-card">
-                        <h3>Gallery</h3>
-                    <PhotoGallery />
-                </div>   */}
-            {/* <Nav pet={pet}/> */}
-            {/* <p>Hello</p> */}
             <div className="dashboard-container">
             
              <Nav pet={pet}/>
@@ -65,7 +49,7 @@ export const Dashboard = (props) => {
                         <Events user={user}/>
                     </div>
                     <div className="dash-item">
-                    <h3>Places of Interest</h3>
+                    {/* <h3>Places of Interest</h3> */}
                     <MapView className="map" userVet={userVet} user={user}/>
                 </div>
             
