@@ -36,8 +36,8 @@ export default function ReactRoutes() {
         {/* after login - choose pet */}
         <Route path="/ChoosePet" element={<ChoosePet user={user} sendPet={(pet) => setPet(pet)}/>} />
 
-        <Route path="/Vets" element={<Vets user={user}/>} />
-
+        <Route path="/Vets" element={<Vets user={user} pet={pet}/>} />
+ 
         {/* <Route path="/Wellness" element={<Wellness />} /> */}
 
         <Route path="/AddPhoto" element={<AddPhoto pet={pet} />} />

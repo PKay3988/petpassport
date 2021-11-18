@@ -71,10 +71,10 @@ console.log("Nav", JSON.stringify(props.pet));
                     {/* <Link to="/Vets"><li>VETS</li>
                     </Link>
 
-                    <Link to="/PhotoGallery"><li>GALLERY</li>
+                    <Link to="/Wellness">WELLNESS<li></li>
                     </Link>
 
-                    <Link to="/AddPhoto"><li>ADD PHOTOS</li>
+                    <Link to="/PhotoGallery"><li>GALLERY</li>
                     </Link>
 
                     <Link to="/DisplayProfile"><li>DISPPROF</li>

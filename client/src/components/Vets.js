@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AddVet from "./AddVet";
 import MapView from "./MapView";
-import Nav2 from "./Nav2";
 import Nav from "./Nav";
 import countryList from 'react-select-country-list';
-import DateTimePicker from 'react-datetime-picker';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -20,6 +18,8 @@ function Vets(props) {
         day: "",
         time: ""
     });
+
+    const [pet, setPet] = useState(props.pet);
 
     const handleAppointment = (e) => {
         e.preventDefault();
@@ -96,10 +96,14 @@ function Vets(props) {
     
     return (
         <div className="vets-container">
+<<<<<<< HEAD
 
             <div>
             <Nav/>
             <div className="vet-view">
+=======
+            <Nav pet={pet} />
+>>>>>>> 40618746f8084801dd68daf2566486f7099d14d5
             <h3>my vets</h3>
             <div className="vet-cards">
                 <div className="card" key="card"> Primary vet:

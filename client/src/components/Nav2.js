@@ -26,10 +26,10 @@ console.log("Nav", JSON.stringify(props.pet));
             <div className="collapse navbar-collapse" id="navbar-content">
                 <ul className="navbar-nav">
                     
-                    <div className="prof-pic-hard-div">
+                    {/* <div className="prof-pic-hard-div">
 
                         <img src= {Hardimg} />
-                    </div>
+                    </div> */}
 
                    
                     <br /><br /><br /><br />
@@ -53,14 +53,17 @@ console.log("Nav", JSON.stringify(props.pet));
                     <Link to="/Vets"><li>VETS</li>
                     </Link>
 
+                    <Link to="Wellness">WELLNESS<li></li>
+                    </Link>
+
                     <Link to="/PhotoGallery"><li>GALLERY</li>
                     </Link>
 
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
-                    {/* <Link to="/DisplayProfile"><li>DISPPROF</li>
-                    </Link> */}
+                    <Link to="/Wellness"><li>WELLNESS</li>
+                    </Link>
 
                     <Link to="/" className="logout">
                         <button type="button" onClick={signout}>

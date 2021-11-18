@@ -109,6 +109,7 @@ const registerUser = async () => {
             onChange={handleChange}
             placeholder="Country"
           >
+            <option>Choose a country...</option>
             {props.countries.map((country) => (
               <option key={country}>{country}</option>
             ))}

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
-import Nav2 from "./Nav2";
+import Nav from "./Nav";
 import "./PhotoGallery.css";
 import AddPhoto from "./AddPhoto";
 // import Bird from './img/Bird.jpeg';
