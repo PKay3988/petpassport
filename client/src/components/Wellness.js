@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Nav2 from "./Nav2";
+import Nav from "./Nav";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
@@ -150,7 +150,7 @@ function Wellness(props) {
 
   return (
     <div className="vets-container">
-      <Nav2 />
+      <Nav pet={pet}/>
       <h2> Wellness Status of {pet.pet_name}</h2>
 
       <div className="vet-cards">
