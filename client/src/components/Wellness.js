@@ -169,7 +169,7 @@ function Wellness(props) {
                 </div>
               ))}
             <button className="btn btn-primary wellness-button" onClick={() => setShowFood(true)}>
-              Add new food:
+              Add new food
             </button>
           </div>
         </div>
