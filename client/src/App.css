@@ -295,7 +295,7 @@ margin-left: 5px;
  
 }
 #dob {
-  margin-top: -19px;
+  margin-top: 10px;
   color: grey;
 }
 
@@ -310,25 +310,69 @@ margin-left: 5px;
 }
 
 .nav-item {
-  border: 1px solid transparent;
+  /* border: 1px solid red; */
   background-color:rgb(36,117,193);
   position: relative;
-  /* top: 300px; */
+  top: 800px;
   height: 800px;
-  width: 200px;
+  width: 250px;
   border-radius: 20px 0 0 20px;
   text-align: left;
   padding: 30px;
   font-size: 15px;
+  
   /* font-weight: bold; */
  
 }
 
-.nav-item {
-padding-top: 200px;
+.pet-info {
+  position: relative;
+  /* border: 1px solid red; */
+  margin-top: -230px;
+  margin-left: 20px;
+  background-color: rgb(248, 237, 234);
+  border-radius: 20px;
+  height: 100px;
+  width: 200px;
+  color: tomato;
+  /* background-color: blue; */
+
+  
+  /* background-color: red; */
+}
+
+.pet-info h3, .pet-info li {
+  color: tomato;
+  list-style: none;
+  margin: 20px 
+  /* background-color: red; */
 
 }
-.nav-item li, a {
+
+.pet-info h3 {
+  /* margin: 200px;
+  width: 300px; */
+  margin-left: 20px;
+  position: relative;
+  left: 20px;
+}
+
+.pet-info p {
+  margin-top: -25px;
+  color: tomato;
+  position: relative;
+  left: 4px;
+  width: 100px;
+  /* border: 1px solid red; */
+
+}
+
+.nav-item-container {
+/* padding-top: 200px; */
+  /* border: 1px solid red; */
+  margin-top: 400px;
+}
+.nav-item li, .nav-item a {
   text-decoration: none;
   margin-top: 30px;
   color:   white;
@@ -338,17 +382,23 @@ padding-top: 200px;
 }
 
 .nav-item li:hover {
+  color: tomato;
+}
+
+.nav-item li:hover {
   color: black;
 }
 
 .navbar-nav {
-  
+  height: 800px;
+  position: relative;
+  /* top: 2000px; */
 }
 
 
 .dashboard-view {
-  /* border: 1px solid red; */
-  margin: 80px 50px;
+  border: 1px solid red;
+  /* margin: 80px 50px; */
   /* height: 600px; */
 }
 
@@ -357,16 +407,20 @@ padding-top: 200px;
   border: 1px solid blue;
 } */
 
+.dashboard-container {
+  border: 1px solid red;
+}
+
 .photo-card {
   /* border: 1px solid red; */
   border-radius: 20px;
-  height: 300px;
-  width:300px;
-  margin-top: 50px;
+  /* height: 300px;
+  width:300px; */
+  /* margin-top: 50px; */
   /* margin-bottom: 50px; */
-  float: right;
+  /* float: right;
   position: relative;
-  left: -270px;
+  left: -270px; */
   /* background-color: rgb(36,117,193); */
   border-radius: 20px;
  
@@ -380,13 +434,13 @@ padding-top: 200px;
   
 }
 .appointment-card {
-  border-radius: 20px;
+  /* border-radius: 20px;
   border: 1px solid red;
   height: 300px;
   width:300px;
   float: left;
   position: relative;
-  margin: 50px;
+  margin: 50px; */
   
   
 

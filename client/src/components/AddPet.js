@@ -55,17 +55,18 @@ function AddPet(props) {
               />
             </label>
             <label className="addvet-item">
-              Type
+             
               <input
                 type="text"
                 name="type"
                 value={pet.type}
                 onChange={handleChange}
+                placeholder="Type"
               />
             </label>
 
             <label className="addvet-item">
-              Breed
+           
               <input
                 type="text"
                 name="breed"
