@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Nav from "./Nav";
+import illu3 from '../assets/illu3.jpg';
 // import Nav from "./Nav";
 
 
@@ -39,14 +40,17 @@ const AddPhoto = (props) => {
     };
   
     return (
-      <div>
+      <div className="photo-container">
         <Nav pet={pet}/>
-      <div className="App">
+      <div className="photo-view">
         <h3>Select file to upload:</h3>
-        <input type="file" onChange={onFileChange} />
-        <button onClick={onFileUpload}>Upload</button>
+        <br/>
+        <input className="upload-file" type="file" onChange={onFileChange} />
+        <button className="btn btn-primary" onClick={onFileUpload}>Upload</button>
       </div>
+      <img  className="illu2 illu3" src={illu3} width="300" height="400"></img>
       </div>
+     
     );
   }
   

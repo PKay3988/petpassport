@@ -149,44 +149,44 @@ function Wellness(props) {
   const [showGrooming, setShowGrooming] = useState(false);
 
   return (
-    <div className="vets-container">
-      <Nav pet={pet}/>
-      <h2> Wellness Status of {pet.pet_name}</h2>
+    <div className="wellness-container">
+      {/* <Nav pet={pet}/> */}
+      {/* <h2> Wellness Status of {pet.pet_name}</h2> */}
 
-      <div className="vet-cards">
-        <div className="card">
-          Food
+      <div className="wellness-cards">
+        <div className="indi-wellness-cards card1">
+        <h4> Food Tracker </h4>
           <div className="card-content">
             {food &&
               food.map((foodsy) => (
                 <div key={foodsy.id}>
                   <ul>
-                    <li>{foodsy.brand}</li>
-                    <li>{foodsy.date}</li>
+                    <li><strong>{foodsy.brand} </strong></li>
+                    <li>{foodsy.date.slice(0, 10)}</li>
                     <li>{foodsy.unit}</li>
                     <li>{foodsy.notes}</li>
                   </ul>
                 </div>
               ))}
-            <button className="btn" onClick={() => setShowFood(true)}>
-              Add new food:
+            <button className="btn btn-primary wellness-button" onClick={() => setShowFood(true)}>
+              Add new food
             </button>
           </div>
         </div>
 
-        <div className="card">
-          Grooming
+        <div className="indi-wellness-cards card2">
+         <h4> Last Grooming </h4>
           <div className="card-content">
             {groom.map((groomsy) => (
               <div key={groomsy.id}>
                 <ul>
-                  <li>{groomsy.type}</li>
-                  <li>{groomsy.date}</li>
+                  <li><strong>{groomsy.type}</strong></li>
+                  <li>{groomsy.date.slice(0, 10)}</li>
                   <li>{groomsy.notes}</li>
                 </ul>
               </div>
             ))}
-            <button className="btn" onClick={() => setShowGrooming(true)}>
+            <button className="btn btn-primary wellness-button" onClick={() => setShowGrooming(true)}>
               Add new info
             </button>
           </div>
@@ -250,7 +250,7 @@ function Wellness(props) {
         <div>
           <Modal show={showGrooming} onHide={() => setShowGrooming(false)}>
             <Modal.Header closeButton>
-              <Modal.Title>Add grooming appointment:</Modal.Title>
+              <Modal.Title>Last appointment:</Modal.Title>
             </Modal.Header>
             <Modal.Body>
               <input

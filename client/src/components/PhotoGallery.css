@@ -15,6 +15,7 @@
     width: 400px;
     /* padding: 0 2em; */
     height: 200px;
+    margin-left:20px;
 }
     
     /* width: 50vh;
@@ -45,8 +46,8 @@
 
 .carousel img {
     object-fit: cover;
-    width: 350px !important;
-    height: 350px;
+    width: 370px !important;
+    height: 300px;
     border-radius: 20px;
     /* object-fit:contain;
     height: 350px;
