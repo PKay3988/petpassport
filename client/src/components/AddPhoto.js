@@ -39,12 +39,13 @@ const AddPhoto = (props) => {
     };
   
     return (
-      <div>
+      <div className="photo-container">
         <Nav pet={pet}/>
-      <div className="App">
+      <div className="photo-view">
         <h3>Select file to upload:</h3>
-        <input type="file" onChange={onFileChange} />
-        <button onClick={onFileUpload}>Upload</button>
+        <br/>
+        <input className="upload-file" type="file" onChange={onFileChange} />
+        <button className="btn btn-primary" onClick={onFileUpload}>Upload</button>
       </div>
       </div>
     );
