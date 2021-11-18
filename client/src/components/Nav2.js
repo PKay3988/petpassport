@@ -62,8 +62,8 @@ console.log("Nav", JSON.stringify(props.pet));
                     <Link to="/AddPhoto"><li>ADD PHOTOS</li>
                     </Link>
 
-                    {/* <Link to="/DisplayProfile"><li>DISPPROF</li>
-                    </Link> */}
+                    <Link to="/Wellness"><li>WELLNESS</li>
+                    </Link>
 
                     <Link to="/" className="logout">
                         <button type="button" onClick={signout}>
