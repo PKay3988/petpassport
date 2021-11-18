@@ -1,28 +1,56 @@
 /* general display of vets */
 .vets-container {
-    height: 100%;
+    /* height: 100%;
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 1em; */
+    /* border: 1px solid red; */
+    margin: 80px 50px;
 }
 
-/* navbar component  */
-.navbar.fixed-left {
-    bottom: 0;
-    width: 15em;
+.vet-view {
+ /* border: 1px solid red;  */
+ border: 1px solid transparent;
+    position: relative;
+    left: 200px;
+    top: -808px;
+    border-radius: 0 20px 20px 0px;
+    height: 800px;
+    width: 1120px;
+    background-color: rgb(255, 255, 255);
+    /* border: 1px solid red; */
+    display: block;
+}
+
+.pet-info {
     position: absolute;
-    top: 0;
+    top: 60%;
     left: 0;
-    border: 1px solid black;
-    z-index: 1030; 
-    background: turquoise;
 }
 
-.navbar.fixed-left .navbar-collapse .navbar-nav {
-    flex-direction: column;
-    width: 100%;
+
+.navbar-item{
+    position: absolute;
+    top: 80%;
+    left: 0;
+}
+
+.navbar .prof-pic-div {
+    position:absolute;
+    height: 180px;
+    width: 180px;
+    top:12%;
+    right:50%;
+    margin-top: 20px;
+    border-top: 10px;
+}
+.navbar button {
+    position: absolute;
+    top: 90%;
+    left: 36%;
+
 }
 
 /* vet card */
@@ -86,9 +114,3 @@
 }
 
 /* map size  */
-.leaflet-container {
-    width: 43vw;
-    height: 38vh;
-    border: 2px solid black;
-    margin-right: 1em;
-}

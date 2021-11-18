@@ -110,6 +110,4 @@ function AddVet(props) {
     )
 }
 
-
 export default AddVet;
-

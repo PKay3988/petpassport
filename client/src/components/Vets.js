@@ -3,7 +3,6 @@ import AddVet from "./AddVet";
 import MapView from "./MapView";
 import Nav from "./Nav";
 import countryList from 'react-select-country-list';
-import DateTimePicker from 'react-datetime-picker';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -19,6 +18,8 @@ function Vets(props) {
         day: "",
         time: ""
     });
+
+    const [pet, setPet] = useState(props.pet);
 
     const handleAppointment = (e) => {
         e.preventDefault();
@@ -95,7 +96,7 @@ function Vets(props) {
     
     return (
         <div className="vets-container">
-            <Nav/>
+            <Nav pet={pet} />
             <h3>my vets</h3>
             <div className="vet-cards">
                 <div className="card" key="card"> Primary vet:
@@ -143,7 +144,8 @@ function Vets(props) {
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
             <MapView userVet={userVet} user={user}/>
         </div>
+       
     )
 }
 
-export default Vets 
+export default Vets;

@@ -24,7 +24,7 @@ router.get("/image", async (req, res) => {
 });
 
 // get from miages where pet_id (include user) =x 
-router.get("/image/:pet_id", async (req, res) => {
+router.get("/petimage/:pet_id", async (req, res) => {
   try {
      const media = await db(`SELECT * FROM images where pet_id= ${req.params.pet_id};`);
      res.send(media.data);

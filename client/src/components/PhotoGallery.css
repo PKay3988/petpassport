@@ -3,21 +3,60 @@
     max-height: 5%;
 } */
 
-
+.carousel-mover{
+    /* float: right; */
+    margin-right: 40%;
+    margin-top: 5%;
+}
 .carousel-container {
     display: flex;
     align-items: center;
     justify-content:center;
-    width: 15em;
-    padding: 0 2em;
-    height: 12em;
+    width: 400px;
+    /* padding: 0 2em; */
+    height: 200px;
+}
+    
+    /* width: 50vh;
+    padding: 1em;
+    height: 50vh;
 }
 
+.carousel-indicators {
+    margin-top: 75%
+}
+     */
+
+
 .carousel {
+    position:sticky;
     width: 100%;
     height: 100%;
+    align-items: center;
+    margin-left: 20%;
+}
+
+.carousel slide {
+    width: 100%;
+    height: 30%;
+    border-radius: 20px;
+
 }
 
 .carousel img {
     object-fit: cover;
+    width: 350px !important;
+    height: 350px;
+    border-radius: 20px;
+    /* object-fit:contain;
+    height: 350px;
+    width: 350px; */
+}
+
+
+@media (max-width: 900px) {
+    .carousel {
+      width:auto;
+      height:auto;
+    }
 }

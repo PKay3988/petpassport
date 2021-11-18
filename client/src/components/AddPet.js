@@ -1,10 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import DisplayProfile from "./DisplayProfile";
+import imgg from "./imgg.jpeg"
 
 function AddPet(props) {
   const emptyPet = {
     pet_name: "",
+    type:"",
     breed: "",
     dob: "",
     user_id: `${props.id}`,
@@ -34,30 +38,50 @@ function AddPet(props) {
 
   return (
     <div>
-      <Modal show={true} onHide={handleClose} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>Create new pet</Modal.Title>
+      <Modal  portalClassName="modal" show={true} onHide={handleClose} size="lg">
+        <Modal.Header className="modal-body" closeButton>
+          
+          <Modal.Title className="modal-body">Create new pet</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
           <div className="addvet-form" onSubmit={addPet}>
-            <label className="addvet-item"> Name
+            <label className="addvet-item"> 
               <input
                 type="text"
                 name="pet_name"
                 value={pet.pet_name}
                 onChange={handleChange}
+                placeholder="Name"
               />
             </label>
             <label className="addvet-item">
-              Breed
+             
+              <input
+                type="text"
+                name="type"
+                value={pet.type}
+                onChange={handleChange}
+                placeholder="Type"
+              />
+            </label>
+
+            <label className="addvet-item">
+           
               <input
                 type="text"
                 name="breed"
                 value={pet.breed}
                 onChange={handleChange}
+                placeholder="Breed"
               />
             </label>
-            <label className="addvet-item">
+            <div className="add-prof-pic-holder">
+
+            {/* <DisplayProfile immg={imgg} pet={pet} /> */}
+
+            </div>
+
+<label className="addvet-item" id="dob">
               Date of birth
               <input
                 type="date"
@@ -67,10 +91,14 @@ function AddPet(props) {
               />
             </label>
             <br />
+
+            {/* <button> Add Photo: 
+              </button> */}
+          
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" className="close-button" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={addPet}>
@@ -83,3 +111,4 @@ function AddPet(props) {
 }
 
 export default AddPet;
+

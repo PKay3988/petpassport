@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var petsRouter = require('./routes/pets');
 var vetsRouter = require('./routes/vets');
 var treatmentsRouter = require('./routes/treatments');
+var wellnessRouter = require('./routes/wellness');
 
 var app = express();
 
@@ -34,6 +35,7 @@ app.use('/users', usersRouter);
 app.use('/pets', petsRouter);
 app.use('/vets', vetsRouter);
 app.use('/treatments', treatmentsRouter);
+app.use('/wellness', wellnessRouter);
 
 //img is inside of public folder
 app.use(express.static("public"));
@@ -43,9 +45,9 @@ app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build', 'index.html'));
   });  
 
-app.use(express.static(path.join(__dirname, "../client/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "../client/build/index.html"));
-});
+// app.use(express.static(path.join(__dirname, "../client/build")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "../client/build/index.html"));
+// });
 
 module.exports = app;

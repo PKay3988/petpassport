@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Nav from "./Nav";
+// import Nav from "./Nav";
 
-const AddPhoto = () => {
+
+const AddPhoto = (props) => {
+    const [pet, setPet] = useState(props.pet);
     const [selectedFile, setSelectedFile] = useState(null);
     // On file select (from the pop up)
     const onFileChange = (event) => {
@@ -23,7 +26,7 @@ const AddPhoto = () => {
         // Send formData object
         //replace axios with fetch
         //replace 1 with id dynamic
-        const res = await axios.post("/image/1", formData, {
+        const res = await axios.post(`/image/${pet.pet_id}`, formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
@@ -36,11 +39,13 @@ const AddPhoto = () => {
     };
   
     return (
+      <div>
+        <Nav pet={pet}/>
       <div className="App">
-        <Nav />
         <h3>Select file to upload:</h3>
         <input type="file" onChange={onFileChange} />
         <button onClick={onFileUpload}>Upload</button>
+      </div>
       </div>
     );
   }

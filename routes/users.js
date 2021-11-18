@@ -56,7 +56,7 @@ router.post('/register', async function(req, res) {
         "${homeCoords ? homeCoords.features[0].center.join(",") : "none"}"
       )`)
 
-    res.send({ message: "Registration successful! Now log in please." });
+    res.send({ message: "Registration successful!" });
   } catch (err) {
     res.status(400).send({ message: err.message });
   }
@@ -88,7 +88,7 @@ router.post('/login', async function (req, res) {
 })
 
 /*GET user by id Function */
-router.get("/profile", userShouldBeLoggedIn, async (req, res) => {
+router.get("/profile", userShouldBeLoggedIn, async (req, res, next) => {
   //needed to request protected id
   // let id  = req.user_id;
   let sql = `SELECT * FROM users WHERE id = ` + req.user_id;
