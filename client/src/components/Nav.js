@@ -50,6 +50,8 @@ console.log("Nav", JSON.stringify(props.pet));
                     <Link to="/Dashboard"><li> Home</li> </Link>
                     <Link to="/ChoosePet"><li>Pets</li></Link>
                     <Link to="/Vets"><li>Vet</li></Link>
+                    <Link to="/Wellness"><li>Wellness</li>
+                    </Link>
                     <Link to="/AddPhoto"><li>Add Photos</li></Link>
                     {/* <Link to="/PhotoGallery"><li>GALLERY</li></Link> */}
                     <Link to="/"><li onClick={signout}> Log out</li>
