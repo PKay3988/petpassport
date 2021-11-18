@@ -162,7 +162,7 @@ function Wellness(props) {
                 <div key={foodsy.id}>
                   <ul>
                     <li><strong>{foodsy.brand} </strong></li>
-                    <li>{foodsy.date.slice(0, 9)}</li>
+                    <li>{foodsy.date.slice(0, 10)}</li>
                     <li>{foodsy.unit}</li>
                     <li>{foodsy.notes}</li>
                   </ul>
@@ -181,7 +181,7 @@ function Wellness(props) {
               <div key={groomsy.id}>
                 <ul>
                   <li><strong>{groomsy.type}</strong></li>
-                  <li>{groomsy.date.slice(0, 9)}</li>
+                  <li>{groomsy.date.slice(0, 10)}</li>
                   <li>{groomsy.notes}</li>
                 </ul>
               </div>

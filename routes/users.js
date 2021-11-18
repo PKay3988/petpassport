@@ -26,10 +26,10 @@ const getCoords = async (street_number, street_name, city, country, country_code
 /* POST new user */ 
 router.post('/register', async function(req, res) {
   let homeCoords = await getCoords(req.body.street_number, req.body.street_name, req.body.city, req.body.country, req.body.country_code)
-  console.log(homeCoords)
+  // console.log(homeCoords)
   try {
     const hash = await bcrypt.hash(req.body.password, saltRounds);
-    
+
     await db(
       `INSERT INTO users (
         name,

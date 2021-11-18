@@ -126,8 +126,16 @@
     margin: 1em;
 }
 
+#name-number {
+    display: flex
+}
+
+#street-name {
+    width: 65%;
+}
+
 #number {
-    width: 20%;
+    width: 30%;
     margin-left: 1em;
 }
 
