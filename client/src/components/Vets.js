@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AddVet from "./AddVet";
 import MapView from "./MapView";
-import Nav2 from "./Nav2";
+import Nav from "./Nav";
 import countryList from 'react-select-country-list';
-import DateTimePicker from 'react-datetime-picker';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
@@ -19,6 +18,8 @@ function Vets(props) {
         day: "",
         time: ""
     });
+
+    const [pet, setPet] = useState(props.pet);
 
     const handleAppointment = (e) => {
         e.preventDefault();
@@ -95,20 +96,20 @@ function Vets(props) {
     
     return (
         <div className="vets-container">
-            <Nav2 />
-            <h3>my vets</h3>
+            <Nav pet={pet} />
+            {/* <h3>my vets</h3> */}
             <div className="vet-cards">
-                <div className="card" key="card"> Primary vet:
+                <div className="card" key="card"> <h3>Primary Vet </h3>
                     {userVet.length > 0 ? <div className="card-content">
                         <span>{userVet[0].name}</span>
                         <span>{userVet[0].street_name}, {userVet[0].street_number}</span>
                         <span>{userVet[0].city}</span>
                         <span>{userVet[0].phone_number}</span>
                     </div> : <div></div>}
-                    <button className="btn" onClick={handleShow}>add primary vet</button>
+                    <button className="btn btn-primary" onClick={handleShow}>add primary vet</button>
                 </div>
-                <div className="card">
-                    Next appointment: <br />
+                <div className="card appointment">
+                <h3> Next appointment </h3> <br />
                     {userVet.length > 0 ? userVet[0].appointment : <div></div>}
                     {input && 
                     <div>
@@ -132,7 +133,7 @@ function Vets(props) {
                             </Modal.Footer>
                         </Modal>
                     </div>}
-                    <button className="btn" onClick={() => setInput(true)}>add vet appointment</button>
+                    <button className="btn btn-primary" onClick={() => setInput(true)}>add vet appointment</button>
                 </div>
 
                 {/* TODO - if there is already a vet with user id - render addvet with previous info & make it call a put request instead of post */}
@@ -143,7 +144,8 @@ function Vets(props) {
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
             <MapView userVet={userVet} user={user}/>
         </div>
+       
     )
 }
 
-export default Vets 
+export default Vets;

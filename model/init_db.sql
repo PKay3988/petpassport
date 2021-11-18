@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS grooming;
 CREATE TABLE `users` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`name` varchar(255) NOT NULL,
-    `username` varchar(255) NOT NULL,
+    `username` varchar(255) NOT NULL UNIQUE,
 	`email` varchar(255) NOT NULL,
 	`password` varchar(255) NOT NULL,
 	`city` varchar(255) NOT NULL,

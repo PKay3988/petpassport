@@ -6,17 +6,18 @@ export const Events = () => {
 
   return (
     <div>
-      <h4>Your incoming appointments:</h4>
+      <h4>Upcoming appointments:</h4>
       <div>
         <div>
-          <span>Grooming appointment:</span>
-          <br />
-          <span>18-12-2021</span>
+        <br />
+          <p className="title">Grooming appointment:</p>
+          <p>18-12-2021</p>
         </div>
         <div>
-          <span>Vet appointment:</span>
-          <br />
-          <span>13-12-2021</span>
+        <p className="title">Vet appointment:</p>
+          <p>13-12-2021</p>
+          
+
         </div>
         <div>
             {/* <label>Title <br />
@@ -25,7 +26,7 @@ export const Events = () => {
             <label>Details <br />
                <input  type="text"/>
             </label> <br />  */}
-            <button>set custom event</button>
+            <button className="btn btn-primary appointment-button">set custom event</button>
         </div>
       </div>
     </div>

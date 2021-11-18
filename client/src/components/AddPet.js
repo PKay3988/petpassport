@@ -38,37 +38,41 @@ function AddPet(props) {
 
   return (
     <div>
-      <Modal show={true} onHide={handleClose} size="lg">
-        <Modal.Header closeButton>
-          <Modal.Title>Create new pet</Modal.Title>
+      <Modal  portalClassName="modal" show={true} onHide={handleClose} size="lg">
+        <Modal.Header className="modal-body" closeButton>
+          
+          <Modal.Title className="modal-body">Create new pet</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
           <div className="addvet-form" onSubmit={addPet}>
-            <label className="addvet-item"> Name
+            <label className="addvet-item"> 
               <input
                 type="text"
                 name="pet_name"
                 value={pet.pet_name}
                 onChange={handleChange}
+                placeholder="Name"
               />
             </label>
             <label className="addvet-item">
-              Type
+             
               <input
                 type="text"
                 name="type"
                 value={pet.type}
                 onChange={handleChange}
+                placeholder="Type"
               />
             </label>
 
             <label className="addvet-item">
-              Breed
+           
               <input
                 type="text"
                 name="breed"
                 value={pet.breed}
                 onChange={handleChange}
+                placeholder="Breed"
               />
             </label>
             <div className="add-prof-pic-holder">
@@ -77,7 +81,7 @@ function AddPet(props) {
 
             </div>
 
-            <label className="addvet-item">
+<label className="addvet-item" id="dob">
               Date of birth
               <input
                 type="date"
@@ -94,7 +98,7 @@ function AddPet(props) {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary" className="close-button" onClick={handleClose}>
             Close
           </Button>
           <Button variant="primary" onClick={addPet}>
@@ -107,3 +111,4 @@ function AddPet(props) {
 }
 
 export default AddPet;
+

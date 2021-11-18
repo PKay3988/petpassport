@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import MapView from './MapView';
 import Nav from './Nav';
 import PhotoGallery from './PhotoGallery';
+import Wellness from './Wellness';
 import AddPhoto from './AddPhoto';
 import Events from './Events';
 import "./Dashboard.css";
@@ -37,25 +38,28 @@ export const Dashboard = (props) => {
     let user = props.user;
 
     return (
-        <div>
-            <Nav pet={pet}/>
-            <p>Hello</p>
+        <div className="dashboard-view">
             <div className="dashboard-container">
-                
-                <div className="dash-item midsection">
+            
+             <Nav pet={pet}/>
+                <div className="photo-card">
                     <PhotoGallery pet={pet} />
+                </div>
                     {/* <AddPhoto/> */}
-                    <div>
+                    <div className="appointment-card">
                         <Events user={user}/>
                     </div>
+                    <div className="dash-item">
+                    {/* <h3>Places of Interest</h3> */}
+                    <Wellness pet={pet} />
+                    {/* <MapView className="map" userVet={userVet} user={user}/> */}
                 </div>
-                <Nav pet={pet}/>
-                <div className="dash-item">
-                    <MapView userVet={userVet} user={user}/>
+            
+                
                 </div>
             </div>
-
-        </div>
+            // </div>
+         
         
     )
 }

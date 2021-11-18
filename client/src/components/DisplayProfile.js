@@ -23,6 +23,7 @@ const DisplayProfile = (props) => {
        setSelectedFile(fileUploaded);
       };
 
+      const [pets, setPets] = useState([])
 
     // On file upload (click the upload button)
     const onFileUpload = async () => {
@@ -51,6 +52,13 @@ const DisplayProfile = (props) => {
        setPet(newPet);
       } catch (err) {
         console.log(err);
+      }
+
+      try {
+        const res = await axios.get(`pets`);
+        setPets(res.data);
+      } catch(err) {
+        console.log(err)
       }
     }; 
 

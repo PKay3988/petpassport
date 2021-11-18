@@ -10,6 +10,7 @@ const Nav = (props) => {
 console.log("Nav", props);
 console.log("Nav", JSON.stringify(props.pet));
 
+// const Nav = () => {
 
     const signout = () => {
         localStorage.clear("token");
@@ -21,68 +22,87 @@ console.log("Nav", JSON.stringify(props.pet));
     }, [])
     
     return (
-            <div className="navbar navbar-expand-md fixed-left">
-            <div className="collapse navbar-collapse" id="navbar-content">
-                <ul className="navbar-nav">
+
+        <div className="nav-container">
                     {/* <h3> Pet Passport 🐾 </h3> */}
-                    <div className="prof-pic-holder">
+                    <div className="nav-item">
+                        {/* <DisplayProfile /> */}
+                    <div className="overall-pet-info"> 
+                        <div className="prof-pic-holder">
 
                     <DisplayProfile pet={pet} />
                     <div className="pet-info"
-                    ><h3>{pet.pet_name}🐾 </h3>
+                    ><h3>Hi {pet.pet_name}! </h3>
                     <ul>
                         <li>
-                            <label>Breed:</label>
+                            {/* <label>Breed:</label> */}
                             <p>{pet.breed}</p>
                         </li>
-                        <li>
+                        {/* <li>
                             <label>Date of Birth:</label>
                             <p>{pet.dob}</p>
-                        </li>
+                        </li> */}
                     </ul>
                     </div>
-
                     </div>
-
-                    <div className="nav-item">
-                        {/* <DisplayProfile /> */}
-
-                    <Link to="/Dashboard"><li>HOME</li> 
-                    </Link>
+                    </div>
+                    <div className="nav-item-container"> 
+                    <Link to="/Dashboard"><li> Home</li> </Link>
+                    
+                    <Link to="/Vets"><li>Health</li></Link>
+                    {/* <Link to="/Wellness"><li>Wellness</li>
+                    </Link> */}
+                    <Link to="/AddPhoto"><li>Add Photos</li></Link>
+                    <Link to="/ChoosePet"><li>Change Pets</li></Link>
+                    {/* <Link to="/PhotoGallery"><li>GALLERY</li></Link> */}
+                    <Link to="/"><li onClick={signout}> Log out</li>
+                        {/* <button type="button" onClick={signout}>
+                           Log out
+                        </button> */} </Link>
+                    {/* <Link to="/Dashboard"><li>HOME</li> 
+                    </Link> */}
              
                     {/* <Link to="/RegisterUser"><li>REGISTER</li> 
                     </Link> */}
-                    
+{/*                     
                     <Link to="/ChoosePet"><li>PETS</li>
-                     </Link>
+                     </Link> */}
 
                     {/* <Link to="/AddPet"><li>Add PET</li>
                      </Link> */}
                     
-                    <Link to="/Vets"><li>VETS</li>
+                    {/* <Link to="/Vets"><li>VETS</li>
+                    </Link>
+
+                    <Link to="/Wellness">WELLNESS<li></li>
                     </Link>
 
                     <Link to="/PhotoGallery"><li>GALLERY</li>
                     </Link>
 
-                    <Link to="/AddPhoto"><li>ADD PHOTOS</li>
-                    </Link>
+                    <Link to="/DisplayProfile"><li>DISPPROF</li>
+                    </Link> */}
 
-                    <Link to="/Wellness"><li>WELLNESS</li>
-                    </Link>
 
-                    <br />
-
-                    <Link to="/">
+                    {/* <Link to="/">
                         <button type="button-logout" onClick={signout}>
                             Log out
                         </button>
-                    </Link>
-                    </div>
-                </ul>
+                    </Link> */}
+                   
+                    </div> 
+                    
+                
+               
+
+                    
+                    
+                </div>     
             </div>
-        </div>
+        
+        
     )
 }
+
 
 export default Nav;

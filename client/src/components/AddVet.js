@@ -60,12 +60,13 @@ function AddVet(props) {
                             onChange={handleChange} />
                         </label>
                         <label className="addvet-item"> Street name and number
-                            <div>
+                            <div id="name-number">
                                 <input 
                                 type="text"
                                 name="street_name" 
                                 value={vet.street_name}
-                                onChange={handleChange}/>
+                                onChange={handleChange}
+                                id="street-name"/>
                                 <input
                                 id="number"
                                 type="number"
@@ -109,6 +110,5 @@ function AddVet(props) {
         </div>
     )
 }
-
 
 export default AddVet;
