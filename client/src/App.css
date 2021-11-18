@@ -44,13 +44,13 @@ color: rgb(238,108,77);
 
 }
 
-.login-form input, .register-form input, .register-form select, .modal-body input {
+.login-form input, .register-form input, .register-form select, .modal-body input  {
   display: block;
   border-radius: 8px;
   border: 0.5px solid transparent;
   height: 29px;
   width: 200px;
-  padding: 10px;
+  padding: 0 10px;
   background-color: rgb(242,242,242);
   margin-bottom: 8px;
   
@@ -430,6 +430,10 @@ margin-left: 5px;
    
 }
 
+.card-content li {
+  list-style: none;
+  margin-left: -30px;
+}
 .photo-card h3 {
   color: tomato;
   /* font-weight:  bold; */
@@ -441,14 +445,14 @@ margin-left: 5px;
 .appointment-card {
   border-radius: 20px;
   /* border: 1px solid red; */
-  height: 350px;
-  width:350px;
+  height: 300px;
+  width:380px;
   position: relative;
   margin: 50px;
   top: -300px;
   left: 300px;
-  background-color: rgb(245, 179, 168); 
-  color: rgb(36,117,193);
+  background-color: rgb(248,237,234); 
+  color: tomato;
   padding: 10px;
   text-align: left;
   padding-left: 40px;
@@ -460,6 +464,49 @@ margin-left: 5px;
   margin-top: -10px;
 }
 
+.appointment-button {
+  margin-left: 0px;
+}
+.indi-wellness-cards {
+  border-radius: 20px;
+  /* border: 1px solid red; */
+  height: 300px;
+  width:380px;
+  position: relative;
+  margin: 50px;
+  top: -400px;
+  left: 300px;
+  background-color: rgb(248,237,234); 
+  color: tomato;
+  padding: 10px;
+  text-align: left;
+  padding-left: 40px;
+  padding-top: 40px;
+}
+
+.card1 {
+  position: relative;
+left: 280px;
+margin-top: 80px;
+ /* background-color:blue; */
+}
+
+.card2 {
+  position: relative;
+  top: -750px;
+  left: 730px;
+}
+
+.indi-wellness-cards h4 {
+  font-size: 25px;
+}
+.wellness-button {
+  /* background-color: red !important; */
+  /* padding: -20px; */
+  margin: 0 auto;
+  margin-left: 2px;
+}
+
 .dash-item {
   padding: 1em;
   /* border:1px solid red; */
@@ -467,7 +514,7 @@ margin-left: 5px;
   border: 1px solid red;
   position: relative;
   top: 400px; */
-  margin-top: 100px;
+  /* margin-top: 100px; */
 }
 
 .dash-item h3 {
@@ -480,15 +527,46 @@ margin-left: 5px;
  
 }
 .leaflet-container {
-  width: 800px;
-  height: 250px;
+  width: 870px;
+  height: 300px;
   /* border: 2px solid black; */
   border-radius: 20px;
   /* padding-top: 200px; */
   margin: 0 auto;
   position: relative;
-  top: -350px;
-  left: 110px;
+  top: -50px;
+  left: 120px;
   /* margin-top: 100px; */
 }
 
+.photo-container {
+  margin: 50px;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  height: 800px;
+}
+.photo-view {
+  /* border: 1px solid red; */
+  height: 400px;
+  width: 500px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: -100px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  background-color: rgb(248,237,234); 
+  color: tomato;
+  padding-top: 100px;
+  margin-left: 300px;
+
+}
+
+/* .upload-file input [type="file"] {
+  background-color: red !important;
+  border-radius: 20px;
+} */
+/* 
+input[type="file"] {
+  display: none;
+} */
