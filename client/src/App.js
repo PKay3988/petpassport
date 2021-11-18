@@ -21,8 +21,8 @@ function App(props) {
           {/* <Nav2 pet={pet}/> */}
 
           <div className="App">
-               <h1> Pet Passport </h1>
-                    
+               {/* <h1> Pet Passport </h1> */}
+                    {/* <Nav /> */}
                     <ReactRoutes /> 
           </div>
         

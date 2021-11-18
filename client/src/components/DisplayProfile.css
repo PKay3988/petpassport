@@ -10,16 +10,17 @@ body {
 
 }
 .prof-pic-div {
-    height: 200px;
+    max-height: 200px;
     width: 200px;
     position: absolute;
-    top: 50%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, -50% );
     border-radius: 50%;
     overflow: hidden;
     border: 1px solid grey;
-    object-fit: cover;
+    object-fit: cover !important;
+    border: 1px solid transparent;
 }
 
 #pic {

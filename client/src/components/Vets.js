@@ -144,7 +144,8 @@ function Vets(props) {
             {/* right now sends browser position + all the vets (when we can have just 1 stored, send that one) */}
             <MapView userVet={userVet} user={user}/>
         </div>
+       
     )
 }
 
-export default Vets 
+export default Vets;

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import countryList from "react-select-country-list";
 
+import illu2 from '../assets/illu2.jpg';
+
 function RegisterUser(props) {
     const emptyUserReg = {
         // id: "",
@@ -53,93 +55,113 @@ const registerUser = async () => {
         })};
 
   return (
-    <div>
-      <div>
-        <h2> Register New User</h2>
-        <form>
-          <label>Name</label>
+    <div className="">
+      <div className="register-container">
+      <img  className="illu2" src={illu2} width="300" height="400"></img>
+      <div className="register">
+        <h2> Sign Up</h2>
+        <div className="register-form">
+        <form >
+          {/* <label>Name</label> */}
           <input
             value={user.name}
             onChange={handleChange}
             name="name"
             type="text"
             className="register-input"
+            placeholder="Name"
           />
-          <label>City</label>
-          <input
-            value={user.city}
-            onChange={handleChange}
-            name="city"
-            type="text"
-            className="register-input"
-          />
-          <label>Country</label>
-          <select
-            className="select-form"
-            name="country"
-            value={user.country}
-            onChange={handleChange}
-          >
-            <option>Choose a country...</option>
-            {props.countries.map((country) => (
-              <option key={country}>{country}</option>
-            ))}
-          </select>
-          <br />
-          <label>Address Number</label>
+          
+          {/* <label>Address Number</label> */}
           <input
             value={user.street_number}
             onChange={handleChange}
             name="street_number"
             type="text"
             className="register-input"
+            placeholder="Address Number"
+
           />
-          <label>Street Name</label>
+          {/* <label>Street Name</label> */}
           <input
             value={user.street_name}
             onChange={handleChange}
             name="street_name"
             type="text"
             className="register-input"
+            placeholder="Street Name"
           />
-          <br />
-          <label>Email</label>
+          {/* <br /> */}
+          {/* <label>City</label> */}
+          <input
+            value={user.city}
+            onChange={handleChange}
+            name="city"
+            type="text"
+            className="register-input"
+            placeholder="City"
+          />
+          {/* <label>Country</label> */}
+          <select
+            className="select-form"
+            name="country"
+            value={user.country}
+            onChange={handleChange}
+            placeholder="Country"
+          >
+            <option>Choose a country...</option>
+            {props.countries.map((country) => (
+              <option key={country}>{country}</option>
+            ))}
+          </select>
+          {/* <br /> */}
+          {/* <label>Email</label> */}
           <input
             value={user.email}
             onChange={handleChange}
             name="email"
             type="text"
             className="register-input"
+            placeholder="Email"
+
           />
-          <label>Username</label>
+          {/* <label>Username</label> */}
           <input
             value={user.username}
             onChange={handleChange}
             name="username"
             type="text"
             className="register-input"
+            placeholder="Username"
           />
-          <label>Password</label>
+          {/* <label>Password</label> */}
           <input
             value={user.password}
             onChange={handleChange}
             name="password"
             type="password"
             className="register-input"
+            placeholder="Password"
           />{" "}
           <br />
-          <button className="button" onClick={handleSubmit}>
+          <div className="register-menu">
+          <button  className="button btn btn-primary" onClick={handleSubmit}>
             Register
           </button>
-          <div>
+            <div className="message"> 
             <span>{message.message}</span>
-            <button>
-              <Link to="/">
-              Login
+            </div>
+            <p>
+              <Link id="link" to="/">
+               Back to Login
               </Link>  
-            </button>
+            </p>
           </div>
         </form>
+        </div>
+
+        
+        </div>
       </div>
     </div>
   );

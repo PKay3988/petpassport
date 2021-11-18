@@ -1,25 +1,494 @@
-/* override browser default */
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
 
-/* use viewport-relative units to cover page fully */
-body {
-  height: 100vh;
-  width: 100vw;
+html {
+  background-color: rgb(242,242,242);
 }
-
-/* include border and padding in element width and height */
-* {
-  box-sizing: border-box;
-}
-
-/* full-sized  container that fills up the page */
 .App {
-  height: 100%;
-  width: 100%;
-  display: block;
   text-align: center;
+  background-color:rgb(242,242,242);
+  font-family: 'Poppins', sans-serif;
+  margin:0 auto;
+  letter-spacing: 1.2px;
+  /* border: 1px solid red; */
+  height: 700px;
 }
+
+.login {
+  background-color: white;
+  position: relative;
+  width: 300px;
+  height: 280px;
+  border: 1px solid transparent; 
+  border-radius: 20px;
+  margin-top: 150px;
+  margin-left: 60%;
+  margin-right: 15%;
+  padding: 15px;
+
+}
+
+.login h2, .register h2, .choose-pet h2 {
+margin-top: 20px;
+font-size: 25px;
+font-weight: bold;
+text-align: left;
+margin-left: 35px;
+color: rgb(238,108,77);
+}
+.login-form {
+  /* border: 1px solid red; */
+  font-size: 12px;
+  margin-top: -18px;
+  padding: 30px;
+  text-align: left;
+  line-height: 18px;
+
+}
+
+.login-form input, .register-form input, .register-form select, .modal-body input {
+  display: block;
+  border-radius: 8px;
+  border: 0.5px solid transparent;
+  height: 29px;
+  width: 200px;
+  padding: 10px;
+  background-color: rgb(242,242,242);
+  margin-bottom: 8px;
+  
+}
+
+
+.login-form, .register-form label {
+  color: rgb(150, 148, 148);
+  margin-left: 5px;
+}
+
+.login-form button {
+  margin-top: 20px;
+
+}
+
+.login-menu {
+  /* border: 1px solid red; */
+}
+
+.login-menu p, .register-menu p {
+  display: inline;
+  position: relative;
+  top: 10px;
+  margin-left: 10px;
+  color: rgb(68, 65, 65);
+
+}
+
+#link {
+  text-decoration: none;
+  color: rgb(68, 65, 65);
+  font-weight:normal;
+}
+
+#link:hover {
+  text-decoration: underline;
+}
+.illustration {
+  /* border: 1px solid red; */
+  float: left;
+  margin-top: -400px;
+  width: 500px;
+  margin-left: 200px;
+}
+
+.illustration img {
+  height: 400px;
+  width: 400px;
+}
+
+.btn-primary {
+background-color:rgb(36,117,193);
+border-color: transparent;
+margin-left: 5px;
+}
+
+.btn-primary:hover {
+  background-color: rgb(238,108,77);
+  border-color: transparent;
+}
+
+
+
+#choose-pet {
+  text-decoration: none;
+  color: white ;
+
+}
+
+.login-success {
+  margin-top: 50px;
+}
+
+.login-success button {
+  margin-top:30px;
+}
+
+.para {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+
+.register-container {
+  /* background-color: rgb(250,244,240);  */
+  /* border: 1px solid red; */
+  width: 800px;
+  height: 550px;
+  background-color: white;
+  border-radius: 20px;
+  margin: 40px;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
+.register, .choose-pet {
+  background-color:white;
+  /* border: 5px solid blue; */
+  position: relative;
+  width: 400px;
+  height: 500px;
+  /* border: 1px solid transparent;  */
+  border-radius: 20px;
+  /* margin-top: 80px;
+  margin-left: 55%; */
+  /* margin-right: 0%; */
+  padding: 15px;
+}
+
+.register-form {
+  /* border: 1px solid red; */
+  font-size: 12px;
+  margin-top: -18px;
+  padding: 30px;
+  text-align: left;
+  line-height: 18px;
+}
+
+.register-form input {
+  padding: 10px;
+  margin: 10px 0;
+  width: 300px;
+  margin-left: 5px;
+}
+
+.register-form select {
+  font-size: 12px;
+  padding: -100px;
+  height: 40px;
+  width: 300px;
+  margin-left: 5px;
+}
+
+.register-menu p {
+  /* top: 0px; */
+  /* margin-left: 138px !important; */
+  top: 0px;
+  margin-left: 5px;
+ 
+}
+
+.register-form input, .register-form select{
+  background-color:rgb(242,242,242);
+  margin-left: 5px;
+  color: grey;
+}
+
+/* .register h2 {
+  color: rgb(36,117,193);
+} */
+
+.illu2 {
+  float: right;
+  position: relative;
+  /* border: 1px solid red; */
+  margin-right: 50px;
+  margin-top: 20px;
+  height: 400px;
+  width: 300px;
+}
+
+
+
+.message {
+  margin-top: 10px;
+  /* float: right; */
+  /* border: 1px solid red; */
+  /* margin: 20px; */
+  /* margin-bottom: 30px;
+} */}
+
+.choose-pet ul{
+  list-style-type: none;
+  /* display: inline; */
+}
+
+.choose-pet li {
+  display: inline;
+}
+
+.choose-pet {
+  height: 300px;
+  width: 600px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
+
+.choose-pet h2 {
+  color: rgb(36,117,193);
+}
+
+.pets-list {
+  padding: 0px 0px 0px 0px;
+}
+
+.btn-primary-pet {
+  background-color: rgb(248, 108, 73);
+  margin: 20px;
+  font-size: 30px;
+  height: 70px;
+  width: 150px;
+  color: white;
+}
+
+.btn-primary-pet:hover {
+  background-color: white;
+  color: rgb(238,108,77);
+}
+
+.addvet-form, .modal-body {
+  /* background-color: red; */
+  border-radius: 20px;
+  border-color: transparent;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1.2px;
+ 
+}
+
+.addvet-form {
+  font-size: 12px;
+  display: block;
+}
+
+.addvet-item input {
+  /* background-color: red; */
+
+  
+}
+
+.modal {
+  background-color: rgb(36,117,193);
+ 
+  
+
+}
+
+.modal-content {
+  border-radius: 20px;
+  border-color: transparent;
+ 
+}
+#dob {
+  margin-top: 10px;
+  color: grey;
+}
+
+/* .close-button {
+  background-color: rgb(236, 145, 129);
+  
+
+} */
+.close-button:hover {
+  background-color: tomato;
+  border-color: transparent;
+}
+
+.nav-item {
+  /* border: 1px solid red; */
+  background-color:rgb(36,117,193);
+  position: relative;
+  top: 600px;
+  height: 800px;
+  width: 250px;
+  border-radius: 20px 0 0 20px;
+  text-align: left;
+  padding: 30px;
+  font-size: 15px;
+  
+  /* font-weight: bold; */
+ 
+}
+
+.nav-container {
+  margin-top: -600px;
+}
+.pet-info {
+  position: relative;
+  /* border: 1px solid red; */
+  margin-top: -200px;
+  margin-left: 20px;
+  background-color: rgb(248, 237, 234);
+  border-radius: 20px;
+  height: 100px;
+  width: 200px;
+  color: tomato;
+  /* background-color: blue; */
+
+  
+  /* background-color: red; */
+}
+
+.pet-info h3, .pet-info li {
+  color: tomato;
+  list-style: none;
+  margin: 20px 
+  /* background-color: red; */
+
+}
+
+.pet-info h3 {
+  /* margin: 200px;
+  width: 300px; */
+  margin-left: 20px;
+  position: relative;
+  left: 20px;
+}
+
+.pet-info p {
+  margin-top: -25px;
+  color: tomato;
+  position: relative;
+  left: 4px;
+  width: 100px;
+  /* border: 1px solid red; */
+
+}
+
+.nav-item-container {
+/* padding-top: 200px; */
+  /* border: 1px solid red; */
+  margin-top: 400px;
+}
+.nav-item li, .nav-item a {
+  text-decoration: none;
+  margin-top: 30px;
+  color:   white;
+  font-weight: bold;
+  /* list-style-type: none; */
+  
+  /* border: 1px solid red; */
+}
+
+
+
+.nav-item li:hover {
+  color: tomato;
+}
+
+.navbar-nav {
+  height: 800px;
+  position: relative;
+  /* top: 2000px; */
+}
+
+
+.dashboard-view {
+  /* border: 1px solid red; */
+  /* margin: 80px 50px; */
+  height: 300px;
+}
+
+/* .dash-center {
+  margin: 0 auto;
+  border: 1px solid blue;
+} */
+
+.dashboard-container {
+  /* border: 1px solid red; */
+}
+
+.photo-card {
+  border-radius: 20px;
+  /* height: 300px;
+  width:300px; */
+  /* margin-top: 50px; */
+  /* margin-bottom: 50px; */
+   /* float: right;
+  position: relative;
+  left: -270px; */
+  /* background-color: red; */
+  margin-top: -140px;
+  /* position: absolute; */
+  margin-left: 720px;
+  /* float: right; */
+   
+}
+
+.photo-card h3 {
+  color: tomato;
+  /* font-weight:  bold; */
+ /* float: left; */
+  position: relative;
+  left: -80px;
+  
+}
+.appointment-card {
+  border-radius: 20px;
+  /* border: 1px solid red; */
+  height: 350px;
+  width:350px;
+  position: relative;
+  margin: 50px;
+  top: -300px;
+  left: 300px;
+  background-color: rgb(245, 179, 168); 
+  color: rgb(36,117,193);
+  padding: 10px;
+  text-align: left;
+  padding-left: 40px;
+  padding-top: 40px;
+  
+}
+
+.appointment-card p{
+  margin-top: -10px;
+}
+
+.dash-item {
+  padding: 1em;
+  /* border:1px solid red; */
+  /* height: 400px;
+  border: 1px solid red;
+  position: relative;
+  top: 400px; */
+  margin-top: 100px;
+}
+
+.dash-item h3 {
+  position: relative;
+  top: 350px;
+  left: -50px;
+  color: rgb(238,97,68);
+  font-weight:  bold;
+  
+ 
+}
+.leaflet-container {
+  width: 800px;
+  height: 250px;
+  /* border: 2px solid black; */
+  border-radius: 20px;
+  /* padding-top: 200px; */
+  margin: 0 auto;
+  position: relative;
+  top: -350px;
+  left: 110px;
+  /* margin-top: 100px; */
+}
+

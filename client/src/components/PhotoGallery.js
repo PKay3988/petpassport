@@ -22,8 +22,8 @@ export const PhotoGallery = (props) => {
   return (
     <div className="carousel-mover">
       <div className="carousel-container">
-        <Nav pet={pet}/>
-        <Carousel key={image.img_id}>
+        {/* <Nav /> */}
+        <Carousel key={image.image_id}>
           {image.map((e) => (
             <Carousel.Item variant="dark" key={e.img_id}>
               <img
