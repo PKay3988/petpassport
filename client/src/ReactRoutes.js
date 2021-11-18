@@ -38,10 +38,7 @@ export default function ReactRoutes() {
 
         <Route path="/Vets" element={<Vets user={user}/>} />
 
-        {/* <Route path="/Wellness" element={<Wellness />} /> */}
-
         <Route path="/AddPhoto" element={<AddPhoto pet={pet} />} />
-
 
         <Route path="/DisplayProfile" element={<DisplayProfile pet={pet} /*onClose={handleClose}*/ />} />
 
